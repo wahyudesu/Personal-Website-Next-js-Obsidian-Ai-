@@ -3,7 +3,7 @@ const headerNavLinks = [
   { href: '/about', title: 'Resume' },
   { href: '/projects', title: 'Showcase' },
   { href: '/blog', title: 'Blog' },
-  { href: '/books', title: 'Books' },
+  // { href: '/books', title: 'Books' },
   { href: '/chat-me', title: 'AI Chat' },
   { href: '/contact', title: 'Contact Me' },
 ]

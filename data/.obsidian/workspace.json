@@ -1,0 +1,174 @@
+{
+  "main": {
+    "id": "7f93014da29b678b",
+    "type": "split",
+    "children": [
+      {
+        "id": "d6c0b6b68bcf4dc9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f9a877bfe65f3612",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "blog/How-to-learn-any-skills-and-master-them-effectively.mdx",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "How-to-learn-any-skills-and-master-them-effectively"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "80371227e88a4e77",
+    "type": "split",
+    "children": [
+      {
+        "id": "85d788ddb0dcaa8d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "69582f9f1bd50a95",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "790dae41e6f746c6",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "abc3f5a849fbfda6",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "aa3f6e145c55081a",
+    "type": "split",
+    "children": [
+      {
+        "id": "63bb18843374ae56",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "61ac92853874fa3f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "logo.svg",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for logo"
+            }
+          },
+          {
+            "id": "662d6418fdad0a27",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "logo.svg",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from logo"
+            }
+          },
+          {
+            "id": "31817a00508e5d72",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "cd7f9244c2ede06c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "logo.svg"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of logo"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "edit-mdx:New .mdx file": false
+    }
+  },
+  "active": "f9a877bfe65f3612",
+  "lastOpenFiles": [
+    "blog/How-to-Think-with-Data.mdx",
+    "blog/Simplify-Your-Life-with-a-Digital-Bullet-Journal.mdx",
+    "blog/Yang-kudapat-dari-SKS-Time-series-forecasting.mdx",
+    "blog/How-to-learn-any-skills-and-master-them-effectively.mdx",
+    "logo.svg"
+  ]
+}

@@ -27,7 +27,9 @@ export default function ProjectAccordion({ project }: { project: Project }) {
         <AccordionPrimitive.Header className="flex">
           <AccordionPrimitive.Trigger className="flex flex-1 items-center justify-between py-2 text-left text-[15px] font-semibold leading-6 transition-all [&>svg>path:last-child]:origin-center [&>svg>path:last-child]:transition-all [&>svg>path:last-child]:duration-200 [&[data-state=open]>svg>path:last-child]:rotate-90 [&[data-state=open]>svg>path:last-child]:opacity-0 [&[data-state=open]>svg]:rotate-180">
             <div className="flex flex-col space-y-1">
-              <span>{project.name}</span>
+              <span className="text-xl">
+                {project.name}
+                </span>
               {project.description && (
                 <span className="text-sm font-normal opacity-80">
                   {project.description}
