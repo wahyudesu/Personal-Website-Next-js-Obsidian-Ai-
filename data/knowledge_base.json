@@ -1,0 +1,233 @@
+{
+    "name": "Wahyu Ikbal Maulana",
+    "birthDate": "2004-08-15",
+    "hobby": [
+          "Menggambar",
+          "Menulis",
+          "Bermain",
+          "Reading"
+        ],
+    "game": [
+      "mobile legends",
+      "valorant"
+    ],
+    "contact": {
+      "email": "why.ikbal777@gmail.com",
+      "phone": "+62 851 7434 6212",
+      "linkedin": "Linkedin",
+      "github": "Github",
+      "portfolio_website": "Portfolio Website"
+    },
+    "summary": "Results-oriented data scientist with 2+ years of experience in Python, R, and Machine learning. Proficient in deploying AI models and collaborating on web application integration. Passionate about applying data-driven solutions to real-world problems. Actively engaged in the academic community, participating in various competitions and projects to enhance technical skills and teamwork abilities.",
+    "education": [
+      {
+        "institution": "Politeknik Elektronika Negeri Surabaya",
+        "degree": "Data Science",
+        "GPA": "3.7",
+        "duration": "August 2023 - Present",
+        "details": [
+          "Actively participated in faculty research projects since the first year of study.",
+          "Assist and contribute to the final project research of D3 students and ITS master students.",
+          "Regularly engaged in campus competitions and forums."
+        ]
+      },
+      {
+        "institution": "Universitas Insan Cita Indonesia",
+        "degree": "Data Science",
+        "duration": "August 2022 – Dec 2022",
+        "details": [
+          "Utilized Python libraries such as numpy, pandas, sklearn, pytorch, and torch geometry to develop optimization methods."
+        ]
+      },
+      {
+        "institution": "Universitas Putra Bangsa",
+        "degree": "Data Science",
+        "duration": "August 2022 – November 2022",
+        "details": [
+          "Developing proficiency in programming languages such as Python and R, laying the groundwork for future studies in Big Data."
+        ]
+      },
+      {
+        "institution": "SMA Negeri 8 Surabaya",
+        "degree": "MIPA",
+        "duration": "August 2019 – August 2022",
+        "details": [
+          "Completed the Mathematics and Natural Sciences (MIPA) program at SMA Negeri 8 Surabaya with a strong foundation in scientific principles and mathematical concepts.",
+          "Actively participated in various science and math competitions, demonstrating a commitment to academic excellence and a passion for continuous learning."
+        ]
+      }
+    ],
+    "professional_experience": [
+      {
+        "role": "Data Analyst Staff",
+        "company": "Kanotaria",
+        "duration": "July 2024 – Present",
+        "responsibilities": [
+          "Processed and analyzed datasets to create comprehensive company reports, leading to improved decision-making.",
+          "Created a visualization dashboard that contributed to a improvement in cross-team efficiency and overall productivity."
+        ]
+      },
+      {
+        "role": "AI Digital Marketing",
+        "company": "SF Group Services Enterprise",
+        "duration": "August 2024 – September 2024",
+        "responsibilities": [
+          "Analyzed financial statements, business summary reports, and dashboard recaps to attain data based on product comparable percentages and penetration rates for district managers which increased store efficiency by 16%.",
+          "Collaborated with senior management on multiple functions including customer success and finance, increasing survey submissions from 60% previous month to 75% by identifying the pain points of customer feedback."
+        ]
+      },
+      {
+        "role": "AI Staff Division",
+        "company": "JANAKA Community",
+        "duration": "February 2024 – Present",
+        "responsibilities": [
+          "Develop and implement innovative AI projects to enhance community engagement and productivity.",
+          "Manage projects community, overseeing timelines, resources, and division communication."
+        ]
+      },
+      {
+        "role": "AI Mentorship",
+        "company": "KORIKA ID",
+        "duration": "February 2024 – April 2024",
+        "responsibilities": [
+          "Developed a Generative AI model utilizing multiple large language models.",
+          "Collaborated with a team of 5 members to build and refine the AI project.",
+          "Conducted in-depth research on Large Language Models (LLMs) and Natural Language Processing (NLP) to understand their capabilities, limitations, and best practices for application in generative AI.",
+          "Created detailed Entity-Relationship Diagrams (ERDs) to visualize and document the data structure and relationships within the AI project."
+        ]
+      },
+      {
+        "role": "UI UX Designer",
+        "company": "E-CODE HIMIT",
+        "duration": "January 2024 – Present",
+        "responsibilities": [
+          "Design and improve the web UI for HIMA IT Dynamic Apps activities."
+        ]
+      },
+      {
+        "role": "Infographic Designer",
+        "company": "Freelance",
+        "duration": "August 2022 – December 2022",
+        "responsibilities": [
+          "Created infographics based on data to effectively communicate key information.",
+          "Utilized various design tools and software to produce high-quality infographics.",
+          "Applied best practices in data visualization to enhance clarity and impact of the infographic."
+        ]
+      }
+    ],
+    "organization_experience": [
+      {
+        "role": "Pemandu LKMM",
+        "institution": "Politeknik Elektronika Negeri Surabaya",
+        "duration": "August 2024 – Present",
+        "responsibilities": [
+          "Designed self-management training materials to support students' development skills.",
+          "Used strong public speaking skills to explain complex topics in an easy-to-understand way.",
+          "Organized and structured participant data for effective program planning and follow-up."
+        ]
+      },
+      {
+        "role": "PANITIA ITDS INSIGHT",
+        "institution": "Politeknik Elektronika Negeri Surabaya",
+        "duration": "August 2024",
+        "responsibilities": [
+          "Supported event logistics for 200+ participants by coordinating schedules.",
+          "Collaborated with cross-functional teams to maintain effective communication."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "title": "Chatbot Kelurahan Keputih",
+        "technologies": ["Huggingface", "Groq", "LLM", "Vector Database"],
+        "duration": "August 2024 – Present",
+        "details": [
+          "Engineered and optimized vector database for efficient data retrieval and storage.",
+          "Implemented and fine-tuned language models (LLMs) to enhance chatbot language understanding and generation.",
+          "Optimized embeddings to improve semantic search capabilities and response relevance."
+        ]
+      },
+      {
+        "title": "ARIMA Analysis Energy in Indonesia",
+        "technologies": ["Python", "Transformer", "Vector database"],
+        "duration": "March 2024 – July 2024",
+        "details": [
+          "Implemented ARIMA modeling, including data preparation, model fitting, and forecasting.",
+          "Developed a detailed process flowchart poster to visually represent the ARIMA model workflow.",
+          "Authored a research paper and produced an explanatory video to illustrate the findings of the ARIMA model."
+        ]
+      },
+      {
+        "title": "Anime Recommendation System",
+        "technologies": ["Python", "Transformer", "Vector database"],
+        "duration": "December 2023 – January 2024",
+        "details": [
+          "Worked collaboratively to develop an anime recommendation system.",
+          "Designed and implemented the website, ensuring a user-friendly interface with the recommendation engine.",
+          "Developed a machine learning model using collaborative filtering techniques to provide personalized anime suggestions."
+        ]
+      },
+      {
+        "title": "Telecom Churn Prediction",
+        "technologies": ["Python", "Flask", "MongoDB Database"],
+        "duration": "December 2023",
+        "details": [
+          "Developed a machine learning model to predict customer churn in the telecommunications industry.",
+          "Optimized model hyperparameters to improve prediction accuracy and reduce false positives."
+        ]
+      },
+      {
+        "title": "Rock Scissor Paper Classification using CNN",
+        "technologies": ["Python", "CNN"],
+        "duration": "December 2022",
+        "details": [
+          "Developed and trained a Convolutional Neural Network (CNN) model for classifying Rock-Paper-Scissors gesture images.",
+          "Constructed and fine-tuned CNN architecture using TensorFlow/Keras libraries."
+        ]
+      },
+      {
+        "title": "Analytical Dashboard Using Deep Learning",
+        "technologies": ["Tableau", "Forecasting", "Data collection and analysis"],
+        "duration": "August 2024 – September 2024",
+        "details": [
+          "Conducted comprehensive data collection from multiple agricultural sources, ensuring data quality and relevance.",
+          "Designed and implemented ETL (Extract, Transform, Load) processes to prepare data for advanced analytics.",
+          "Researched and applied data mining techniques to extract valuable information from agricultural report documents."
+        ]
+      },
+      {
+        "title": "Personal Blog",
+        "technologies": ["Tableau", "Forecasting", "Data collection and analysis"],
+        "duration": "August 2024 – September 2024",
+        "details": [
+          "Built a static personal blog using Next.js with SEO optimization.",
+          "Authored and published weekly articles on productivity and technology, demonstrating proficient content writing skills.",
+          "Achieved an average score of 92 for website performance, SEO, and speed, demonstrating technical proficiency."
+        ]
+      }
+    ],
+    "skills": {
+      "programming_languages": ["Python", "R", "Next JS", "SQL", "HTML", "CSS"],
+      "machine_learning_and_cloud": ["Scikit learn", "PyTorch", "AWS", "Google Cloud", "BigQuery", "Flask", "Heroku"],
+      "tools_and_technologies": ["Tableau", "Looker", "Streamlit", "Huggingface", "MongoDB", "MySQL", "Git", "TensorFlow"],
+      "languages": ["English (Fluent)", "Indonesian (Native)"]
+    },
+    "certifications": [
+      {
+        "title": "Next.js",
+        "provider": "LinkedIn",
+        "date": "August 2024"
+      },
+      {
+        "title": "Intermediate English Test",
+        "provider": "TOEFL",
+        "date": "August 2024"
+      },
+      {
+        "title": "Data Science in Python",
+        "provider": "DataCamp",
+        "date": "July 2024"
+      }
+    ]
+  }
+  

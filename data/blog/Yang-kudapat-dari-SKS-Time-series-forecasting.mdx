@@ -1,0 +1,146 @@
+---
+title: Yang kudapat dari SKS Time series forecasting
+summary: ini deskripsi
+date: 2023-11-22
+tags: ["machine learning", "data science", "learning"]
+draft: false
+---
+Sistem kebut semalam kayaknya sudah jadi kebiasaan ya dilakukan di Indonesia, mahasiswa sering terpaksa buat ngejer sesuatu secara cepat, buat dpet hasil instan🗿.
+
+> And its exactly what im doing
+
+And Ini series yang iseng kubuat untuk ngejar deadline lomba🗿 (Jangan ditiru di rumah💀). Karena catatan numpuk di second brain, ane ingin berbagi cerita sekaligus berbagi ilmu, speedrun ini hasil begadang berhari hari. Untuk full exercise Time series akan dirilis via youtube, stay tune aja...
+
+![Time series.png](https://codahosted.io/docs/7V84xY4hnz/blobs/bl-pMPXxEKJCj/ead45bbf6860c7f3c8187b06eca76008e67f739f2729499dfc039c2c349fe2cacab2563bba263b39206c100922cfe865ae6ae11e8336e283e86862b2eb86ec939e807816c27e08a070209e9e6a438c1739f8dbfa41ca049a934ed4b50427912d9bf3f400)
+
+Basic [forecasting](https://accurate.id/bisnis-ukm/apa-itu-forecasting/) itu salah satunya adalah Time series, buat yang belum tahu apa itu Time series, simplenya adalah...
+
+> Time series is a series of data points indexed (or listed or graphed) in time order.
+
+> Time series adalah serangkaian data yang dikumpulkan dan dicatat dalam interval waktu yang teratur
+
+Model yang dikembangkan nantinya harus dapat menangkap atau menggambarkan deret waktu yang diamati. Setelah itu kita perlu memahami pola pergerakan dalam Time Series, 4 diantaranya sebagai berikut
+
+- Trend: Tendensi rata-rata dari data untuk bergerak ke atas atau ke bawah dari waktu ke waktu.
+- Seasonal: Pola berulang yang terjadi dalam data dari waktu ke waktu.
+- Cyclical/Irregular: Pola berulang yang terjadi dalam data dari waktu ke waktu, tetapi tidak memiliki periode yang tetap.
+- Noice/Random: Variasi dalam data yang tidak dapat dijelaskan oleh trend, seasonality, atau cyclicity.
+
+![image.png](https://codahosted.io/docs/7V84xY4hnz/blobs/bl-ctrF1Nre4r/8de9adfc4bc7edb556226ca8c44a63338669619eeb3b00c047a84f41bf77d528b2684032ff7856eaa08aa0207f106b1bd7810d930923edb1150e33a4841f8883ed317813610f0229063261a485841076b938e1131d6662a21b8173d7856abaefe5424978)
+
+Di dalam data time series kalian akan. Dalam aplikasi forecasting, observasinya biasa direkam dengan frekuensi reguler, seperti harian atau bulanan.
+
+## Linear regression with Time Series
+
+Hal yang pertama ane pelajari adalah regresi linier, disini menggunakan algoritma linear regression untuk membangun model peramalan. Linear regression digunakan secara luas dalam praktik dan beradaptasi secara alami untuk  yang kompleks sekalipun
+
+Linear regression dengan time series adalah metode forecasting yang sederhana dan efektif. Namun, penting untuk diperhatikan bahwa metode ini tidak dapat menangkap semua kompleksitas data time series. Jika data Anda sangat kompleks, Anda mungkin perlu menggunakan metode peramalan yang lebih advance.
+
+Dari algoritma ini kita akan memahami cara menghitung target berdasarkan:
+
+The linear regression algorithm learns how to make a weighted sum from its input features. For two features, we would have:
+
+`target = weight_1 * feature_1 + weight_2 * feature_2 + bias`
+
+```python 
+import pandas as pd
+
+df = pd.read_csv(
+    "book_sales.csv",
+    index_col='Date',
+    parse_dates=['Date']
+
+df.head()
+df['Time'] = df['Hardcover'].shift(1)
+df.head()
+
+from sklearn.linear_model import LinearRegression
+# Training data
+X = df.loc[:, ['Time']]  # features
+y = df.loc[:, 'NumVehicles']  # target
+```
+
+```python
+# Train the model
+model = LinearRegression()
+model.fit(X, y)
+
+# Store the fitted values as a time series with the same time index as the training data
+y_pred = pd.Series(model.predict(X), index=X.index)
+```
+
+```python
+from sklearn.linear_model import LinearRegression
+
+X = df.loc[:, ['Lag_1']]
+X.dropna(inplace=True)  # drop missing values in the feature set
+y = df.loc[:, 'NumVehicles']  # create the target
+y, X = y.align(X, join='inner')  # drop corresponding values in target
+
+model = LinearRegression()
+model.fit(X, y)
+
+y_pred = pd.Series(model.predict(X), index=X.index)
+```
+ 
+Komponen tren dari suatu deret waktu (time series) adalah perubahan yang terus-menerus dan jangka panjang pada rata-rata deret tersebut. Tren adalah bagian yang bergerak paling lambat dari suatu deret, bagian yang mewakili skala waktu terbesar yang penting. Tren deret waktu itu kayak arah yang diambil oleh datanya dalam jangka panjang. Tren ini bisa naik, turun, atau tetap. Tren yang naik berarti datanya semakin besar dari waktu ke waktu. Tren yang turun berarti datanya semakin kecil dari waktu ke waktu. Tren yang tetap berarti datanya tidak berubah dari waktu ke waktu.
+
+Dalam deret waktu penjualan produk, tren yang naik bisa disebabkan oleh beberapa hal. Misalnya, karena produknya bagus dan banyak orang yang suka. Atau karena produknya diiklankan secara gencar sehingga lebih banyak orang yang tahu.
+  
+
+![image.png](https://codahosted.io/docs/7V84xY4hnz/blobs/bl-0iOQAPDBec/82b5925faa11f48d07cfd042eecef3c81e2f737ed55c6a463e690379c33819c189cc70c0adc5186c5d640bed5319732dbf8e7443a5e6cf777c743730adb323e2010d422b8c62ae939ea277ea08401ce13d7e7c9ecec08a9e5a67527e2a2530b847c40163)
+
+To see what kind of trend a time series might have, we can use a moving average plot. To compute a moving average of a time series, we compute the average of the values within a sliding window of some defined width. Each point on the graph represents the average of all the values in the series that fall within the window on either side. The idea is to smooth out any short-term fluctuations in the series so that only long-term changes remain.
+
+## Time series project: Rainfall Prediction Model
+
+Dengan algoritma yang kita pakai.
+### Difference between Univariate and Multivariate Time Series Models
+
+Sama halnya dengan regresi, analisis time series juga memiliki berbagai jenis metode yang bisa digunakan. Pemilihan metode tentu harus disesuaikan dengan data yang dimiliki serta tujuan analisis, karena meskipun sama-sama merupakan data time series, ada keadaan tertentu yang membuat kita bisa menggunakan metode yang berbeda-beda. Model time series yang bisa dijadikan pilihan adalah Autoregressive (AR), Moving Average (MA), ARIMA, dan SARIMA.
+
+There are two types of time series models:
+
+1. Univariate time series: Time series with a one time-dependent variable and a single independent variable.
+2. Multivariate time series: Time series with one time-dependent variable and more than one independent variable.
+
+### Multivariate linear regression (MLR)
+
+Linear regression can be multivariate which has multiple independent variables used as input features and simple linear regression which has only one independent or input feature. Both linear regressions have one dependent variable which can be forecasted or predicted based on the input features. This paper presented the multivariate linear regression because multiple environmental variables or features were used to predict the dependent variable called daily rainfall amount. Linear regression is a supervised machine learning technique used to predict the unknown daily rainfall amount using the known environmental variables. The multivariate linear regression used multiple explanatory or independent variables (X) and single dependent or output variable denoted by Y. Hence, the general equation of the multiple linear regression is given as:
+
+![image.png](https://codahosted.io/docs/7V84xY4hnz/blobs/bl-73iAJvQ5Ie/1c8482c422063c52d6eb8326a60ec6c556c148427c3db5557b71e2772fe91ce5b1940f3e1d928e70df678e6cf2469f25361bec0a0dba4d20a41f337dce15e12ba6d599b9a4ebaad9134108b36e88e4fae960b260a60bd9b3fa3c45a1883ec258126fdac7)
+
+![image.png](https://codahosted.io/docs/7V84xY4hnz/blobs/bl-r8kuKnizK9/d9ee9c4c5664465a38bd942f7a7f50394885cad79fed2d2ad1c06b88a5e2a906b756921bdf876ab8c094d37d3a4b7efb2fd5dfde0c5d0ce410212b9d9103952ca99e0961388fd800cf69b4c89c1769864b19355b626dd8a8b78438a208eb146b8aa9c3e6)
+
+The general multivariate linear regression equation of this paper is given as
+
+![image.png](https://codahosted.io/docs/7V84xY4hnz/blobs/bl-NWLK85Pk2f/ae77e15221ec5472f8eeb95b419c0f33c34280dfdec302c31d1d1b2d0e6b6e2fff015afb419b325764a266010f2e99f07b77c47c6e7dc024f7c3ca37b2917a5715a6969632197c2a2330786e487b7bfe63efcf3da7d5ff6d2c0f06b40083cdcb8bfe72a6)
+
+The size of the data set collected from the meteorological station for this study was appropriate to use the machine learning algorithms called multivariate linear regression that can estimate the daily amount of rainfall in the region. This algorithm can show how strongly each environmental variable influences the intensity of the daily rainfall.
+
+### Measuring performance
+
+The RMSE is a quadratic scoring rule which measures the average magnitude of the error. It’s the square root of the average of squared differences between prediction and actual observation.
+
+RMSE=...
+
+RMSE gives a relatively high weight to large errors. This means the RMSE is most useful when large errors are particularly undesirable. The MAE and the RMSE can be used together to diagnose the variation in the errors in a set of forecasts. The RMSE will always be larger or equal to the MAE; the greater difference between them, the greater the variance in the individual errors in the sample. If the RMSE = MAE, then all the errors are of the same magnitude.
+
+
+Sumber:
+
+- [https://www.kaggle.com/learn/time-series](https://www.kaggle.com/learn/time-series)
+- [https://www.youtube.com/watch?v=-cgGQGyLqH4&t=856s](https://www.youtube.com/watch?v=-cgGQGyLqH4&t=856s)
+- [https://www.youtube.com/watch?v=M0XTwLEHOSs&t=734s](https://www.youtube.com/watch?v=M0XTwLEHOSs&t=734s)
+- [https://towardsdatascience.com/time-series-forecasting-arima-models-7f221e9eee06](https://towardsdatascience.com/time-series-forecasting-arima-models-7f221e9eee06)
+- [https://youtu.be/vV12dGe_Fho?si=wPaLjiqXeTyxwXvZ](https://youtu.be/vV12dGe_Fho?si=wPaLjiqXeTyxwXvZ)
+- [time_series_python](https://mlcourse.ai/book/topic09/topic9_part1_time_series_python.html)
+- [Machine learning techniques to predict daily rainfall amount | Journal of Big Data | Full Text (springeropen.com)](https://journalofbigdata.springeropen.com/articles/10.1186/s40537-021-00545-4)
+
+Tambahan
+- [timeseries-analysis-a-complete-guide](https://www.kaggle.com/code/andreshg/timeseries-analysis-a-complete-guide#1.-Data-visualization-%F0%9F%93%8A)
+- [https://youtu.be/-ApHWO1XMx0?si=o2aSu2zbXFQ5ZEzP](https://youtu.be/-ApHWO1XMx0?si=o2aSu2zbXFQ5ZEzP)
+- [https://medium.com/analytics-vidhya/time-series-forecasting-a-complete-guide-d963142da33f](https://medium.com/analytics-vidhya/time-series-forecasting-a-complete-guide-d963142da33f)
+- [Analisis Time Series, Definisi, Pola dan Algoritma | datalearns247](https://www.datalearns247.com/analisis-time-series-definisi-pola-dan-algoritma-190)
+- [10 Incredibly Useful Time Series Forecasting Algorithms — Advancing Analytics](https://www.advancinganalytics.co.uk/blog/2021/06/22/10-incredibly-useful-time-series-forecasting-algorithms)
+- [Kenali Analisis Time Series, Salah Satu Metode Statistika ya... (dqlab.id)](https://dqlab.id/kenali-analisis-time-series-salah-satu-metode-statistika-yang-sering-digunakan)
