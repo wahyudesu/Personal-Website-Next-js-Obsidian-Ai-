@@ -1,5 +1,3 @@
-// music-player.tsx
-
 import { useState } from 'react';
 import Image from 'next/image';
 import { CirclePlay, Pause, SkipBack, SkipForward, ChevronUp, ChevronDown, Loader2 } from 'lucide-react';
@@ -7,6 +5,7 @@ import { Button } from '@/components/components/ui/button';
 import { Separator } from './components/ui/separator';
 import { useMusicPlayer } from './MusicPlayerContext';
 import { playlist, Song } from '@/data/playlist';
+import { motion, AnimatePresence } from 'framer-motion'; // Impor Framer Motion
 
 export default function MusicPlayer() {
   const {
@@ -88,11 +87,11 @@ export default function MusicPlayer() {
           onMouseLeave={() => setIsDragging(false)}
         >
           {duration > 0 && (
-          <div
-            className="bg-primary-500 h-1 rounded-full"
-            style={{ width: `${(currentTime / duration) * 100}%` }}
-          ></div>
-        )}
+            <div
+              className="bg-primary-500 h-1 rounded-full"
+              style={{ width: `${(currentTime / duration) * 100}%` }}
+            ></div>
+          )}
         </div>
 
         <div className="flex items-center justify-between mb-1 pt-1">
@@ -126,40 +125,49 @@ export default function MusicPlayer() {
           </Button>
         </div>
 
-        {showPlaylist && (
-          <div className="border-t border-white/10">
-            <Separator className="mb-1" />
-            {playlist.map((song, index) => (
-              <button
-                key={song.id}
-                onClick={() => play(index)}
-                className={`w-full flex items-center gap-3 p-2 hover:bg-primary-500 hover:bg-opacity-10 transition-colors rounded-lg ${
-                  currentSongIndex === index ? 'bg-white/10' : ''
-                }`}
-              >
-                <div className="w-[34px] h-[34px] relative rounded-md overflow-hidden">
-                  <Image
-                    src={song.thumbnail || '/placeholder.svg'}
-                    alt={song.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+        {/* Animasi Playlist */}
+        <AnimatePresence>
+          {showPlaylist && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="border-t border-white/10 overflow-hidden"
+            >
+              <Separator className="mb-1" />
+              {playlist.map((song, index) => (
+                <button
+                  key={song.id}
+                  onClick={() => play(index)}
+                  className={`w-full flex items-center gap-3 p-2 hover:bg-primary-500 hover:bg-opacity-10 transition-colors rounded-lg ${
+                    currentSongIndex === index ? 'bg-white/10' : ''
+                  }`}
+                >
+                  <div className="w-[34px] h-[34px] relative rounded-md overflow-hidden">
+                    <Image
+                      src={song.thumbnail || '/placeholder.svg'}
+                      alt={song.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
 
-                <div className="text-left flex-1 min-w-0">
-                  <h3
-                    className={`font-medium truncate ${
-                      currentSongIndex === index ? 'text-primary-500' : 'text-black dark:text-white'
-                    }`}
-                  >
-                    {song.title}
-                  </h3>
-                  <p className="text-xs text-gray-400 truncate">{song.artist}</p>
-                </div>
-              </button>
-            ))}
-          </div>
-        )}
+                  <div className="text-left flex-1 min-w-0">
+                    <h3
+                      className={`font-medium truncate ${
+                        currentSongIndex === index ? 'text-primary-500' : 'text-black dark:text-white'
+                      }`}
+                    >
+                      {song.title}
+                    </h3>
+                    <p className="text-xs text-gray-400 truncate">{song.artist}</p>
+                  </div>
+                </button>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );

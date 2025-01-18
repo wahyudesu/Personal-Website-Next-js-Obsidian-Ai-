@@ -3,6 +3,8 @@ import type { Authors } from 'contentlayer/generated'
 import SocialIcon from '@/components/social-icons'
 import Image from '@/components/Image'
 import { Button } from '@/components/components/ui/button'
+import { PulsatingButton } from '@/components/components/ui/pulsating-button'
+import Link from 'next/link'
 
 interface Props {
   children: ReactNode
@@ -34,13 +36,12 @@ export default function AuthorLayout({ children, content }: Props) {
             <h3 className="pb-2 pt-4 text-2xl font-bold leading-8 tracking-tight">{name}</h3>
             <div className="text-gray-500 dark:text-gray-400 ">{occupation}</div>
             <div className="text-gray-500 dark:text-gray-400 text-center align-middle justify-center">{company}</div>
-            <div className="flex space-x-3 pt-6">
-              <SocialIcon kind="mail" href={`mailto:${email}`} size={6}/>
-              <SocialIcon kind="github" href={github} size={6}/>
-              <SocialIcon kind="linkedin" href={linkedin} size={6}/>
-              <SocialIcon kind="x" href={twitter} size={6}/>
-              <SocialIcon kind="instagram" href={instagram} size={6}/>
-              <SocialIcon kind="youtube" href={youtube} size={6}/>
+            <div className="flex justify-center mt-4">
+              <Button variant="outline" className="rounded-full mb-6">
+                <Link href="/chat-me">
+                Chat with My AI Assistant
+                </Link>
+              </Button>
             </div>
           </div>
           <div className="prose max-w-none pb-8 pt-8 dark:prose-invert xl:col-span-2">

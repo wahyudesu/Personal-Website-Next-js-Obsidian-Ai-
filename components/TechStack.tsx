@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const techStack = [
   { name: 'Figma', icon: '/icons/figma.svg' },
@@ -22,7 +23,14 @@ const TechStack: React.FC = () => {
     <div className="flex flex-col items-center py-8">
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-9 gap-6 py-4">
         {techStack.map((tech, index) => (
-          <div key={index} className="flex flex-col items-center">
+          <motion.div
+            key={index}
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.2, delay: index * 0.1 }}
+          >
             <div className="w-12 h-12 lg:w-14 lg:h-14 relative">
               <Image
                 src={tech.icon}
@@ -34,7 +42,7 @@ const TechStack: React.FC = () => {
             <p className="mt-2 text-xs font-medium text-gray-400 text-center">
               {tech.name}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

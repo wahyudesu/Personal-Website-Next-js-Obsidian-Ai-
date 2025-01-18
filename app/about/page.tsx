@@ -30,16 +30,16 @@ export default function Page() {
           <span className={badgeVariants({ variant: "outline" })}>Project Management</span>
         </div>
       <div>
-        <h2 className="font-semibold text-3xl md:text-4xl mb-12">
+        <h2 className="font-semibold text-3xl md:text-2xl mb-8">
           <NumberTicker value={10} />+ Project
         </h2>
-        <h2 className="font-semibold text-3xl md:text-4xl mb-12">
+        <h2 className="font-semibold text-3xl md:text-2xl mb-8">
           <NumberTicker value={50} />+ Certificate
         </h2>
-        <h2 className="font-semibold text-3xl md:text-4xl mb-12">
+        <h2 className="font-semibold text-3xl md:text-2xl mb-8">
           <NumberTicker value={10} />+ Experience
         </h2>
-        <h2 className="font-semibold text-3xl md:text-4xl mb-12">
+        <h2 className="font-semibold text-3xl md:text-2xl mb-8">
           <NumberTicker value={3} />+ Volunteer
         </h2>
       </div>

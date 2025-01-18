@@ -11,14 +11,12 @@
             "id": "f9a877bfe65f3612",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "blog/How-to-learn-any-skills-and-master-them-effectively.mdx",
-                "mode": "source",
-                "source": false
+                "file": "assets/gojo-spinning.gif"
               },
-              "icon": "lucide-file",
-              "title": "How-to-learn-any-skills-and-master-them-effectively"
+              "icon": "lucide-image",
+              "title": "gojo-spinning"
             }
           }
         ]
@@ -77,7 +75,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 265.5
   },
   "right": {
     "id": "aa3f6e145c55081a",
@@ -154,6 +152,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-excalidraw-plugin:Create new drawing": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -165,10 +164,23 @@
   },
   "active": "f9a877bfe65f3612",
   "lastOpenFiles": [
+    "assets/talent-code.jpg",
+    "assets/VAE-works.png",
+    "assets/Pasted image 20240820131439.png",
+    "assets/Recording.webm",
+    "assets/Recording 20240722212009.webm",
+    "assets/Recording 20240722212055.webm",
+    "assets/Recording 20240722211953.webm",
+    "assets/Pasted image 20240820131453.png",
+    "assets/Pasted image 20240801085502.png",
+    "assets/Pasted image 20240731094224.png",
+    "assets/Pasted image 20240729154901.png",
+    "assets/Pasted image 20240721151540.png",
+    "assets/Pasted image 20240715184609.png",
+    "blog/How-to-learn-any-skills-and-master-them-effectively.mdx",
     "blog/How-to-Think-with-Data.mdx",
     "blog/Simplify-Your-Life-with-a-Digital-Bullet-Journal.mdx",
     "blog/Yang-kudapat-dari-SKS-Time-series-forecasting.mdx",
-    "blog/How-to-learn-any-skills-and-master-them-effectively.mdx",
     "logo.svg"
   ]
 }

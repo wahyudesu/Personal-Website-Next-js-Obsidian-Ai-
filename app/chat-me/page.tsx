@@ -141,7 +141,7 @@ export default function ChatPage() {
       </div>
 
       {/* Area Chat dengan Scroll */}
-      <div className="bg-black/5 p-4 rounded-md h-auto overflow-y-auto">
+      <div className="bg-black/5 dark:bg-white/5 p-4 rounded-md h-auto min-h-80 overflow-y-auto">
         {messages.map((msg, index) => (
           <motion.div
             key={index}
@@ -201,7 +201,7 @@ export default function ChatPage() {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="flex-1 border-primary-500 border-opacity-0 hover:border-opacity-100 bg-neutral-50 hover:bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 w-full text-black dark:text-white"
+          className="flex-1 border-primary-500 border-opacity-0 hover:border-opacity-100 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 w-full text-black dark:text-white"
           placeholder="Adakah yang ingin ditanyakan?"
         />
         <Button
