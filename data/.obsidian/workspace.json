@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "d6c0b6b68bcf4dc9",
+        "id": "5793294cfeb9a189",
         "type": "tabs",
         "children": [
           {
-            "id": "f9a877bfe65f3612",
+            "id": "180d440b42bcd071",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "assets/gojo-spinning.gif"
+                "file": "blog/AI Engineer How to Integrate a Ai into Your Personal Website.mdx",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "gojo-spinning"
+              "icon": "lucide-file",
+              "title": "AI Engineer How to Integrate a Ai into Your Personal Website"
             }
           }
         ]
@@ -162,25 +164,28 @@
       "edit-mdx:New .mdx file": false
     }
   },
-  "active": "f9a877bfe65f3612",
+  "active": "180d440b42bcd071",
   "lastOpenFiles": [
+    "blog/How-to-learn-any-skills-and-master-them-effectively.mdx",
+    "blog/How-to-Think-with-Data.mdx",
+    "blog/AI Engineer How to Integrate a Ai into Your Personal Website.mdx",
+    "assets/Pasted-image-20250119035317.png",
+    "blog/Yang-kudapat-dari-SKS-Time-series-forecasting.mdx",
+    "blog/tes dokumen ajah.mdx",
+    "blog/Untitled.md",
+    "draft",
+    "blog/Saving-Your-Time-With-Fluent-Search.mdx",
+    "assets/gojo-spinning.gif",
     "assets/talent-code.jpg",
     "assets/VAE-works.png",
     "assets/Pasted image 20240820131439.png",
     "assets/Recording.webm",
     "assets/Recording 20240722212009.webm",
     "assets/Recording 20240722212055.webm",
-    "assets/Recording 20240722211953.webm",
     "assets/Pasted image 20240820131453.png",
     "assets/Pasted image 20240801085502.png",
     "assets/Pasted image 20240731094224.png",
     "assets/Pasted image 20240729154901.png",
-    "assets/Pasted image 20240721151540.png",
-    "assets/Pasted image 20240715184609.png",
-    "blog/How-to-learn-any-skills-and-master-them-effectively.mdx",
-    "blog/How-to-Think-with-Data.mdx",
-    "blog/Simplify-Your-Life-with-a-Digital-Bullet-Journal.mdx",
-    "blog/Yang-kudapat-dari-SKS-Time-series-forecasting.mdx",
-    "logo.svg"
+    "assets/Pasted image 20240721151540.png"
   ]
 }

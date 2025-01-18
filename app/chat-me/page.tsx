@@ -4,7 +4,7 @@ import { Button } from "@/components/components/ui/button";
 import { Input } from "@/components/components/ui/input";
 import Image from "next/image";
 import { useState, useEffect, FormEvent, useRef } from "react";
-import { motion } from "framer-motion"; // Impor Framer Motion
+import { motion } from "framer-motion";
 
 type Message = {
   id: string;
@@ -22,13 +22,11 @@ export default function ChatPage() {
     messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Animasi untuk pesan
   const messageVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
 
-  // Menambahkan pesan pertama kali saat halaman di-load
   useEffect(() => {
     const initialMessage: Message = {
       id: "0",
@@ -93,7 +91,6 @@ export default function ChatPage() {
     }
   };
 
-  // Scroll ke bawah setiap kali messages berubah
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
