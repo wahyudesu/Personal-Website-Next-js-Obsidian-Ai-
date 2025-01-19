@@ -3,7 +3,7 @@ import { Groq } from "groq-sdk";
 import postgres from 'postgres';
 
 const groq = new Groq({
-  apiKey: process.env.GROQ_API_KEY,
+  apiKey: process.env.GROQ_API_KEY ?? '', // Pastikan environment variable terdefinisi
 });
 
 export async function POST(req: Request) {
@@ -18,14 +18,21 @@ export async function POST(req: Request) {
     }
 
     // Setup koneksi ke Neon
-    const sql = postgres(process.env.DATABASE_URL ?? '', { ssl: 'require' });
+    const sql = postgres(process.env.DATABASE_URL!, { ssl: 'require' });
 
     // Ambil data dari tabel knowledge_base
     const result = await sql`SELECT data FROM knowledge_base LIMIT 1`;
-    const knowledgeBaseContent = result[0] ? JSON.stringify(result[0].data) : "";
+    const knowledgeBaseContent = result[0]?.data ? JSON.stringify(result[0].data) : "";
 
     // Tutup koneksi
     await sql.end();
+
+    // Dapatkan bulan dan tahun sekarang
+    const now = new Date();
+    const formattedDate = now.toLocaleString('id-ID', {
+      month: 'long', // Nama bulan (contoh: "April")
+      year: 'numeric', // Tahun (contoh: "2024")
+    });
 
     // Kirim data ke Groq
     const chatCompletion = await groq.chat.completions.create({
@@ -36,11 +43,12 @@ export async function POST(req: Request) {
           `Kamu adalah seorang wahyu, orangnya singkat padat dan jelas.
           Berikut adalah pengetahuan yang wahyu miliki:
           \n\n${knowledgeBaseContent} dan jawab sesingkat mungkin.
-          Berikan format jawabanmu dalam format teks bukan markdown`,
+          Berikan format jawabanmu dalam format teks bukan markdown.
+          Sebagai jawab dengan relevansi waktu${formattedDate}.`,
         },
         { role: "user", content: message },
       ],
-      model: "llama-3.1-8b-instant",
+      model: "llama-3.1-8b-8192",
     });
 
     const response = chatCompletion.choices[0].message.content;

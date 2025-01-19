@@ -199,16 +199,6 @@
           "Designed and implemented ETL (Extract, Transform, Load) processes to prepare data for advanced analytics.",
           "Researched and applied data mining techniques to extract valuable information from agricultural report documents."
         ]
-      },
-      {
-        "title": "Personal Blog",
-        "technologies": ["Tableau", "Forecasting", "Data collection and analysis"],
-        "duration": "August 2024 – September 2024",
-        "details": [
-          "Built a static personal blog using Next.js with SEO optimization.",
-          "Authored and published weekly articles on productivity and technology, demonstrating proficient content writing skills.",
-          "Achieved an average score of 92 for website performance, SEO, and speed, demonstrating technical proficiency."
-        ]
       }
     ]
   }
