@@ -4,7 +4,7 @@ import 'remark-github-blockquote-alert/alert.css';
 
 import { Space_Grotesk } from 'next/font/google';
 // import { Analytics, AnalyticsConfig } from 'pliny/analytics';
-import { CSPostHogProvider } from './providers'
+import { CSPostHogProvider } from './providers';
 import { SearchProvider, SearchConfig } from 'pliny/search';
 import Header from '@/components/Header';
 import SectionContainer from '@/components/SectionContainer';
