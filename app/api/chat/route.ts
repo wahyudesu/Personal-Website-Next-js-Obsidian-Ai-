@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { Groq } from "groq-sdk";
-import knowledge_base from '@/data/knowledge_base.json'
+import postgres from 'postgres';
 
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
@@ -17,9 +17,17 @@ export async function POST(req: Request) {
       );
     }
 
-    // Incorporating the knowledge base into the system message
-    const knowledgeBaseContent = knowledge_base ? JSON.stringify(knowledge_base) : "";
+    // Setup koneksi ke Neon
+    const sql = postgres(process.env.DATABASE_URL, { ssl: 'require' });
 
+    // Ambil data dari tabel knowledge_base
+    const result = await sql`SELECT data FROM knowledge_base LIMIT 1`;
+    const knowledgeBaseContent = result[0] ? JSON.stringify(result[0].data) : "";
+
+    // Tutup koneksi
+    await sql.end();
+
+    // Kirim data ke Groq
     const chatCompletion = await groq.chat.completions.create({
       messages: [
         {
@@ -34,9 +42,9 @@ export async function POST(req: Request) {
       ],
       model: "llama-3.1-8b-instant",
     });
-    
+
     const response = chatCompletion.choices[0].message.content;
-    
+
     return NextResponse.json({ response: response });
   } catch (error) {
     console.error("Error in chat API:", error);

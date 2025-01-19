@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "seed": "node data/seed.js",
     "start": "next dev",
     "dev": "cross-env INIT_CWD=$PWD next dev",
     "buildvercel": "next build",
@@ -48,6 +49,7 @@
     "next-themes": "^0.3.0",
     "pliny": "0.4.0",
     "postcss": "^8.4.24",
+    "postgres": "^3.4.5",
     "posthog-js": "^1.207.0",
     "react": "rc",
     "react-dom": "rc",

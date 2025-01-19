@@ -160,9 +160,20 @@
   },
   "active": "263d2f850bd7d806",
   "lastOpenFiles": [
+    "node_modules/postgres/cjs/src/types.js",
+    "node_modules/postgres/cjs/src/subscribe.js",
+    "node_modules/postgres/cjs/src/result.js",
+    "node_modules/postgres/cjs/src/query.js",
+    "node_modules/postgres/cjs/src/queue.js",
+    "node_modules/postgres/cjs/src/large.js",
+    "node_modules/postgres/cjs/src/index.js",
+    "node_modules/postgres/cjs/src/errors.js",
+    "node_modules/postgres/cjs/src/connection.js",
+    "node_modules/postgres/cjs/src/bytes.js",
+    "node_modules/postgres/cf/src/types.js",
+    "node_modules/postgres/README.md",
     "data/logo.svg",
     "data/draft/todo.md",
-    "data/draft/AI Engineer How to Integrate a Ai into Your Personal Website.mdx",
     "public/ogimage.svg"
   ]
 }
