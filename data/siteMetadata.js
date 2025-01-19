@@ -10,7 +10,7 @@ const siteMetadata = {
   siteRepo: 'https://github.com/wahyudesu',
   CVUrl: 'https://drive.google.com/file/d/1Yqj8OokJUKTScF5UyTEMyuNe7OwW-eqG/view?usp=sharing',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
-  socialBanner: `${process.env.BASE_PATH || ''}/ogimage.svg`,
+  socialBanner: `${process.env.BASE_PATH || ''}/ogimage.png`,
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'why.ikbal777@gmail.com',
   github: 'https://github.com/wahyudesu',
