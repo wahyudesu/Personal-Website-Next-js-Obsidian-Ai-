@@ -43,8 +43,8 @@ const siteMetadata = {
     //   src: '', // e.g. https://plausible.my-domain.com/js/script.js
     // },
     // simpleAnalytics: {},
-    posthogAnalytics: {
-      posthogProjectApiKey: process.env.NEXT_PUBLIC_POSTHOG_KEY, // e.g. 123e4567-e89b-12d3-a456-426614174000
+    // posthogAnalytics: {
+    //   posthogProjectApiKey: process.env.NEXT_PUBLIC_POSTHOG_KEY, // e.g. 123e4567-e89b-12d3-a456-426614174000
     // },
     // googleAnalytics: {
     //   googleAnalyticsId: '', // e.g. G-XXXXXXX

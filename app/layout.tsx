@@ -13,6 +13,7 @@ import siteMetadata from '@/data/siteMetadata';
 import { ThemeProviders } from './theme-providers';
 import { Metadata } from 'next';
 import { MusicPlayerProvider } from '@/components/MusicPlayerContext';
+import { Analytics } from "@vercel/analytics/react"
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -99,6 +100,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
         <ThemeProviders>
           <CSPostHogProvider>
+          
           <MusicPlayerProvider>
             <SectionContainer>
               <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
@@ -106,6 +108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <main className="mb-auto">{children}</main>
               </SearchProvider>
               <Footer />
+              <Analytics />
             </SectionContainer>
           </MusicPlayerProvider>
           </CSPostHogProvider>
