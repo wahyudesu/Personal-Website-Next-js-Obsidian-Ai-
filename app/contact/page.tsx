@@ -1,4 +1,3 @@
-// app/contact/page.tsx
 'use client';
 
 import { useState } from 'react';
@@ -11,33 +10,19 @@ export default function ContactPage() {
   const [isSent, setIsSent] = useState(false);
   const [error, setError] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError('');
 
-    try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email, message }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to send message');
-      }
-
+    // Simulating the form submission without a fetch request
+    setTimeout(() => {
       setIsSent(true);
       setName('');
       setEmail('');
       setMessage('');
-    } catch (err) {
-      setError('Failed to send message. Please try again later.');
-    } finally {
       setIsSubmitting(false);
-    }
+    }, 2000);
   };
 
   return (
@@ -52,7 +37,11 @@ export default function ContactPage() {
       </div>
 
       <div className="py-8">
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form
+          action="https://formspree.io/f/xbllvzwv"
+          method="post"
+          className="space-y-6"
+        >
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Name
@@ -60,6 +49,7 @@ export default function ContactPage() {
             <input
               type="text"
               id="name"
+              name="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -74,6 +64,7 @@ export default function ContactPage() {
             <input
               type="email"
               id="email"
+              name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -87,6 +78,7 @@ export default function ContactPage() {
             </label>
             <textarea
               id="message"
+              name="message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required
