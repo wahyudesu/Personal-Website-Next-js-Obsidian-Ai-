@@ -47,6 +47,7 @@
     "next-themes": "^0.3.0",
     "pliny": "0.4.0",
     "postcss": "^8.4.24",
+    "posthog-js": "^1.207.0",
     "react": "rc",
     "react-dom": "rc",
     "reading-time": "1.5.0",
