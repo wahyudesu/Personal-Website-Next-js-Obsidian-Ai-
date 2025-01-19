@@ -12,23 +12,25 @@
 
 
 ## 🎉 Features  
-- 🚀 Next.js 15 (App Router) - Modern framework
-- 📘 TypeScript - Tyesafe
+- 🚀 Next.js 15 (App Router) - Modern web framework
+- 📘 TypeScript - Typesafe
 - 🎨 TailwindCSS - CSS Styling
-- 🛠️ Shadcn/ui - Component
+- 🟩Neon - Postgresql database (on progress)
+- 🔧Prisma - ORM (on progress)
+- 🛠️ Shadcn/ui - Component library
 - 🎥 Framer Motion - Animation
-- ✨ Lucide - Icons
-- 🤖 AI SDK - ai sdk
-- FormSpree - Form email
-- ⚙️ Contentlayer - Markdown blog
+- ✨ Lucide - Icons library
+- 🤖 AI SDK - ai sdk (on progress)
+- FormSpree - Form email service
+- ⚙️ Contentlayer - Markdown blog management
 - 🔊 Howler - Music Player
-- Rehype and remark - Styling markdown
-- 🧹 ESLint  
-- 🌑 Light & Dark Mode - Interactive theme
+- 📖Rehype and remark - Styling markdown plugin
+- 🧹 ESLint - Linting for clean code
+- 🌑 Light & Dark Mode - Interactive theme toggle
 - 🗺️ RSS Feed, Sitemap & robots.txt - SEO
-- 📱 Mobile-Friendly View - Responsive
-- 🌟 Posthog - Analytics
-- kbar - command pallete
+- 📱 Mobile-Friendly View - Responsive design
+- 🌟 Posthog & vercel Analytics - Analytics platform
+- 🎛️ Kbar - Command palette for search
 
 
 > [!NOTE]

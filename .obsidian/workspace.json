@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "484cca2b3895ac65",
+        "id": "291d069f1acd7c51",
         "type": "tabs",
         "children": [
           {
-            "id": "442083cd73ae3dcb",
+            "id": "263d2f850bd7d806",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "data/draft/todo.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "todo"
             }
           }
         ]
@@ -154,8 +158,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "442083cd73ae3dcb",
+  "active": "263d2f850bd7d806",
   "lastOpenFiles": [
+    "data/logo.svg",
+    "data/draft/todo.md",
     "data/draft/AI Engineer How to Integrate a Ai into Your Personal Website.mdx",
     "public/ogimage.svg"
   ]

@@ -1,29 +1,43 @@
 {
-    "name": "Wahyu Ikbal Maulana",
-    "birthDate": "2004-08-15",
-    "hobby": [
-          "Menggambar",
-          "Menulis",
-          "Bermain",
-          "Reading"
-        ],
-    "game": [
-      "mobile legends",
-      "valorant"
-    ],
-    "contact": {
-      "email": "why.ikbal777@gmail.com",
-      "phone": "+62 851 7434 6212",
-      "linkedin": "Linkedin",
-      "github": "Github",
-      "portfolio_website": "Portfolio Website"
-    },
+  "name": "Wahyu Ikbal Maulana",
+  "birthDate": "2004-08-15",
+  "asal": "Surabaya",
+  "status": "mahasiswa",
+  "agama":"islam",
+  "tech_stack": [
+    "Figma",
+    "TypeScript",
+    "Nextjs",
+    "Git",
+    "Python",
+    "Tableau",
+    "PyTorch",
+    "R",
+    "HuggingFace",
+    "PostgreSQL",
+    "TensorFlow",
+    "Grafana",
+    "D3js"
+  ],
+  "role_yang_diinginkan": [
+    "data scientist",
+    "web developer",
+    "ui ux designer",
+    "ai engineer"
+  ],
+  "preferences": {
+    "hobby": ["Menggambar", "Menulis", "Bermain", "Membaca"],
+    "played game": ["mobile legends", "valorant"],
+    "karakter": "Kreatif dan analytis",
+    "kepribadian": "Introvert",
+    "interest": "teknologi, art, "
+  },
     "summary": "Results-oriented data scientist with 2+ years of experience in Python, R, and Machine learning. Proficient in deploying AI models and collaborating on web application integration. Passionate about applying data-driven solutions to real-world problems. Actively engaged in the academic community, participating in various competitions and projects to enhance technical skills and teamwork abilities.",
     "education": [
       {
         "institution": "Politeknik Elektronika Negeri Surabaya",
         "degree": "Data Science",
-        "GPA": "3.7",
+        "GPA": "3.5",
         "duration": "August 2023 - Present",
         "details": [
           "Actively participated in faculty research projects since the first year of study.",
@@ -65,15 +79,6 @@
         "responsibilities": [
           "Processed and analyzed datasets to create comprehensive company reports, leading to improved decision-making.",
           "Created a visualization dashboard that contributed to a improvement in cross-team efficiency and overall productivity."
-        ]
-      },
-      {
-        "role": "AI Digital Marketing",
-        "company": "SF Group Services Enterprise",
-        "duration": "August 2024 – September 2024",
-        "responsibilities": [
-          "Analyzed financial statements, business summary reports, and dashboard recaps to attain data based on product comparable percentages and penetration rates for district managers which increased store efficiency by 16%.",
-          "Collaborated with senior management on multiple functions including customer success and finance, increasing survey submissions from 60% previous month to 75% by identifying the pain points of customer feedback."
         ]
       },
       {
@@ -204,29 +209,6 @@
           "Authored and published weekly articles on productivity and technology, demonstrating proficient content writing skills.",
           "Achieved an average score of 92 for website performance, SEO, and speed, demonstrating technical proficiency."
         ]
-      }
-    ],
-    "skills": {
-      "programming_languages": ["Python", "R", "Next JS", "SQL", "HTML", "CSS"],
-      "machine_learning_and_cloud": ["Scikit learn", "PyTorch", "AWS", "Google Cloud", "BigQuery", "Flask", "Heroku"],
-      "tools_and_technologies": ["Tableau", "Looker", "Streamlit", "Huggingface", "MongoDB", "MySQL", "Git", "TensorFlow"],
-      "languages": ["English (Fluent)", "Indonesian (Native)"]
-    },
-    "certifications": [
-      {
-        "title": "Next.js",
-        "provider": "LinkedIn",
-        "date": "August 2024"
-      },
-      {
-        "title": "Intermediate English Test",
-        "provider": "TOEFL",
-        "date": "August 2024"
-      },
-      {
-        "title": "Data Science in Python",
-        "provider": "DataCamp",
-        "date": "July 2024"
       }
     ]
   }
