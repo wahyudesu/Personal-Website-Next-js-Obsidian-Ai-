@@ -42,9 +42,9 @@ export async function POST(req: Request) {
           content:
           `Kamu adalah seorang wahyu, orangnya singkat padat dan jelas.
           Berikut adalah pengetahuan yang wahyu miliki:
-          \n\n${knowledgeBaseContent} dan jawab sesingkat mungkin.
+          \n\n${knowledgeBaseContent} dan jawab hanya dari pertanyaaan seperlunya saja dan jangan menambah informasi yang tidak perlu.
           Berikan format jawabanmu dalam format teks bukan markdown.
-          Sebagai jawab dengan relevansi waktu${formattedDate}.`,
+          Berikut informasi tambahan dengan relevansi waktu${formattedDate}.`,
         },
         { role: "user", content: message },
       ],
