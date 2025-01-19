@@ -1,14 +1,14 @@
 {
   "main": {
-    "id": "7f93014da29b678b",
+    "id": "3b1e03ae971e20e8",
     "type": "split",
     "children": [
       {
-        "id": "5793294cfeb9a189",
+        "id": "484cca2b3895ac65",
         "type": "tabs",
         "children": [
           {
-            "id": "180d440b42bcd071",
+            "id": "442083cd73ae3dcb",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -23,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "80371227e88a4e77",
+    "id": "0d746ea88100cafb",
     "type": "split",
     "children": [
       {
-        "id": "85d788ddb0dcaa8d",
+        "id": "5129ce93d1aad821",
         "type": "tabs",
         "children": [
           {
-            "id": "69582f9f1bd50a95",
+            "id": "6462de3fe16af428",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,7 +43,7 @@
             }
           },
           {
-            "id": "790dae41e6f746c6",
+            "id": "2563e2d3cf7b7405",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -60,7 +60,7 @@
             }
           },
           {
-            "id": "abc3f5a849fbfda6",
+            "id": "daf4bb55c5d3a7d2",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -73,23 +73,22 @@
       }
     ],
     "direction": "horizontal",
-    "width": 265.5
+    "width": 300
   },
   "right": {
-    "id": "aa3f6e145c55081a",
+    "id": "13893ddf22c4efbb",
     "type": "split",
     "children": [
       {
-        "id": "63bb18843374ae56",
+        "id": "c8c8270293a7acf8",
         "type": "tabs",
         "children": [
           {
-            "id": "61ac92853874fa3f",
+            "id": "c63a2823879215d5",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "logo.svg",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,25 +98,24 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for logo"
+              "title": "Backlinks"
             }
           },
           {
-            "id": "662d6418fdad0a27",
+            "id": "c7f2192917922d98",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "logo.svg",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from logo"
+              "title": "Outgoing links"
             }
           },
           {
-            "id": "31817a00508e5d72",
+            "id": "98383b3690a44bc3",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -130,15 +128,13 @@
             }
           },
           {
-            "id": "cd7f9244c2ede06c",
+            "id": "a75cb87344cd3e66",
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "logo.svg"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "Outline of logo"
+              "title": "Outline"
             }
           }
         ]
@@ -150,39 +146,17 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:Create new drawing": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "edit-mdx:New .mdx file": false
+      "command-palette:Open command palette": false
     }
   },
-  "active": "180d440b42bcd071",
+  "active": "442083cd73ae3dcb",
   "lastOpenFiles": [
-    "blog/AI Engineer How to Integrate a Ai into Your Personal Website.mdx",
-    "draft/AI Engineer How to Integrate a Ai into Your Personal Website.mdx",
-    "blog/How-to-learn-any-skills-and-master-them-effectively.mdx",
-    "blog/How-to-Think-with-Data.mdx",
-    "assets/Pasted-image-20250119035317.png",
-    "blog/Yang-kudapat-dari-SKS-Time-series-forecasting.mdx",
-    "blog/tes dokumen ajah.mdx",
-    "blog/Untitled.md",
-    "draft",
-    "blog/Saving-Your-Time-With-Fluent-Search.mdx",
-    "assets/gojo-spinning.gif",
-    "assets/talent-code.jpg",
-    "assets/VAE-works.png",
-    "assets/Pasted image 20240820131439.png",
-    "assets/Recording.webm",
-    "assets/Recording 20240722212009.webm",
-    "assets/Recording 20240722212055.webm",
-    "assets/Pasted image 20240820131453.png",
-    "assets/Pasted image 20240801085502.png",
-    "assets/Pasted image 20240731094224.png",
-    "assets/Pasted image 20240729154901.png",
-    "assets/Pasted image 20240721151540.png"
+    "data/draft/AI Engineer How to Integrate a Ai into Your Personal Website.mdx",
+    "public/ogimage.svg"
   ]
 }

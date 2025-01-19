@@ -8,7 +8,7 @@ export default function AnimatedSubscribeButtonDemo({ label, url }: { label: str
     // Tambahkan jeda 1 detik (1000 milidetik) sebelum membuka jendela baru
     setTimeout(() => {
       window.open(url, '_blank');
-    }, 1000); // 1000 milidetik = 1 detik
+    }, 800);
   };
 
   return (
