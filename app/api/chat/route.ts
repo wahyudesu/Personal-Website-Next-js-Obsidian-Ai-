@@ -18,7 +18,7 @@ export async function POST(req: Request) {
     }
 
     // Setup koneksi ke Neon
-    const sql = postgres(process.env.DATABASE_URL, { ssl: 'require' });
+    const sql = postgres(process.env.DATABASE_URL ?? '', { ssl: 'require' });
 
     // Ambil data dari tabel knowledge_base
     const result = await sql`SELECT data FROM knowledge_base LIMIT 1`;
