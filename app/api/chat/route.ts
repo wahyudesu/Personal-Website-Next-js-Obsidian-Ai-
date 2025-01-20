@@ -57,7 +57,7 @@ export async function POST(req: Request) {
         },
         { role: "user", content: message },
       ],
-      model: "llama-3.1-8b-8192",
+      model: "mixtral-8x7b-32768",
     });
     
 
