@@ -73,12 +73,12 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                       )}
                       <dl className="whitespace-nowrap text-sm font-medium leading-5">
                         <dt className="sr-only">Name</dt>
-                        <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
-                        <dt className="sr-only">Twitter</dt>
+                        <dd className="text-gray-900 dark:text-gray-100">Wahyu Ikbal</dd>
+                        <dt className="sr-only">Instagram</dt>
                         <dd>
                           {author.instagram && (
                             <Link
-                              href={author.instagram}
+                              href="https://instagram.com/wahyuikbal_m"
                               className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                             >
                               {author.instagram
