@@ -1,0 +1,66 @@
+---
+title: AI Engineer: How to Integrate a Ai into Your Personal Website
+summary: Apakah kamu merasa FOMO dengan perkembangan AI saat ini? Mau belajar ai tapi bingung mulai dari mana? Sebagai mahasiswa IT, langkah pertama yang bisa kamu lakukan adalah dengan membuat aplikasi AI
+tujuan: anjay
+tone:
+  - books, productifity
+tags:
+  - AI
+  - LLM
+  - learning
+date: 2025-07-12
+progress: 100
+---
+Apakah kamu merasa FOMO dengan perkembangan AI saat ini? Mau belajar ai tapi bingung mulai dari mana? Sebagai mahasiswa IT, langkah pertama yang bisa kamu lakukan adalah dengan membuat aplikasi AI. Sambil belajar AI kamu juga sambil belajar bagaimana backend bekerja
+
+[https://www.kdnuggets.com/how-to-learn-ai-the-lazy-way](https://www.kdnuggets.com/how-to-learn-ai-the-lazy-way)
+
+![](/static/images/ai-integrate-cover.png)
+
+Di artikel ini, saya akan berbagi cara bagaimana membuat fitur ai yaitu chatbot menggunakan model AI, lengkap beserta praktik, implementasi, dan source code nya. Dan tentunya kamu bisa memulainya dengan gratis modal laptop, vscode ama eepiswlan.
+
+# How we get started with ai?
+AI yang biasa kamu kenal, seperti ChatGPT adalah website atau aplikasi yang didukung oleh Large Language Models (LLMs). Contohnya Anthropic dengan model Claude 3.5 Sonnet, Google dengan model Gemini 1.5 Pro, Meta dengan model Llama, BERT model, dan masih banyak lagi. So popularitas AI saat ini sebagian besar didorong oleh kemajuan dalam teknologi LLM.
+
+Large Language Model (LLM) adalah sistem kecerdasan buatan yang dirancang untuk memahami, menghasilkan, dan memanipulasi bahasa manusia dalam skala besar. LLM menggunakan teknik machine learning tingkat lanjut, khususnya arsitektur jaringan saraf yang dikenal sebagai transformers, untuk memproses dan menghasilkan teks yang mirip dengan cara manusia berkomunikasi
+
+Untuk mempelajari lebih lanjut tentang LLM lebih lengkapnya, kamu bisa artikel berikut ini
+
+https://www.cloudflare.com/learning/ai/what-is-large-language-model/
+https://bbycroft.net/llm
+
+# So how to use LLMs on the website?
+Untuk menggunakan LLMs (Large Language Models) cukup mudah kamu bisa memanfaatkan API Provider untuk mengintegrasikan dengan cepat. Yang menjadi tantangan adalah bagaimana memilih LLM yang tepat dan sesuai. Ada berbagai pertimbangan dalam memilih model seperti menggunakan open source atau closed source LLM.
+
+![](/static/images/open-sources-vs-closed-sources.png)
+Untuk menggunakan LLMs (Large Language Models) cukup mudah kamu bisa memanfaatkan API Provider untuk mengintegrasikan dengan cepat. Yang menjadi tantangan adalah bagaimana memilih LLM yang tepat dan sesuai. Ada berbagai pertimbangan dalam memilih model seperti menggunakan open source atau closed source LLM.
+Open source vs Closed source LLMNamun selain 2 jenis model, memilih LLM (Large Language Model) yang tepat juga melibatkan beberapa pertimbangan tambahan, seperti biaya dan kontrol, kamu bisa menggunakan API provider seperti openai atau untuk enterprise production ada opsi lain seperti mendeploy model di server sendiri dan biayanya sendiri cukup mahal :3.
+https://www.datacamp.com/tutorial/deploying-llm-applications-with-langserve
+
+# Getting started with Next js project
+
+> [!NOTE]
+> Note: This section doesn't cover the entire codebase. We'll focus on crucial parts of the project to clarify implementation details. For example, we won't discuss design and UI details but will focus on the more functional aspects of the project. For those interested in these details, you can examine the source code
+
+Why Next js?
+Next JS adalah modern react framework yang menawarkan lebih banyak fitur untuk pengembangan aplikasi web modern. Framework ini yang sangat populer karena menawarkan berbagai fitur yang memudahkan pengembangan aplikasi web modern, seperti server-side rendering (SSR) dan static site generation (SSG). Selain karena terkenal karena kecepatannya web ini juga sangat SEO-friendly dan cocok untuk full stack developer yang ingin mengembagkan gen ai apps dengan cepat.
+
+![](/static/images/chatbot.gif)
+# What’s next
+
+- Kamu bisa prefer menggunakan framework/sdk seperti AI SDK by Vercel, Langchain, Llamaindex. Framework ini memudahkan pembuatan pipeline, data ingest, dan penggantian model tanpa perlu mengubah terlalu banyak kode.  
+- Kamu bisa menambahkan lebih banyak data, seperti project, resume, interest dan menerapkan teknik-teknik prompt, seperti Meta prompting dan Contextual priming untuk mendapatkan hasil respon yang lebih akurat dan lebih relevan. Pelajari [https://www.promptingguide.ai](https://www.promptingguide.ai)  
+- Untuk keamanan dan privasi data, kamu bisa menggunakan database nosql, atau sql dengan kolom json. Kalau dari project yang aku pakai aku memakai [neon](https://neon.tech/home) postgresql  
+- Terus belajar dan jangan berhenti mencoba👍🏻
+
+Jika kamu memiliki pertanyaan atau ingin berdiskusi lebih lanjut, jangan sungkan untuk menghubungi saya, atau bertanya lewat ai bot pribadi saya di [https://www.wahyuikbal.web.id/chat-me](https://www.wahyuikbal.web.id/chat-me) . Untuk knowledge tambahan berikut referensi dan resources yang bisa kamu baca pas lagi gabud.
+
+### Resources
+
+[https://arxiv.org/abs/1706.03762](https://arxiv.org/abs/1706.03762)
+
+[https://pub.towardsai.net/the-choice-for-businesses-between-open-source-and-proprietary-models-to-deploy-generative-ai-adcc336cfa41](https://pub.towardsai.net/the-choice-for-businesses-between-open-source-and-proprietary-models-to-deploy-generative-ai-adcc336cfa41)
+
+[https://github.com/wsxqaza12/Comparison-of-LLM-Specifications](https://github.com/wsxqaza12/Comparison-of-LLM-Specifications)
+
+[https://www.scribbledata.io/blog/large-language-models-history-evolutions-and-future/](https://www.scribbledata.io/blog/large-language-models-history-evolutions-and-future/)
