@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "logo.svg",
+                "file": "blog/AI Engineer How to Integrate a Ai into Your Personal Website.mdx",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for logo"
+              "title": "Backlinks for AI Engineer How to Integrate a Ai into Your Personal Website"
             }
           },
           {
@@ -149,8 +149,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -164,11 +163,11 @@
       "edit-mdx:New .mdx file": false
     }
   },
-  "active": "69582f9f1bd50a95",
+  "active": "180d440b42bcd071",
   "lastOpenFiles": [
     "draft/todo.md",
     "blog/AI Engineer How to Integrate a Ai into Your Personal Website.mdx",
-    "blog/AI Engineer How to Integrate a Ai into Your Personal Website.mdx",
+    "blog/kontol.mdx",
     "blog/How-to-learn-any-skills-and-master-them-effectively.mdx",
     "blog/How-to-Think-with-Data.mdx",
     "assets/Pasted-image-20250119035317.png",

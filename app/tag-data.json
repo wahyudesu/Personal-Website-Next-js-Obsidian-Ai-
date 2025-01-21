@@ -1,11 +1,11 @@
 {
-  "books": 1,
-  "productifity": 2,
-  "learning": 2,
   "machine-learning-data-science": 1,
-  "tools": 1,
   "machine-learning": 2,
   "data-science": 2,
+  "productifity": 2,
+  "tools": 1,
+  "books": 1,
+  "learning": 2,
   "multi-author": 1,
   "next-js": 1,
   "feature": 1

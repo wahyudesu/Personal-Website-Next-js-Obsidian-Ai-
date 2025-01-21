@@ -1,7 +1,7 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
   title: 'Wahyu ikbal website',
-  author: 'Wahyu Ikbal Maulana',
+  author: 'Wahyu Ikbal',
   headerTitle: 'Why',
   description: 'Results-oriented data scientist with 2+ years of experience in Python, R, and Machine learning. Proficient in deploying models and collaborating on web application integration. Passionate about applying data-driven solutions to real-world problems. Actively engaged in the academic community, participating in various competitions and projects to enhance technical skills and teamwork abilities.',
   language: 'en-us',
