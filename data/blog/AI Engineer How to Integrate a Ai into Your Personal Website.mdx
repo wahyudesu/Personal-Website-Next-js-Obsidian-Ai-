@@ -42,8 +42,153 @@ https://www.datacamp.com/tutorial/deploying-llm-applications-with-langserve
 > [!NOTE]
 > Note: This section doesn't cover the entire codebase. We'll focus on crucial parts of the project to clarify implementation details. For example, we won't discuss design and UI details but will focus on the more functional aspects of the project. For those interested in these details, you can examine the source code
 
-Why Next js?
+
+
+## Why Next js?
 Next JS adalah modern react framework yang menawarkan lebih banyak fitur untuk pengembangan aplikasi web modern. Framework ini yang sangat populer karena menawarkan berbagai fitur yang memudahkan pengembangan aplikasi web modern, seperti server-side rendering (SSR) dan static site generation (SSG). Selain karena terkenal karena kecepatannya web ini juga sangat SEO-friendly dan cocok untuk full stack developer yang ingin mengembagkan gen ai apps dengan cepat.
+
+Buat file API Route menggunakan next server dan set up model dari groq terlebih dahulu
+
+```typescript
+// app/api/chat/route.ts  
+import { NextResponse } from "next/server";  
+import { Groq } from "groq-sdk";  
+import knowledge_base from '@/data/knowledge_base.json';  
+  
+const groq = new Groq({  
+  apiKey: process.env.GROQ_API_KEY,  
+});  
+  
+// Salin GROQ API KEY di .env/.env.local
+```
+
+![](https://cdn-images-1.medium.com/max/900/1*-SVBLoy6tbFdH2Bc3Dcvjw.png)
+
+Supported Models on Groq
+
+Ada berbagai model open source yang bisa kita pakai. Karena chatbot yang akan kita buat dirancang untuk memberikan jawaban yang sederhana, kita tidak memerlukan output yang terlalu besar. Namun, mengingat data JSON yang akan digunakan cukup panjang, sehingga diperlukan model dengan context window yang panjang, seperti **Llama 3.1**, **Llama 3.3**, atau **Mixtral 8x7b?**(Ndak rekomen hasil outputnya jelek :v). Selain itu, perlu juga mempertimbangkan limit token dari masing-masing model agar sesuai dengan kebutuhan kita.
+
+Selanjutnya kita akan menangkap informasi dari data json dan membuat instruksi prompt yang efektif. Tujuannya adalah supaya si model dapat menghasilkan output yang relevan dan sesuai dengan konteks.
+
+// prompt engineer cuy  
+const knowledgeBaseContent = knowledge_base ? JSON.stringify(knowledge_base) : "";  
+  
+const chatCompletion = await groq.chat.completions.create({  
+  messages: [  
+    {  
+      role: "system",  
+      content: `  
+        Anda adalah chatbot virtual assistant yang menggantikan Wahyu untuk menjawab pertanyaan dari orang lain.  
+        Wahyu lebih menyukai jawaban yang singkat, padat, jelas, namun tetap ramah. Berikut adalah beberapa aturan penting yang harus Anda ikuti:  
+  
+        1. Jawablah berdasarkan informasi yang tersedia di knowledge base berikut:  
+           \n\n${knowledgeBaseContent}  
+  
+        2. Jika tidak mengetahui jawaban, katakan dengan sopan: "Maaf, saya tidak tahu."  
+  
+        3. Jika pertanyaan bersifat terlalu pribadi, sensitif, atau toxic, balas dengan: "Maaf, saya tidak bisa menjawab pertanyaan seperti itu."  
+  
+        Pastikan Anda:  
+        - Menyapa pengguna dengan hangat di awal.  
+        - Memberikan jawaban yang membantu.  
+        - Menutup percakapan dengan ramah.  
+      `,  
+    },  
+    { role: "user", content: message },  
+  ],  
+  model: "llama-3.1-8b-instant",  
+});
+
+Berikut code lengkapnya dengan penambahan get request, validasi input, dan error handling
+
+```typescript
+// app/api/chat/route.ts  
+  
+import { NextResponse } from "next/server";  
+import { Groq } from "groq-sdk";  
+import knowledge_base from '@/data/knowledge_base.json';  
+  
+const groq = new Groq({  
+  apiKey: process.env.GROQ_API_KEY,  
+});  
+  
+export async function POST(req: Request) {  
+  try {  
+    const { message } = await req.json();  
+  
+    if (!message) {  
+      return NextResponse.json(  
+        { error: "Message is required" },  
+        { status: 400 }  
+      );  
+    }  
+  
+    // Menggabungkan knowledge base ke dalam system message  
+    const knowledgeBaseContent = knowledge_base ? JSON.stringify(knowledge_base) : "";  
+  
+    const chatCompletion = await groq.chat.completions.create({  
+      messages: [  
+        {  
+          role: "system",  
+          content: `  
+            Anda adalah chatbot virtual assistant yang menggantikan Wahyu untuk menjawab pertanyaan dari orang lain.  
+            Wahyu lebih menyukai jawaban yang singkat, padat, jelas, namun tetap ramah. Berikut adalah beberapa aturan penting yang harus Anda ikuti:  
+      
+            1. Jawablah berdasarkan informasi yang tersedia di knowledge base berikut:  
+               \n\n${knowledgeBaseContent}  
+      
+            2. Jika tidak mengetahui jawaban, katakan dengan sopan: "Maaf, saya tidak tahu."  
+      
+            3. Jika pertanyaan bersifat terlalu pribadi, sensitif, atau toxic, balas dengan: "Maaf, saya tidak bisa menjawab pertanyaan seperti itu."  
+      
+            Pastikan Anda:  
+            - Menyapa pengguna dengan hangat di awal.  
+            - Memberikan jawaban yang membantu.  
+            - Menutup percakapan dengan ramah.  
+          `,  
+        },  
+        { role: "user", content: message },  
+      ],  
+      model: "llama-3.1-8b-instant",  
+    });  
+  
+    const response = chatCompletion.choices[0].message.content;  
+  
+    return NextResponse.json({ response: response });  
+  } catch (error) {  
+    console.error("Error in chat API:", error);  
+    return NextResponse.json(  
+      { error: "Maaf bot sedang eror, coba lain kali" },  
+      { status: 500 }  
+    );  
+  }  
+}
+```
+#### How about Front-end?
+
+Kamu perlu siapkan page baru baru untuk membuat halaman yang berisi interface chatbot. Sebelum itu kamu perlu mengambil data dari backend dan menyimpan response variable.
+
+```typescript
+// app/ai-chat/page.tsx  
+  
+try {  
+  // send request POST to endpoint /api/chat  
+  const response = await fetch("/api/chat", {  
+    method: "POST",  
+    headers: { "Content-Type": "application/json" },  
+    body: JSON.stringify({ message: sendMessage.text }),  
+  });  
+  
+  // Get response data and format to JSON  
+  const data = await response.json();  
+  
+} catch (error) {  
+  // Error handling  
+  console.error("Error:", error.message);  
+}
+```
+
+Untuk interface nya kamu bisa menuju ke chat.com atau v0.dev untuk membuat ui sederhana dari kode yang anda buat. Jangan lupa lampirkan kode api supaya ai mengerti konteks dan dapat membuat ui yang dapat berjalan sesuai dengan backend
 
 ![](/static/images/chatbot.gif)
 # What’s next
