@@ -1,11 +1,12 @@
 {
-  "machine-learning-data-science": 1,
-  "machine-learning": 2,
-  "data-science": 2,
+  "ai": 1,
+  "llm": 1,
+  "learning": 3,
+  "machine-learning": 3,
+  "data-science": 3,
   "productifity": 2,
   "tools": 1,
   "books": 1,
-  "learning": 2,
   "multi-author": 1,
   "next-js": 1,
   "feature": 1

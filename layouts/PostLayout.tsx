@@ -67,7 +67,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                           src={author.avatar}
                           width={38}
                           height={38}
-                          alt="avatar"
+                          alt=""
                           className="h-10 w-10 rounded-full"
                         />
                       )}
@@ -81,9 +81,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                               href="https://instagram.com/wahyuikbal_m"
                               className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                             >
-                              {author.instagram
-                                .replace('https://twitter.com/', '@')
-                                .replace('https://x.com/', '@')}
+                              @wahyuikbal
                             </Link>
                           )}
                         </dd>

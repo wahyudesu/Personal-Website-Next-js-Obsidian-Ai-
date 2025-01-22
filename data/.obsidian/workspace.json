@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/AI-Engineer-How-to-Integrate-a-Ai-into-Your-Personal-Website.mdx",
+                "file": "draft/Aku-bikin-ai-agent-buat-nganalisis-data.mdx",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AI-Engineer-How-to-Integrate-a-Ai-into-Your-Personal-Website"
+              "title": "Aku-bikin-ai-agent-buat-nganalisis-data"
             }
           }
         ]
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "blog/AI-Engineer-How-to-Integrate-a-Ai-into-Your-Personal-Website.mdx",
+                "file": "draft/Aku-bikin-ai-agent-buat-nganalisis-data.mdx",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for AI-Engineer-How-to-Integrate-a-Ai-into-Your-Personal-Website"
+              "title": "Backlinks for Aku-bikin-ai-agent-buat-nganalisis-data"
             }
           },
           {
@@ -163,10 +163,10 @@
       "edit-mdx:New .mdx file": false
     }
   },
-  "active": "69582f9f1bd50a95",
+  "active": "180d440b42bcd071",
   "lastOpenFiles": [
-    "draft/todo.md",
     "blog/AI-Engineer-How-to-Integrate-a-Ai-into-Your-Personal-Website.mdx",
+    "draft/todo.md",
     "blog/kontol.mdx",
     "blog/How-to-learn-any-skills-and-master-them-effectively.mdx",
     "blog/How-to-Think-with-Data.mdx",
