@@ -2,12 +2,11 @@
   {
     "slug": "dashboard-monitoring-agriculture-indonesia",
     "name": "Dashboard monitoring agriculture Indonesia",
-    "description": "Invited in faculty research to build deep learning projects in the field of agriculture",
-    "technologies": ["Tableau", "Deep Learning", "Forecasting"],
+    "description": "Invited in faculty research to build deep learning projects in the field of agriculture. The project aims to monitor Indonesia's agricultural conditions and predict crop yields through AI-based data analysis.",
+    "technologies": ["Tableau", "Deep Learning", "Forecasting", "Data Mining"],
     "paper": "",
     "publishedAt": "2024-11-21",
-    "type": "research",
-    "gambar": "/gambar.webp"
+    "type": "research"
   },
   {
     "slug": "personal-website",
@@ -17,19 +16,7 @@
     "url": "https://www.wahyuikbal.web.id",
     "code": "https://github.com/wahyudesu/My-Portofolio",
     "publishedAt": "2024-11-21",
-    "type": "personal",
-    "gambar": "/gambar.webp"
-  },
-  {
-    "slug": "personal-blog",
-    "name": "Personal Blog Website",
-    "description": "My personal blog that here I can write freely",
-    "technologies": ["Next js", "Velite", "Acernity UI"],
-    "url": "https://www.wahyuikbal.blog",
-    "code": "https://github.com/wahyudesu/Personal-Blog",
-    "publishedAt": "2024-11-21",
-    "type": "personal",
-    "gambar": "/gambar.webp"
+    "type": "personal"
   },
   {
     "slug": "document-summarization",
@@ -38,8 +25,7 @@
     "technologies": ["Next js", "Tailwind CSS", "Llama 3", "LLM"],
     "code": "https://github.com/wahyudesu/Next-js-PDF-Summarization/",
     "publishedAt": "2024-11-21",
-    "type": "research",
-    "gambar": "/gambar.webp"
+    "type": "research"
   },
   {
     "slug": "Monitoring-Stunting-Webbapp",
@@ -49,8 +35,7 @@
     "url": "https://stuntron.streamlit.app",
     "code": "https://github.com/wahyudesu/healthkathon-ai",
     "publishedAt": "2024-10-24",
-    "type": "competition",
-    "gambar": "/gambar.webp"
+    "type": "competition"
   },
   {
     "slug": "Malware-prediction-project",
@@ -60,8 +45,7 @@
     "code": "https://github.com/wahyudesu/",
     "paper": "",
     "publishedAt": "",
-    "type": "research",
-    "gambar": "/gambar.webp"
+    "type": "research"
   },
   {
     "slug": "Guess-The-Word-Game",
@@ -69,21 +53,19 @@
     "description": "Project Gemastik cabang teknologi gams.",
     "technologies": ["Streamlit", "Vector Embeddings", "Text Similarity"],
     "url": "",
-    "code": "",
+    "code": "https://github.com/Community-of-Playground/Gemastik-Pengembangan-Aplikasi-Permainan",
     "document": "",
     "publishedAt": "2024-01-23",
-    "type": "competition",
-    "gambar": "/gambar.webp"
+    "type": "competition"
   },
   {
     "slug": "CNN-Rock-Scissor-Paper",
     "name": "CNN Rock Scissor Paper",
     "description": "Project submission dicoding machine learning untuk pemula",
     "technologies": ["Python", "Tensorflow", "Computer Vision"],
-    "code": "",
+    "code": "https://github.com/wahyudesu/Dicoding-rock-scissor-paper",
     "publishedAt": "2024-10-24",
-    "type": "competition",
-    "gambar": "/gambar.webp"
+    "type": "personal"
   },
   {
     "slug": "chatbot-kelurahan-keputih",
@@ -91,8 +73,7 @@
     "description": "Is Pengmas project (pengabdian masyarakat) building a chatbot for document management in keputih urban village",
     "technologies": ["Python", "LLM", "Telegram"],
     "publishedAt": "2024-11-21",
-    "type": "research",
-    "gambar": "/gambar.webp"
+    "type": "research"
   },
   {
     "slug": "Pneumonia-Detection-Using-Chest-X-Ray-&-ML",
@@ -101,29 +82,26 @@
     "technologies": ["Computer Vision", "Image Classification"],
     "url": "",
     "publishedAt": "2024-10-24",
-    "type": "research",
-    "gambar": "/gambar.webp"
+    "type": "personal"
   },
   {
     "slug": "Life-expectancy-analysis",
     "name": "Life expectancy analysis",
     "description": "Final project semester 1, statistic",
     "technologies": ["Python", "streamlit"],
-    "code": "",
-    "publishedAt": "",
-    "document": "",
-    "type": "research",
-    "gambar": "/gambar.webp"
+    "code": "https://github.com/wahyudesu/Life-expectancy-analysis",
+    "publishedAt": "2023-11-15",
+    "document": "https://github.com/wahyudesu/Life-expectancy-analysis/blob/main/Document/3323600056_Wahyu%20Ikbal%20Maulana_Regresi%20Linier%20Berganda.pdf",
+    "type": "research"
   },
   {
     "slug": "Anime-recommendation-web-app",
     "name": "Anime recommendation web app",
-    "description": "Building fullstack anime recommendation with machine learning",
+    "description": "Building fullstack anime recommendation with machine learning recommendation",
     "technologies": ["Next js", "Machine learning"],
     "code": "https://github.com/mozaldy/wamonime",
-    "publishedAt": "",
-    "type": "personal",
-    "gambar": "/gambar.webp"
+    "publishedAt": "2024-1-10",
+    "type": "personal"
   },
   {
     "slug": "forecasting-indonesia-renewable-energy",
@@ -132,9 +110,8 @@
     "technologies": ["Python", "Machine learning", "ARIMA"],
     "code": "https://github.com/wahyudesu/ARIMA-Analysis-in-Energy-SDGs-7-Indonesia",
     "publishedAt": "2024-08-20",
-    "paper": "",
-    "type": "research",
-    "gambar": "/gambar.webp"
+    "paper": "https://github.com/wahyudesu/ARIMA-Analysis-in-Energy-SDGs-7-Indonesia/blob/main/Makalah%20Journal%20ARIMA%20Forecasting.docx",
+    "type": "research"
   },
   {
     "slug": "dashboard-d3js",
@@ -143,7 +120,6 @@
     "technologies": ["Vite", "React", "d3js", "Magic UI", "shdcn ui"],
     "code": "https://3323600056-wahyuikbalmaulana-dashboard-d3js.vercel.app",
     "publishedAt": "2024-11-21",
-    "type": "research",
-    "gambar": "/gambar.webp"
+    "type": "research"
   }
 ]

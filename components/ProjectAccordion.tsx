@@ -17,7 +17,7 @@ interface Project {
   code?: string;
   document?: string;
   url?: string;
-  gambar: string; // Tambahkan properti gambar
+  gambar?: string; // Properti gambar menjadi optional
 }
 
 export default function ProjectAccordion({ project }: { project: Project }) {
@@ -29,7 +29,7 @@ export default function ProjectAccordion({ project }: { project: Project }) {
             <div className="flex flex-col space-y-1">
               <span className="text-xl">
                 {project.name}
-                </span>
+              </span>
               {project.description && (
                 <span className="text-sm font-normal opacity-80">
                   {project.description}
@@ -40,7 +40,7 @@ export default function ProjectAccordion({ project }: { project: Project }) {
                 {project.url && (
                   <Link href={project.url} target="_blank">
                     <Badge variant="outline" className="rounded-md flex gap-1.5 px-2 text-[11px]">
-                      <Globe aria-hidden="true" size={14}/>
+                      <Globe aria-hidden="true" size={14} />
                       Website
                     </Badge>
                   </Link>
@@ -48,7 +48,7 @@ export default function ProjectAccordion({ project }: { project: Project }) {
                 {project.code && (
                   <Link href={project.code} target="_blank">
                     <Badge variant="outline" className="rounded-md flex gap-1.5 px-2 text-[11px]">
-                      <Github aria-hidden="true" size={14}/>
+                      <Github aria-hidden="true" size={14} />
                       Code
                     </Badge>
                   </Link>
@@ -56,7 +56,7 @@ export default function ProjectAccordion({ project }: { project: Project }) {
                 {project.document && (
                   <Link href={project.document} target="_blank">
                     <Badge variant="outline" className="rounded-md flex gap-1.5 px-2 text-[11px]">
-                      <File aria-hidden="true" size={14}/>
+                      <File aria-hidden="true" size={14} />
                       Paper
                     </Badge>
                   </Link>
@@ -74,20 +74,22 @@ export default function ProjectAccordion({ project }: { project: Project }) {
         </AccordionPrimitive.Header>
         <AccordionContent>
           <div className="flex flex-col md:flex-row gap-6">
-            {/* Gambar di sebelah kiri */}
-            <div className="w-full md:w-1/2">
-              <Image
-                src={project.gambar} // Gunakan properti gambar dari project
-                alt={project.name} // Alt text sesuai nama proyek
-                width={500} // Lebar gambar
-                height={300} // Tinggi gambar
-                className="rounded-lg object-cover"
-              />
-            </div>
+            {/* Gambar di sebelah kiri (hanya ditampilkan jika ada) */}
+            {project.gambar && (
+              <div className="w-full md:w-1/2">
+                <Image
+                  src={project.gambar} // Gunakan properti gambar dari project
+                  alt={project.name} // Alt text sesuai nama proyek
+                  width={500} // Lebar gambar
+                  height={300} // Tinggi gambar
+                  className="rounded-lg object-cover"
+                />
+              </div>
+            )}
 
             {/* Daftar teknologi sebagai Badge di sebelah kanan */}
-            <div className="w-full md:w-1/2">
-              <h4 className="mb-2 text-primary-500">Tech stack:</h4>
+            <div className={`w-full ${project.gambar ? 'md:w-1/2' : 'md:w-full'}`}>
+              <h4 className="mb-2 text-primary-500 font-semibold">Tech stack:</h4>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech, index) => (
                   <Badge key={index} variant="outline" className="rounded-md text-primary-500">
