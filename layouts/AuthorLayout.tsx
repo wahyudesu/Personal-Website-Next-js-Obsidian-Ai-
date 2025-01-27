@@ -37,7 +37,7 @@ export default function AuthorLayout({ children, content }: Props) {
             <div className="text-gray-500 dark:text-gray-400 ">{occupation}</div>
             <div className="text-gray-500 dark:text-gray-400 text-center align-middle justify-center">{company}</div>
             <div className="flex justify-center mt-4">
-              <Button variant="outline" className="rounded-full mb-6">
+              <Button variant="outline" className="rounded-full mb-6 dark:border-neutral-800">
                 <Link href="/chat-me">
                 Chat with My AI Assistant
                 </Link>

@@ -37,13 +37,18 @@ export default function Page() {
           <span className={badgeVariants({ variant: 'outline' })}>Data analysis</span>
           <span className={badgeVariants({ variant: 'outline' })}>UI/UX</span>
         </div>
-        <div className="flex items-start content-around gap-2 flex-wrap mt-2">
+       <div className="flex items-start content-around gap-2 flex-wrap mt-2">
           <span className={badgeVariants({ variant: 'outline' })}>Problem Solving</span>
           <span className={badgeVariants({ variant: 'outline' })}>Management</span>
           <span className={badgeVariants({ variant: 'outline' })}>Teamwork</span>
           <span className={badgeVariants({ variant: 'outline' })}>Project Management</span>
         </div>
-        <div className="pt-4">
+        <div className='pt-2'>
+          <h4 className="font-bold text-xl">Education</h4>
+          <p>Politeknik Elektronika Negeri Surabaya <br/> Applied Data Science
+          </p>
+        </div>
+        <div className="pt-1">
           {achievements.map((achievement, index) => (
             <AchievementItem key={index} label={achievement.label} value={achievement.value} />
           ))}

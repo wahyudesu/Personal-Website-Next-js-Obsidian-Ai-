@@ -2,9 +2,9 @@
   "ai": 1,
   "llm": 1,
   "learning": 3,
+  "books": 1,
+  "productifity": 2,
   "machine-learning": 3,
   "data-science": 3,
-  "productifity": 2,
-  "tools": 1,
-  "books": 1
+  "tools": 1
 }
