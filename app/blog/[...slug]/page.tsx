@@ -43,6 +43,8 @@ export async function generateMetadata(props: {
   if (post.images) {
     imageList = typeof post.images === 'string' ? [post.images] : post.images
   }
+
+  const ogImageUrl = `${siteMetadata.siteUrl}/api/og?title=${encodeURIComponent(post.title)}`
   const ogImages = imageList.map((img) => {
     return {
       url: img.includes('http') ? img : siteMetadata.siteUrl + img,
@@ -61,7 +63,13 @@ export async function generateMetadata(props: {
       publishedTime: publishedAt,
       modifiedTime: modifiedAt,
       url: './',
-      images: ogImages,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+        },
+      ],
       authors: authors.length > 0 ? authors : [siteMetadata.author],
     },
     twitter: {

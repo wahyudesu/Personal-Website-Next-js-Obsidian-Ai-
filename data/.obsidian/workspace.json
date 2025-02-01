@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "archive"
             }
+          },
+          {
+            "id": "f53f3273d4bfdc4b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "blog/Saving-Your-Time-With-Fluent-Search.mdx",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Saving-Your-Time-With-Fluent-Search"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -93,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "draft/archive.md",
+                "file": "blog/Saving-Your-Time-With-Fluent-Search.mdx",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +118,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for archive"
+              "title": "Backlinks for Saving-Your-Time-With-Fluent-Search"
             }
           },
           {
@@ -163,26 +178,27 @@
       "edit-mdx:New .mdx file": false
     }
   },
-  "active": "180d440b42bcd071",
+  "active": "f53f3273d4bfdc4b",
   "lastOpenFiles": [
-    "draft/Aku-bikin-ai-agent-buat-nganalisis-data.mdx",
-    "blog/AI-Engineer-How-to-Integrate-a-Ai-into-Your-Personal-Website.mdx",
+    "blog/How-to-Think-with-Data.mdx",
+    "blog/Simplify-Your-Life-with-a-Digital-Bullet-Journal.mdx",
+    "draft/ai-agent.mdx",
+    "draft/Ai-agent-data-analysis.mdx",
+    "Excalidraw/Drawing 2025-01-29 12.46.32.excalidraw.md",
     "draft/archive.md",
+    "Excalidraw",
+    "blog/AI-Engineer-How-to-Integrate-a-Ai-into-Your-Personal-Website.mdx",
     "blog/kontol.mdx",
     "blog/How-to-learn-any-skills-and-master-them-effectively.mdx",
-    "blog/How-to-Think-with-Data.mdx",
     "assets/Pasted-image-20250119035317.png",
     "blog/Yang-kudapat-dari-SKS-Time-series-forecasting.mdx",
     "blog/tes dokumen ajah.mdx",
     "blog/Untitled.md",
     "draft",
-    "blog/Saving-Your-Time-With-Fluent-Search.mdx",
     "assets/gojo-spinning.gif",
     "assets/talent-code.jpg",
     "assets/VAE-works.png",
     "assets/Pasted image 20240820131439.png",
-    "assets/Recording.webm",
-    "assets/Recording 20240722212009.webm",
     "assets/Pasted image 20240820131453.png",
     "assets/Pasted image 20240801085502.png",
     "assets/Pasted image 20240731094224.png",
