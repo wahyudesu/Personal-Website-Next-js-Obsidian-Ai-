@@ -12,9 +12,9 @@
     "slug": "personal-website",
     "name": "Personal website",
     "description": "My personal website for portfolio with retrieval information chatbot about myself.",
-    "technologies": ["Next js", "Typescript", "Llama", "Tailwind", "Magic UI", "Acernity UI"],
+    "technologies": ["Next js", "Typescript", "Llama", "Tailwind", "PostgreSQL"],
     "url": "https://www.wahyuikbal.web.id",
-    "code": "https://github.com/wahyudesu/My-Portofolio",
+    "code": "https://github.com/wahyudesu/Personal-Website-Next-js-Obsidian-Ai-",
     "publishedAt": "2024-11-21",
     "type": "personal"
   },
@@ -41,8 +41,8 @@
     "slug": "Malware-prediction-project",
     "name": "Malware prediction project",
     "description": "Final project semester 3 machine learning, focusing on developing a machine learning model to predict and classify malware using ensemble learning techniques.",
-    "technologies": ["Machine learning", "Ensemble"],
-    "code": "https://github.com/wahyudesu/",
+    "technologies": ["Machine learning", "Ensemble", "Python"],
+    "code": "https://github.com/wahyudesu/malware-detection",
     "paper": "",
     "publishedAt": "",
     "type": "research"
@@ -50,8 +50,8 @@
   {
     "slug": "Guess-The-Word-Game",
     "name": "Guess The Word game",
-    "description": "Project Gemastik cabang teknologi gams.",
-    "technologies": ["Streamlit", "Vector Embeddings", "Text Similarity"],
+    "description": "Project Gemastik cabang teknologi game. word guessing game using NLP approach, using Indonesian glove corpus and cosine similarity calculation",
+    "technologies": ["Streamlit", "Vector Embeddings", "Text Similarity", "Python", "Glove ID"],
     "url": "",
     "code": "https://github.com/Community-of-Playground/Gemastik-Pengembangan-Aplikasi-Permainan",
     "document": "",
@@ -70,24 +70,15 @@
   {
     "slug": "chatbot-kelurahan-keputih",
     "name": "Chatbot Kelurahan Keputih",
-    "description": "Is Pengmas project (pengabdian masyarakat) building a chatbot for document management in keputih urban village",
-    "technologies": ["Python", "LLM", "Telegram"],
+    "description": "Is Pengmas project (pengabdian masyarakat) building a chatbot for document management in keputih urban village. I led a team to develop chat backend for campus research, developed a chatbot backend integrated via node js website and telegram bot.",
+    "technologies": ["Python", "LLM", "Telegram", "Langchain"],
     "publishedAt": "2024-11-21",
     "type": "research"
   },
   {
-    "slug": "Pneumonia-Detection-Using-Chest-X-Ray-&-ML",
-    "name": "Pneumonia Detection Using Chest X-Ray & ML",
-    "description": "Computer vision using Google Teachable Machine",
-    "technologies": ["Computer Vision", "Image Classification"],
-    "url": "",
-    "publishedAt": "2024-10-24",
-    "type": "personal"
-  },
-  {
     "slug": "Life-expectancy-analysis",
     "name": "Life expectancy analysis",
-    "description": "Final project semester 1, statistic",
+    "description": "Final project semester 1, statistic, linear regression research on life expectancy from dozens of countries around the world.",
     "technologies": ["Python", "streamlit"],
     "code": "https://github.com/wahyudesu/Life-expectancy-analysis",
     "publishedAt": "2023-11-15",
@@ -106,7 +97,7 @@
   {
     "slug": "forecasting-indonesia-renewable-energy",
     "name": "Forecasting Indonesia renewable energy",
-    "description": "Final project semester 2 applied statistics to build forecasting for SDGs",
+    "description": "Final project semester 2 applied statistics to build forecasting for SDGs, time series forecasting for renewable energy in Indonesia using the ARIMA model",
     "technologies": ["Python", "Machine learning", "ARIMA"],
     "code": "https://github.com/wahyudesu/ARIMA-Analysis-in-Energy-SDGs-7-Indonesia",
     "publishedAt": "2024-08-20",
@@ -114,9 +105,18 @@
     "type": "research"
   },
   {
+    "slug": "data-engineering-dashboard-system",
+    "name": "Data Engineering dashboard System",
+    "description": "Build data engineering monitoring system for final project programming on semester 3. Developed a dashboard system to visualize and manage ETL (Extract, Transform, Load) workflows using Flask and Apache Airflow.",
+    "technologies": ["Flask", "Airflow", "docker"],
+    "code": "https://github.com/AfifH07/LastProjectProgramming",
+    "publishedAt": "2024-11-10",
+    "type": "research"
+  },
+  {
     "slug": "dashboard-d3js",
     "name": "Dashboard d3js",
-    "description": "Build dashboard for final project data visualization semester 3",
+    "description": "Build dashboard for final project data visualization on semester 3",
     "technologies": ["Vite", "React", "d3js", "Magic UI", "shdcn ui"],
     "code": "https://3323600056-wahyuikbalmaulana-dashboard-d3js.vercel.app",
     "publishedAt": "2024-11-21",
