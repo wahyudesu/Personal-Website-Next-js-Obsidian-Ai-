@@ -1,13 +1,23 @@
+---
+title: "AI Engineer: Build ai agent workflows, on python and typescript"
+summary: Akhir-akhir ini, AI agent lagi booming, sedang naik daun di kalangan developer dan engineer. Buat kamu yang belum tahu, AI Agen adalah implementasi dari proses LLM, di mana LLM dilengkapi tools, memory, dan kemampuan untuk mengambil keputusan.
+tujuan: anjay
+tone:
+  - books, productifity
+tags:
+  - AI
+  - LLM
+  - learning
+date: 2025-02-07
+progress: 100
+---
 Akhir-akhir ini, AI agent lagi booming, sedang naik daun di kalangan developer dan engineer. Buat kamu yang belum tahu, AI Agen adalah implementasi dari proses LLM, di mana LLM dilengkapi tools, memory, dan kemampuan untuk mengambil keputusan. Anggap saja sebagai assistent yang bisa mengerjakan tugas, ndak hanya sekedar memberi output berupa teks.
 
 Konsep AI agent ini sangat powerful, terutama ketika beberapa agent berkolaborasi dalam sebuah sistem. Proses interaksi dan koordinasi antar-agent ini disebut **workflows**. Nah, dalam artikel ini, kita tidak akan fokus pada teori AI agent secara mendalam, melainkan lebih ke sisi engineering dan praktiknya. Jadi, pastikan kamu sudah memiliki pemahaman dasar terkait RAG (Retrieval-Augmented Generation) dan LLM sebelum melanjutkan.
 
-## Building effective agents workflow
+## Building an Effective Agent Workflow
 
-Di bagian ini, kita akan menjelajahi pola-pola umum yang sering digunakan dalam sistem agentik yang sudah diterapkan di produksi. Kita akan mulai dari blok dasar—**augmented LLM**—lalu secara bertahap meningkatkan kompleksitasnya, mulai dari workflow sederhana hingga agent yang bisa bekerja secara otonom.
-
-Nah, kali ini kita akan mempraktikkannya menggunakan Vercel AI SDK dan Langgraph. Sebagai tambahan, saya akan menjelaskan sedikit tentang LangGraph dan AI SDK. Jika kamu sudah familiar dengan framework ini, kamu bisa langsung melompat ke bagian implementasi kode.
-
+Di bagian ini, kita akan belajar pola-pola umum yang sering digunakan dalam sistem [agentic](https://www.forbes.com/sites/bernardmarr/2025/02/03/generative-ai-vs-agentic-ai-the-key-differences-everyone-needs-to-know/) yang sudah diterapkan di berbagai aplikasi. Nah, kali ini kita akan mempraktikkannya menggunakan Vercel AI SDK dan Langgraph. Sebagai tambahan, saya akan menjelaskan sedikit tentang LangGraph dan AI SDK. Jika kamu sudah familiar dengan framework ini, kamu bisa langsung melompat ke bagian implementasi kode.
 ## Why LangGraph?
 
 LangGraph adalah library yg dibangun di atas LangChain, didesain untuk aplikasi berbasis LLM, Make Langgraph jadi sat set buat sistem agent yang kompleks. yang menarik dari Langgraph adalah karena langgraph itu LangGraph is an advanced library built on top of LangChain, designed to enhance your Large Language Model (LLM) applications by introducing cyclic computational capabilities. While LangChain allows the creation of Directed Acyclic Graphs (DAGs) for linear workflows, LangGraph takes this a step further by enabling the addition of cycles, which are essential for developing complex, agent-like behaviors. These behaviors allow LLMs to continuously loop through a process, dynamically deciding what action to take next based on evolving conditions.
@@ -34,24 +44,19 @@ AI SDK Core has various functions designed for text generation, structured data 
 
 Vercel ai sdk juga menyediakan AI SDK UI yang mempermudah pembuatan interface berbasis LLM. Oleh karena itu, ini adalah library favorit saya ketika mengembangkan aplikasi ai di next js
 
-[langgraph and ai sdk](https://app.capacities.io/9d6ce513-5b4e-45a0-bf69-35862eec7bd2/e7706664-128e-4163-8555-1045715395d3)
-
 ## Workflow Patterns
+>Workflow atau alur kerja adalah sistem yang mengatur langkah-langkah untuk menyelesaikan tugas atau mencapai tujuan.
 
-Konsep workflow sering kita jumpai di kehidupan sehari-hari. Contohnya di perkuliahan dan kita ngikutiin struktur organisasi, dan seringkali kita bahkan tidak menyadarinya. Nah, kita akan mengimplementasikan dan membahas struktur-struktur tersebut (atau ‘workflows’) sebentar lagi.
+Konsep workflow sering kita jumpai di kehidupan sehari-hari. Contohnya di perkuliahan dan kita mengikuti suatu organisasi yang terstruktur, atau di lingkungan pekerjaan dimana terdapat sistem. 
 
 Kalau kamu ingin penjelasan lebih detail, kamu bisa baca research dari **Anthropic** di [sini](https://www.anthropic.com/research/building-effective-agents). Research dari Anthropic ini jadi referensi wajib buat banyak developer ai, dan bisa jadi bahan belajar tambahan buatmu juga. Di antaranya
+oke jadi urutannya gimana dulu nih
 
-- **Sequential Processing**
-    
-- **Parallel Processing**
-    
-- **Evaluation/Feedback Loops**
-    
-- **Orchestration**
-    
-- **Routing**
-    
+- Prompt Chaining (Sequential Processing) 
+- Routing
+- Parallelization
+- Orchestrator-Worker
+- Evaluator-optimizer
 
 ### Set up workflow
 
@@ -76,17 +81,16 @@ Set up Python with langgraph
 
 ```python
 import os
-import getpass
-
 from langchain_groq import ChatGroq
 
-def _set_env(var: str):
-    if not os.environ.get(var):
-        os.environ[var] = getpass.getpass(f"{var}: ")
+# Load environment variables
+load_dotenv()
 
-_set_env("GROQ_API_KEY")
-
-llm = ChatGroq(model="llama-3.3-70b-versatile")
+# Initialize Groq client
+groq = ChatGroq(
+    api_key=os.getenv("GROQ_API_KEY"),
+    base_url="https://api.groq.com/openai/v1"
+)
 ```
 
 ### Prompt Chaining / Sequential Processing
@@ -593,21 +597,42 @@ async function implementTask(taskRequest: string) {
 Selanjutnya buat sistem karyawannya
 
 ```typescript
+const taskChanges = await Promise.all(
+    taskPlan.tasks.map(async (task) => {
+      // Determine job roles based on task type
       const workerSystemPrompt = {
         create: {
-          'Riset audiens': 'Anda adalah seorang Business Analyst. Anda bertanggung jawab untuk melakukan riset mendalam tentang target audiens.',
-          'Pembuatan konten': 'Anda adalah seorang Content Strategist. Anda merancang strategi konten yang menarik dan sesuai dengan audiens.',
-          'Pengelolaan akun': 'Anda adalah seorang Social Media Manager. Anda mengelola dan mengoptimalkan akun media sosial.',
-          'Analisis performa': 'Anda adalah seorang Marketing Analyst. Anda menganalisis data dan mengukur keberhasilan strategi pemasaran.',
-        }[task.taskName] || 'Anda adalah seorang profesional yang ahli di bidang ini.',
+          'Audience research': 'You are a Business Analyst. You are responsible for conducting in-depth research on the target audience.',
+          'Content creation': 'You are a Content Strategist. You design engaging content strategies tailored to the audience.',
+          'Account management': 'You are a Social Media Manager. You manage and optimize social media accounts.',
+          'Performance analysis': 'You are a Marketing Analyst. You analyze data and measure the success of marketing strategies.',
+        }[task.taskName] || 'You are an expert professional in this field.',
         modify: {
-          'Pengelolaan akun': 'Anda adalah seorang Social Media Manager. Anda mengembangkan strategi pengelolaan akun agar lebih efektif.',
-        }[task.taskName] || 'Anda adalah seorang spesialis yang meningkatkan efisiensi tugas.',
-        delete: 'Anda adalah seorang Operations Manager. Anda menentukan tugas mana yang tidak diperlukan dan menghapusnya secara efisien.',
+          'Account management': 'You are a Social Media Manager. You improve account management strategies to be more effective.',
+        }[task.taskName] || 'You are a specialist enhancing task efficiency.',
+        delete: 'You are an Operations Manager. You identify unnecessary tasks and remove them efficiently.',
       }[task.changeType];
 ```
 
-Setelah Product manager berhasil mendelegasikan tugas, selanjutnya kita gunakan apa yang ada di pola parallel dan delegasikan ke karyawan
+Setelah Product manager berhasil mendelegasikan tugas, selanjutnya kita gunakan apa yang ada di pola parallel sebelumnya dan mendelegasikan ke karyawan
+```typescript
+      const { object: change } = await generateObject({
+        model: groq('llama-3.3-70b-versatile'),
+        schema: z.object({
+          explanation: z.string(),
+          actionItems: z.array(z.string()),
+        }),
+        system: workerSystemPrompt,
+        prompt: `Implement changes for the following task:
+        - ${task.taskName}
+        
+        Purpose of change: ${task.purpose}
+        
+        Explain the reason for the change and provide a list of necessary action items.`,
+      });
+```
+
+Set up Python with langgraph
 
 ```python
 class Task(BaseModel):

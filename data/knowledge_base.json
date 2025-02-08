@@ -15,9 +15,14 @@
     "R",
     "HuggingFace",
     "PostgreSQL",
-    "TensorFlow",
+    "Tensorflow",
     "Grafana",
-    "D3js"
+    "D3js",
+    "Pydantic",
+    "Langchain",
+    "OpenAI",
+    "Clickup",
+    "Expo"
   ],
   "role_yang_diinginkan": [
     "data scientist",
