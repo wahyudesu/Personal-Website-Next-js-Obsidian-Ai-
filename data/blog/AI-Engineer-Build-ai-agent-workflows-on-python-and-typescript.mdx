@@ -1,55 +1,39 @@
 ---
-title: "AI Engineer: Build ai agent workflows, on python and typescript"
+title: Building AI Agent Workflows with Python & TypeScript
 summary: Akhir-akhir ini, AI agent lagi booming, sedang naik daun di kalangan developer dan engineer. Buat kamu yang belum tahu, AI Agen adalah implementasi dari proses LLM, di mana LLM dilengkapi tools, memory, dan kemampuan untuk mengambil keputusan.
-tujuan: anjay
+tujuan: mengedukasi terkait ai agent
 tone:
-  - books, productifity
+  - technical
+  - engaging
 tags:
   - AI
   - LLM
   - learning
-date: 2025-02-07
+date: 2025-02-09
 progress: 100
 ---
-Akhir-akhir ini, AI agent lagi booming, sedang naik daun di kalangan developer dan engineer. Buat kamu yang belum tahu, AI Agen adalah implementasi dari proses LLM, di mana LLM dilengkapi tools, memory, dan kemampuan untuk mengambil keputusan. Anggap saja sebagai assistent yang bisa mengerjakan tugas, ndak hanya sekedar memberi output berupa teks.
+Akhir-akhir ini, [AI agent](https://www.ibm.com/think/topics/ai-agents) lagi booming, sedang naik daun di kalangan developer dan engineer. Buat kamu yang belum tahu, AI Agen adalah implementasi dari proses LLM, di mana LLM dilengkapi tools, memory, dan kemampuan untuk mengambil keputusan. Anggap saja sebagai assistent yang bisa mengerjakan tugas, ndak hanya sekedar memberi output berupa teks.
 
-Konsep AI agent ini sangat powerful, terutama ketika beberapa agent berkolaborasi dalam sebuah sistem. Proses interaksi dan koordinasi antar-agent ini disebut **workflows**. Nah, dalam artikel ini, kita tidak akan fokus pada teori AI agent secara mendalam, melainkan lebih ke sisi engineering dan praktiknya. Jadi, pastikan kamu sudah memiliki pemahaman dasar terkait RAG (Retrieval-Augmented Generation) dan LLM sebelum melanjutkan.
-
+Konsep AI agent ini sangat powerful, terutama ketika beberapa agent berkolaborasi dalam sebuah sistem. Proses interaksi dan koordinasi antar-agent ini disebut **workflows**. Nah, dalam artikel ini, kita tidak akan fokus pada teori AI agent secara mendalam, melainkan lebih ke sisi engineering dan praktiknya. Jadi, pastikan kamu sudah memiliki pemahaman dasar terkait [RAG](https://www.ibm.com/think/topics/retrieval-augmented-generation) (Retrieval-Augmented Generation) dan [LLM](https://www.ibm.com/think/topics/large-language-models) sebelum melanjutkan.
 ## Building an Effective Agent Workflow
-
-Di bagian ini, kita akan belajar pola-pola umum yang sering digunakan dalam sistem [agentic](https://www.forbes.com/sites/bernardmarr/2025/02/03/generative-ai-vs-agentic-ai-the-key-differences-everyone-needs-to-know/) yang sudah diterapkan di berbagai aplikasi. Nah, kali ini kita akan mempraktikkannya menggunakan Vercel AI SDK dan Langgraph. Sebagai tambahan, saya akan menjelaskan sedikit tentang LangGraph dan AI SDK. Jika kamu sudah familiar dengan framework ini, kamu bisa langsung melompat ke bagian implementasi kode.
+Di bagian ini, kita akan belajar pola-pola umum yang sering digunakan dalam sistem [agentic](https://www.forbes.com/sites/bernardmarr/2025/02/03/generative-ai-vs-agentic-ai-the-key-differences-everyone-needs-to-know/) yang sudah diterapkan di berbagai aplikasi. Nah, kali ini kita akan mempraktikkannya menggunakan [Vercel AI SDK](https://sdk.vercel.ai) dan [Langgraph](https://www.langchain.com/langgraph). Sebagai tambahan, saya akan menjelaskan sedikit tentang LangGraph dan AI SDK. Jika kamu sudah familiar dengan framework ini, kamu bisa langsung melompat ke bagian implementasi kode.
 ## Why LangGraph?
+LangGraph adalah library yg dibangun di atas [LangChain](https://www.langchain.com), didesain untuk aplikasi berbasis LLM, Make Langgraph jadi sat set buat sistem agent yang kompleks karena kemampuannya mengelola task-task rumit menjadi terstruktur. Keunggulan utamanya ada pada validasi data menggunakan Pydantic dan workflow yang jelas untuk menangani alur kerja, sehingga membuatnya mudah dikembangkan.
+## Why Vercel AI SDK
+Vercel AI SDK adalah Typescript library yang dirancang untuk pengembangan aplikasi dan berbasis artificial intelligence. TypeScript library for building AI applications. Library ini sangat cocok dalam pengembangan aplikasi react framework seperti React, Next.js, Svelte, dan Vue.
 
-LangGraph adalah library yg dibangun di atas LangChain, didesain untuk aplikasi berbasis LLM, Make Langgraph jadi sat set buat sistem agent yang kompleks. yang menarik dari Langgraph adalah karena langgraph itu LangGraph is an advanced library built on top of LangChain, designed to enhance your Large Language Model (LLM) applications by introducing cyclic computational capabilities. While LangChain allows the creation of Directed Acyclic Graphs (DAGs) for linear workflows, LangGraph takes this a step further by enabling the addition of cycles, which are essential for developing complex, agent-like behaviors. These behaviors allow LLMs to continuously loop through a process, dynamically deciding what action to take next based on evolving conditions.
+AI SDK Core memiliki berbagai function yang dirancang untuk text generation, structured data generation, dan tool usage. Fungsi-fungsi ini menggunakan pendekatan standar untuk setup prompt dan settings, sehingga memudahkan penggunaan berbagai, diantaranya:
 
-At the heart of LangGraph is the concept of a **stateful graph**:
+- streamText: Stream text and tool calls. Kamu bisa make function ini di beberapa kasus seperti chat bots dan content streaming.
+- streamObject: Stream a structured object that matches a Zod schema. Function untuk generate UIs berbasis object, kurang lebih seperti json.
 
-- **State**: Represents the context or memory that is maintained and updated as the computation progresses. It ensures that each step in the graph can access relevant information from previous steps, allowing for dynamic decision-making based on accumulated data throughout the process.
-
-- **Nodes**: Serve as the building blocks of the graph, representing individual computation steps or functions. Each node performs a specific task, such as processing inputs, making decisions, or interacting with external systems. Nodes can be customized to execute a wide range of operations within the workflow.
-
-- **Edges**: Connect nodes within the graph, defining the flow of computation from one step to the next. They support conditional logic, allowing the path of execution to change based on the current state and facilitate the movement of data and control between nodes, enabling complex, multi-step workflows.
-    
-
-## Why Vercel ai sdk
-
-Vercel AI SDK adalah Typescript libraryyang dirancang untuk pengembangan aplikasi dan berbasis artificial intelligence. TypeScript library for building AI applications. Library ini sangat cocok dalam pengembangan aplikasi react framework seperti React, Next.js, Svelte, dan Vue.
-
-AI SDK Core has various functions designed for text generation, structured data generation, and tool usage. These functions take a standardized approach to setting up prompts and settings, making it easier to work with different models.
-
-- `streamText`: Stream text and tool calls. Kamu bisa make function ini di beberapa kasus seperti chat bots dan content streaming.
-    
-- `streamObject`: Stream a structured object that matches a Zod schema. Function untuk generate UIs berbasis object, kurang lebih seperti json.
-    
-
-Vercel ai sdk juga menyediakan AI SDK UI yang mempermudah pembuatan interface berbasis LLM. Oleh karena itu, ini adalah library favorit saya ketika mengembangkan aplikasi ai di next js
-
+Vercel ai sdk juga menyediakan AI SDK UI yang mempermudah pembuatan interface berbasis LLM. Oleh karena itu, ini adalah library favorit saya ketika mengembangkan aplikasi ai di next js.
 ## Workflow Patterns
 >Workflow atau alur kerja adalah sistem yang mengatur langkah-langkah untuk menyelesaikan tugas atau mencapai tujuan.
 
 Konsep workflow sering kita jumpai di kehidupan sehari-hari. Contohnya di perkuliahan dan kita mengikuti suatu organisasi yang terstruktur, atau di lingkungan pekerjaan dimana terdapat sistem. 
 
-Kalau kamu ingin penjelasan lebih detail, kamu bisa baca research dari **Anthropic** di [sini](https://www.anthropic.com/research/building-effective-agents). Research dari Anthropic ini jadi referensi wajib buat banyak developer ai, dan bisa jadi bahan belajar tambahan buatmu juga. Di antaranya
+Kalau kamu ingin penjelasan lebih detail, kamu bisa baca research dari Anthropic di [sini](https://www.anthropic.com/research/building-effective-agents). Research dari Anthropic ini jadi referensi wajib buat banyak developer ai, dan bisa jadi bahan belajar tambahan buatmu juga. Di antaranya
 oke jadi urutannya gimana dulu nih
 
 - Prompt Chaining (Sequential Processing) 
@@ -58,22 +42,22 @@ oke jadi urutannya gimana dulu nih
 - Orchestrator-Worker
 - Evaluator-optimizer
 
+Untuk kode yang ingin Anda pelajari, Anda dapat cek di [github](https://github.com/wahyudesu/) atau memeriksa reponya di akhir artikel ini.
 ### Set up workflow
-
 Sebelum memulai pertama kali kita set up terlebih dahulu framework yang kita gunakan. Kamu bisa pilih salah satu mau yang Typescript atau yang Python. API yang kita pakai disini make groq provider. _Jangan lupa install library nya terlebih dahulu_
 
-Set up Typescriptwith Vercel AI SDK
+Setting up Typescript with Vercel AI SDK
 
 ```typescript
-require('dotenv').config();
-
-import { generateObject } from 'ai';
-import { z } from 'zod';
-import { createGroq } from '@ai-sdk/groq';
-
-const groq = createGroq({
-  baseURL: 'https://api.groq.com/openai/v1',
-  apiKey: process.env.GROQ_API_KEY || "",
+require('dotenv').config();  
+  
+import { generateObject } from 'ai'; // generate json output  
+import { z } from 'zod'; // schema declaration   
+import { createGroq } from '@ai-sdk/groq'; // provider  
+  
+const groq = createGroq({  
+  baseURL: 'https://api.groq.com/openai/v1',  
+  apiKey: process.env.GROQ_API_KEY || "",  
 });
 ```
 
@@ -93,7 +77,7 @@ groq = ChatGroq(
 )
 ```
 
-### Prompt Chaining / Sequential Processing
+### Prompt Chaining
 ![](https://ik.imagekit.io/83ba7d5ua/Chaining.png?updatedAt=1738775302217)
 
 Ini adalah workflow yang paling sederhana, Prompt chaining itu memecah satu task menjadi beberapa langkah, dengan melibatkan beberapa output dari satu prompt sebagai input untuk yang berikutnya. Pola ini ideal untuk task yang urutanya jelas langkah tiap langkah
@@ -160,7 +144,7 @@ Setelah membuat plan sebagai agent yang bertindak sebagai **senior software arch
   );
 ```
 
-Workflow with Langgraph python
+Workflow with LangGraph python
 
 ```python
 # Define our state schema for tracking the workflow progress
@@ -288,20 +272,172 @@ def generate_marketing_copy(input_text: str) -> dict:
         "quality_metrics": result["quality_metrics"]
     }
 ```
+### Routing
+![](https://ik.imagekit.io/83ba7d5ua/Routing.png?updatedAt=1738775302273)
 
-Output
+Pola ini memungkinkan model untuk menentukan jalur proses yang tepat berdasarkan konteks dan hasil sebelumnya. Pola routing bekerja dengan baik ketika ada beberapa kategori berbeda yang memerlukan penanganan khusus. Pola ini memastikan setiap kasus diproses dengan pendekatan yang paling sesuai. Seperti pada contoh di atas ini, hasil dari LLM pertama akan menentukan jalur mana yang akan diambil untuk langkah selanjutnya, menyesuaikan proses berdasarkan karakteristik input.
 
+Pertama kita buat terlebih dahulu, routing agent nya yang mengklasifikasikan input dengan membaginya berasarkan jenis input, serta kompleksitas dan alasan detailnya.
+
+```typescript
+async function handleCustomerQuery(query: string) {
+  const model = groq('llama-3.3-70b-versatile');
+
+  // Step 1: Classify the query type
+  const { object: classification } = await generateObject({
+    model,
+    schema: z.object({
+      reasoning: z.string(),
+      type: z.enum(['general', 'refund', 'technical']),
+      complexity: z.enum(['simple', 'complex']),
+    }),
+    prompt: `Classify this customer query:
+    ${query}
+
+    Determine:
+    1. Query type (general, refund, or technical)
+    2. Complexity (simple or complex)
+    3. Brief reasoning for classification`,
+  });
+```
+
+Hasil dari klasifikasi tersebut kemudian diarahkan ke beberapa agen. Sederhana, namun pola ini bekerja dengan baik as customer service, yang tiap  diarahkan ke tools seperti penjadwalan, menghubungi orang lain, dan lainnya, sehingga output yang dikeluarkan bersifat personal sesuai dengan kebutuhan pengguna.
+
+```typescript
+  // Route based on classification
+  // Determine the model and system prompt based on query type and complexity
+  const { text: response } = await generateText({
+    model:
+      classification.complexity === 'simple'
+        ? groq('llama3-8b-8192')
+        : groq('llama-3.1-8b-instant'),
+    system: {
+      general:
+        'You are an expert customer service agent handling general inquiries.',
+      refund:
+        'You are a customer service agent specializing in refund requests. Follow company policies and gather necessary information.',
+      technical:
+        'You are a technical support specialist with in-depth knowledge of the product. Focus on clear, step-by-step troubleshooting.',
+    }[classification.type],
+    prompt: query,
+  });
+```
+#### Workflow with LangGraph python
+
+```python
+# Define our state schema  
+class AgentState(TypedDict):  
+    query: str  
+    classification: dict  
+    response: str  
+    messages: list[BaseMessage]  
+  
+# Define classification schema  
+class QueryClassification(BaseModel):  
+    reasoning: str  
+    type: Literal["general", "refund", "technical"]  
+    complexity: Literal["simple", "complex"]  
+  
+# Step 1: Classify the customer query  
+def classify_query(state: AgentState) -> AgentState:  
+    """Classifies the incoming customer query by type and complexity."""  
+      
+    prompt = f"""Classify this customer query:  
+    {state['query']}  
+  
+    Determine:  
+    1. Query type (general, refund, or technical)  
+    2. Complexity (simple or complex)  
+    3. Brief reasoning for classification"""  
+  
+    response = groq.chat.completions.create(  
+        model="llama-3.3-70b-versatile",  
+        messages=[{"role": "user", "content": prompt}]  
+    )  
+      
+    # Parse the classification from the response  
+    classification = QueryClassification(  
+        reasoning=response.choices[0].message.content,  
+        type="technical",  # You would parse this from the response  
+        complexity="simple"  # You would parse this from the response  
+    )  
+      
+    state["classification"] = classification.dict()  
+    return state  
+  
+# Step 2: Generate response based on classification  
+def generate_response(state: AgentState) -> AgentState:  
+    """Generates a response based on the query classification."""  
+      
+    # Select model based on complexity  
+    model = "llama3-8b-8192" if state["classification"]["complexity"] == "simple" else "llama-3.1-8b-instant"  
+      
+    # Select system prompt based on query type  
+    system_prompts = {  
+        "general": "You are an expert customer service agent handling general inquiries.",  
+        "refund": "You are a customer service agent specializing in refund requests. Follow company policies and gather necessary information.",  
+        "technical": "You are a technical support specialist with in-depth knowledge of the product. Focus on clear, step-by-step troubleshooting."  
+    }  
+      
+    response = groq.chat.completions.create(  
+        model=model,  
+        messages=[  
+            {"role": "system", "content": system_prompts[state["classification"]["type"]]},  
+            {"role": "user", "content": state["query"]}  
+        ]  
+    )  
+      
+    state["response"] = response.choices[0].message.content  
+    return state  
+  
+# Create the workflow graph  
+def create_customer_service_workflow() -> Graph:  
+    """Creates the customer service workflow graph."""  
+      
+    # Initialize the graph  
+    workflow = StateGraph(AgentState)  
+      
+    # Add nodes  
+    workflow.add_node("classify", classify_query)  
+    workflow.add_node("respond", generate_response)  
+      
+    # Add edges  
+    workflow.add_edge("classify", "respond")  
+      
+    # Set entry and exit points  
+    workflow.set_entry_point("classify")  
+    workflow.set_finish_point("respond")  
+      
+    return workflow.compile()  
+  
+# Main execution function  
+def handle_customer_query(query: str) -> dict:  
+    """Handles a customer query through the workflow."""  
+      
+    # Initialize workflow  
+    workflow = create_customer_service_workflow()  
+      
+    # Execute workflow  
+    result = workflow.invoke({  
+        "query": query,  
+        "classification": {},  
+        "response": "",  
+        "messages": []  
+    })  
+      
+    return {  
+        "classification": result["classification"],  
+        "response": result["response"]  
+    }
+```
 ### Parallelization
 ![](https://ik.imagekit.io/83ba7d5ua/Parallelization.png?updatedAt=1738775302215)
 
 LLMs terkadang perlu untuk berjalan secara bersamaan dan menggabungkan outputnya untuk hasil yang lebih akurat. Workflow ini cukup efektif ketika task yang panjang dapat dipecah menjadi beberapa bagian lalu berjalan bersamaan supaya berjalan lebih cepat. Untuk task yang kompleks dan perlu banyak pertimbangan, LLMs biasanya menghasilkan lebih baik daripada lebih fokus ke specific [attention](https://www.datacamp.com/blog/attention-mechanism-in-llms-intuition) dari suatu konteks.
 
-dalam workflow parallelization ini, terbagi menjadi 2 variasi, diantaranya:
-
+Dalam workflow parallelization ini, terbagi menjadi 2 variasi, diantaranya:
 - **Sectioning**: Memecah task menjadi beberapa subtask yang berjalan bersamaan
-    
 - **Voting:** Menjalankan beberapa kali task yang sama untuk menghasilkan output yang berbeda
-    
 
 Seperti cara kerja sebuah tim IT yang berfokus di pengembangan aplikasi, ada yang fokus di bagian performa, quality, dan security. Jadi untuk alur prompt generate websitenya dipecah di beberapa bagian aspek supaya hasil yang didapatkan ndak hanya bekerja tapi juga memiliki performa yang stabil dan punya sisi keamanan yang tinggi.
 
@@ -351,14 +487,202 @@ Selanjutnya kita perlu menggabungkan semua object nya jadi satu. Kita butuh satu
     ${JSON.stringify(reviews, null, 2)}`,
   });
 ```
+### Workflow with LangGraph python
+```python
+# Define response schemas using Pydantic  
+class SecurityReview(BaseModel):  
+    vulnerabilities: List[str] = Field(default=[])  
+    risk_level: str = Field(default="low")  
+    suggestions: List[str] = Field(default=[])  
+  
+class PerformanceReview(BaseModel):  
+    issues: List[str] = Field(default=[])  
+    impact: str = Field(default="low")  
+    optimizations: List[str] = Field(default=[])  
+  
+class MaintainabilityReview(BaseModel):  
+    concerns: List[str] = Field(default=[])  
+    quality_score: int = Field(default=10)  
+    recommendations: List[str] = Field(default=[])  
+  
+# Define a function to perform a review  
+def review_code(model, system_prompt: str, code: str, response_schema):  
+    """  
+    Conducts a specialized review based on the provided system prompt and schema.  
+    """  
+    messages = [  
+        SystemMessage(content=system_prompt),  
+        HumanMessage(content=f"Review this code:\n{code}")  
+    ]  
+    response = model.invoke(messages)  
+    return response_schema.parse_raw(response.content)  
+  
+# Define the workflow graph  
+class ReviewState(BaseModel):  
+    code: str  
+    security: SecurityReview = None  
+    performance: PerformanceReview = None  
+    maintainability: MaintainabilityReview = None  
+    summary: str = ""  
+  
+graph = StateGraph(ReviewState)  
+  
+def security_review_node(state: ReviewState):  
+    model = create_groq_model()  
+    state.security = review_code(model, "You are an expert in code security...", state.code, SecurityReview)  
+    return state  
+  
+def performance_review_node(state: ReviewState):  
+    model = create_groq_model()  
+    state.performance = review_code(model, "You are an expert in code performance...", state.code, PerformanceReview)  
+    return state  
+  
+def maintainability_review_node(state: ReviewState):  
+    model = create_groq_model()  
+    state.maintainability = review_code(model, "You are an expert in code quality...", state.code, MaintainabilityReview)  
+    return state  
+  
+def summarize_reviews(state: ReviewState):  
+    model = create_groq_model()  
+    messages = [  
+        SystemMessage(content="You are a technical lead summarizing multiple code reviews."),  
+        HumanMessage(content=f"Synthesize these code review results:\n{json.dumps(state.dict(), indent=2)}")  
+    ]  
+    response = model.invoke(messages)  
+    state.summary = response.content  
+    return state  
+  
+# Add nodes to the graph  
+graph.add_node("security_review", security_review_node)  
+graph.add_node("performance_review", performance_review_node)  
+graph.add_node("maintainability_review", maintainability_review_node)  
+graph.add_node("summary", summarize_reviews)  
+  
+# Define parallel execution  
+graph.add_edge("security_review", "summary")  
+graph.add_edge("performance_review", "summary")  
+graph.add_edge("maintainability_review", "summary")  
+  
+graph.set_entry_point(["security_review", "performance_review", "maintainability_review"])  
+  
+graph.set_finish_node("summary")  
+  
+workflow = graph.compile()
+```
+### Orchestrator-Workers
+![](https://ik.imagekit.io/83ba7d5ua/Orchestrator.png?updatedAt=1738775302310)
 
-And with that code, in a much shorter amount of time, we received all the translations:
+Di orchestrator workers workflow, LLM yang pertama (orchestrator) membedah task dan mendelegasikan ke caranya mirip seperti decomposition dan meringkas hasilnya menjadi satu. Di LLM yang pertama ini berperan penting dalam mengkooridnasi dan mengeksekusi spesialisasi workers. Tiap worker optimal untuk subtask yang spesifik.
 
-Berikut adalah hasil output dari agent yang bekerja secara paralel
+Mari berpikir seperti sebuah tim. Pada contoh kali ini . Di tim kali ini ada beberapa bagian ya ada di bagian Business Analyst, Content Strategist, Social Media Manager, Marketing Analyst. Kemudian dari instruksi project manager, dilakukan sebuah pengukuran tingkat kesulitan, jenis penugasan dan delegasi tugas.
 
-/ gambar
+```typescript
+async function implementTask(taskRequest: string) {  
+  const { object: taskPlan } = await generateObject({  
+    model: groq('llama-3.3-70b-versatile'),  
+    schema: z.object({  
+      tasks: z.array(  
+        z.object({  
+          purpose: z.string(),  
+          taskName: z.string(),  
+          changeType: z.enum(['create', 'modify', 'delete']),  
+        })  
+      ),  
+      estimatedEffort: z.enum(['low', 'medium', 'high']),  
+    }),  
+    system: 'You are a Project Manager responsible for designing an efficient task execution strategy.',  
+    prompt: `Create a work plan for the following task:  
+    ${taskRequest}`,  
+  });
+```
 
-### Evaluator
+```typescript
+const taskChanges = await Promise.all(
+    taskPlan.tasks.map(async (task) => {
+      // Determine job roles based on task type
+      const workerSystemPrompt = {
+        create: {
+          'Audience research': 'You are a Business Analyst. You are responsible for conducting in-depth research on the target audience.',
+          'Content creation': 'You are a Content Strategist. You design engaging content strategies tailored to the audience.',
+          'Account management': 'You are a Social Media Manager. You manage and optimize social media accounts.',
+          'Performance analysis': 'You are a Marketing Analyst. You analyze data and measure the success of marketing strategies.',
+        }[task.taskName] || 'You are an expert professional in this field.',
+        modify: {
+          'Account management': 'You are a Social Media Manager. You improve account management strategies to be more effective.',
+        }[task.taskName] || 'You are a specialist enhancing task efficiency.',
+        delete: 'You are an Operations Manager. You identify unnecessary tasks and remove them efficiently.',
+      }[task.changeType];
+```
+
+Setelah Product manager berhasil mendelegasikan tugas, selanjutnya kita gunakan apa yang ada di pola parallel sebelumnya dan mendelegasikan ke karyawan
+```typescript
+      const { object: change } = await generateObject({
+        model: groq('llama-3.3-70b-versatile'),
+        schema: z.object({
+          explanation: z.string(),
+          actionItems: z.array(z.string()),
+        }),
+        system: workerSystemPrompt,
+        prompt: `Implement changes for the following task:
+        - ${task.taskName}
+        
+        Purpose of change: ${task.purpose}
+        
+        Explain the reason for the change and provide a list of necessary action items.`,
+      });
+```
+
+### Workflow with LangGraph python
+
+```python
+class Task(BaseModel):
+    purpose: str
+    task_name: str
+    change_type: Literal["create", "modify", "delete"]
+
+class TaskPlan(BaseModel):
+    tasks: List[Task]
+    estimated_effort: Literal["low", "medium", "high"]
+
+def generate_task_plan(task_request: str) -> TaskPlan:
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[
+            {"role": "system", "content": "You are a Project Manager responsible for designing an efficient task execution strategy."},
+            {"role": "user", "content": f"Create a work plan for the following task: {task_request}"}
+        ],
+        response_format="json"
+    )
+    return TaskPlan(**response["choices"][0]["message"]["content"])
+
+def implement_task_change(task: Task):
+    worker_prompts = {
+        "create": {
+            "Audience research": "You are a Business Analyst responsible for audience research.",
+            "Content creation": "You are a Content Strategist designing content strategies.",
+            "Account management": "You are a Social Media Manager optimizing accounts.",
+            "Performance analysis": "You are a Marketing Analyst measuring strategy success."
+        },
+        "modify": {
+            "Account management": "You are a Social Media Manager improving strategies."
+        },
+        "delete": "You are an Operations Manager identifying unnecessary tasks."
+    }
+
+    system_prompt = worker_prompts.get(task.change_type, {}).get(task.task_name, "You are an expert in this field.")
+
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": f"Implement changes for the task: {task.task_name}\nPurpose: {task.purpose}\nExplain why and list action items."}
+        ],
+        response_format="json"
+    )
+    return response["choices"][0]["message"]["content"]
+```
+
+### Evaluation/Feedback Loops
 ![](https://ik.imagekit.io/83ba7d5ua/Evaluation.png?updatedAt=1738775302256)
 
 Nyuruh chatgpt buat bikin skripsi itu bukan hal yang mudah ya. Kasian chatgpt mikir sendirian. Jadi perlu adanya feedback dari agent tambahan untuk memperbaiki kualitas hasil output dengan terus mengiterasi seiring bertambahnya bagian bagian ya, seperti latar belakang, isi, kesimpulan. Untuk itu perlu adanya evaluator disini untuk memberikan feedback dan respon dari output yang ia terima ​
@@ -516,124 +840,7 @@ graph.add_edge(edge4)
 graph.add_edge(edge5)
 ```
 
-### Routing
-![](https://ik.imagekit.io/83ba7d5ua/Routing.png?updatedAt=1738775302273)
-
-Pola ini memungkinkan model untuk menentukan jalur proses yang tepat berdasarkan konteks dan hasil sebelumnya. Pola routing bekerja dengan baik ketika ada beberapa kategori berbeda yang memerlukan penanganan khusus. Pola ini memastikan setiap kasus diproses dengan pendekatan yang paling sesuai. Seperti pada contoh di atas ini, hasil dari LLM pertama akan menentukan jalur mana yang akan diambil untuk langkah selanjutnya, menyesuaikan proses berdasarkan karakteristik input.
-
-Pertama kita buat terlebih dahulu, routing agent nya yang mengklasifikasikan input dengan membaginya berasarkan jenis input, serta kompleksitas dan alasan detailnya.
-
-```typescript
-async function handleCustomerQuery(query: string) {
-  const model = groq('llama-3.3-70b-versatile');
-
-  // Step 1: Classify the query type
-  const { object: classification } = await generateObject({
-    model,
-    schema: z.object({
-      reasoning: z.string(),
-      type: z.enum(['general', 'refund', 'technical']),
-      complexity: z.enum(['simple', 'complex']),
-    }),
-    prompt: `Classify this customer query:
-    ${query}
-
-    Determine:
-    1. Query type (general, refund, or technical)
-    2. Complexity (simple or complex)
-    3. Brief reasoning for classification`,
-  });
-```
-
-Selanjutnya kita mendefinisikan alur beberapa agen (ngestuck cok)
-
-```typescript
-  // Route based on classification
-  // Determine the model and system prompt based on query type and complexity
-  const { text: response } = await generateText({
-    model:
-      classification.complexity === 'simple'
-        ? groq('llama3-8b-8192')
-        : groq('llama-3.1-8b-instant'),
-    system: {
-      general:
-        'You are an expert customer service agent handling general inquiries.',
-      refund:
-        'You are a customer service agent specializing in refund requests. Follow company policies and gather necessary information.',
-      technical:
-        'You are a technical support specialist with in-depth knowledge of the product. Focus on clear, step-by-step troubleshooting.',
-    }[classification.type],
-    prompt: query,
-  });
-```
-
-### Orchestrator-Workers
-![](https://ik.imagekit.io/83ba7d5ua/Orchestrator.png?updatedAt=1738775302310)
-
-Di orchestrator workers workflow, LLM yang pertama (orchestrator) membedah task dan mendelegasikan ke caranya mirip seperti decomposition dan meringkas hasilnya menjadi satu. Di LLM yang pertama ini berperan penting dalam mengkooridnasi dan mengeksekusi spesialisasi workers. Tiap worker optimal untuk subtask yang spesifik.
-
-Mari berpikir seperti sebuah tim. Pada contoh kali ini . Di tim kali ini ada beberapa bagian ya ada di bagian Business Analyst, Content Strategist, Social Media Manager, Marketing Analyst. Kemudian dari instruksi project manager, dilakukan sebuah pengukuran tingkat kesulitan, jenis penugasan dan delegasi tugas.
-
-```typescript
-async function implementTask(taskRequest: string) {
-  const { object: taskPlan } = await generateObject({
-    model: groq('llama-3.3-70b-versatile'),
-    schema: z.object({
-      tasks: z.array(
-        z.object({
-          purpose: z.string(),
-          taskName: z.string(),
-          changeType: z.enum(['create', 'modify', 'delete']),
-        })
-      ),
-      estimatedEffort: z.enum(['low', 'medium', 'high']),
-    }),
-    system: 'Anda adalah Project Manager yang merancang strategi pelaksanaan tugas secara efisien.',
-    prompt: `Buat rencana kerja untuk tugas berikut:
-    ${taskRequest}`,
-  });
-```
-
-Selanjutnya buat sistem karyawannya
-
-```typescript
-const taskChanges = await Promise.all(
-    taskPlan.tasks.map(async (task) => {
-      // Determine job roles based on task type
-      const workerSystemPrompt = {
-        create: {
-          'Audience research': 'You are a Business Analyst. You are responsible for conducting in-depth research on the target audience.',
-          'Content creation': 'You are a Content Strategist. You design engaging content strategies tailored to the audience.',
-          'Account management': 'You are a Social Media Manager. You manage and optimize social media accounts.',
-          'Performance analysis': 'You are a Marketing Analyst. You analyze data and measure the success of marketing strategies.',
-        }[task.taskName] || 'You are an expert professional in this field.',
-        modify: {
-          'Account management': 'You are a Social Media Manager. You improve account management strategies to be more effective.',
-        }[task.taskName] || 'You are a specialist enhancing task efficiency.',
-        delete: 'You are an Operations Manager. You identify unnecessary tasks and remove them efficiently.',
-      }[task.changeType];
-```
-
-Setelah Product manager berhasil mendelegasikan tugas, selanjutnya kita gunakan apa yang ada di pola parallel sebelumnya dan mendelegasikan ke karyawan
-```typescript
-      const { object: change } = await generateObject({
-        model: groq('llama-3.3-70b-versatile'),
-        schema: z.object({
-          explanation: z.string(),
-          actionItems: z.array(z.string()),
-        }),
-        system: workerSystemPrompt,
-        prompt: `Implement changes for the following task:
-        - ${task.taskName}
-        
-        Purpose of change: ${task.purpose}
-        
-        Explain the reason for the change and provide a list of necessary action items.`,
-      });
-```
-
-Set up Python with langgraph
-
+### Workflow with LangGraph python
 ```python
 class Task(BaseModel):
     purpose: str
@@ -679,27 +886,26 @@ def implement_task_change(task: Task):
         ],
         response_format="json"
     )
-    return response["choices"][0]["message"]["content"]
+	    return response["choices"][0]["message"]["content"]
 ```
-
 ## Kapan menggunakan Typescript dan Python
 
 Vercel AI SDK dan langgraph adalah salah satu framework yang cukup lengkap dan dokumentasi yang rapi. Selain Vercel AI SDK juga ada rekomendasi framework lainnya seperti
 
-[Agentic](https://agentic.so/intro), AI agent standard library that works with any LLM and TS AI SDK.
+- [Agentic](https://agentic.so/intro), AI agent standard library that works with any LLM and TS AI SDK.
 
-[Agno](https://www.agno.com), open-source python framework for building agentic systems
+- [Agno](https://www.agno.com), open-source python framework for building agentic systems
 
-[Rivet](https://rivet.ironcladapp.com/), a drag and drop GUI LLM workflow builder; and
+- [Rivet](https://rivet.ironcladapp.com/), a drag and drop GUI LLM workflow builder; and
 
-[Crew ai](https://www.crewai.com), Python Framework for orchestrating collaborative AI agents
+- [Crew ai](https://www.crewai.com), Python Framework for orchestrating collaborative AI agents
 
-Dengan menggunakan framework membuat kita bisa dengan mudah menggunakan pola standard seperti tools, dan menghubungkan keduanya. Namun
+Dengan menggunakan framework membuat kita bisa dengan mudah menggunakan pola standard seperti tools, memory, component dan menghubungkanya dengan memanggil parameter tertentu.
 
 > While Python has traditionally been the dominant language in AI and ML development due to its extensive libraries and frameworks, **TypeScript — a superset of JavaScript — has emerged as a strong contender for building scalable, maintainable, and efficient AI/ML applications**.
 
 Menggunakan Typescript dan Python tergantung kebutuhan, jika butuh cepat untuk pengembangan fullstack aplikasi typescript cukup tanpa menambah stack lagi, jika ingin terpisah dan membangun agent yang lebih kompleks. Python lebih direkomendasikan untuk membangun AI agent karena dukungan library AI/ML yang lengkap dan lebih banyaknya framework, sedangkan TypeScript cocok jika fokus pada integrasi dengan react framework utamanya pada fullstack developer
 
-Baik Python ataupun Typescript, hingga framework lain bisa cek source code disini
+Baik Python ataupun Typescript, hingga framework lain bisa cek source codenya disini
 
-www.code.com
+[https://github.com/wahyudesu/multiple-ways-to-build-ai-agents](https://github.com/wahyudesu/multiple-ways-to-build-ai-agents)
