@@ -46,7 +46,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   </dd>
                 </div>
               </dl>
-              <div>
+              <div classname="mt-2">
                 <PageTitle>{title}</PageTitle>
               </div>
             </div>
