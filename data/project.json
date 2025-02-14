@@ -11,7 +11,7 @@
   {
     "slug": "personal-website",
     "name": "Personal website",
-    "description": "My personal website for portfolio with retrieval information chatbot about myself.",
+    "description": "My personal website for portfolio with retrieval information chatbot about myself. Also blog with MDX",
     "technologies": ["Next js", "Typescript", "Llama", "Tailwind", "PostgreSQL"],
     "url": "https://www.wahyuikbal.web.id",
     "code": "https://github.com/wahyudesu/Personal-Website-Next-js-Obsidian-Ai-",
@@ -21,7 +21,7 @@
   {
     "slug": "document-summarization",
     "name": "Document summarization",
-    "description": "Final project semester 3 Text Mining",
+    "description": "Final project semester 3 Text Mining. LLM Powered document summarization using Next js and LLama 3.3",
     "technologies": ["Next js", "Tailwind CSS", "Llama 3", "LLM"],
     "code": "https://github.com/wahyudesu/Next-js-PDF-Summarization/",
     "publishedAt": "2024-11-21",
@@ -30,7 +30,7 @@
   {
     "slug": "Monitoring-Stunting-Webbapp",
     "name": "Monitoring Stunting Webapp",
-    "description": "Competition project healthkathon ai 2024 kemenkes (qualify for the preliminaries)",
+    "description": "Competition project healthkathon ai 2024 kemenkes (qualify for the preliminaries). Build generative ai with steamlit that prevented stunting baby and monitoring the progress",
     "technologies": ["Streamlit", "Generative AI", "Neon tech"],
     "url": "https://stuntron.streamlit.app",
     "code": "https://github.com/wahyudesu/healthkathon-ai",
@@ -40,7 +40,7 @@
   {
     "slug": "Malware-prediction-project",
     "name": "Malware prediction project",
-    "description": "Final project semester 3 machine learning, focusing on developing a machine learning model to predict and classify malware using ensemble learning techniques.",
+    "description": "Final project semester 3 machine learning, focusing on developing a machine learning model to predict and classify malware using multiple ensemble learning techniques.",
     "technologies": ["Machine learning", "Ensemble", "Python"],
     "code": "https://github.com/wahyudesu/malware-detection",
     "paper": "",
