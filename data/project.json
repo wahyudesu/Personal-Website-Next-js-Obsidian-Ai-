@@ -9,6 +9,15 @@
     "type": "research"
   },
   {
+    "slug": "project-gastronomi",
+    "name": "Project Gastronomi",
+    "description": "Build ai project focusing on food culture. Still development",
+    "technologies": ["Django", "Flutter", "Website", "Chatbot"],
+    "paper": "",
+    "publishedAt": "2025-02-15",
+    "type": "research"
+  },
+  {
     "slug": "personal-website",
     "name": "Personal website",
     "description": "My personal website for portfolio with retrieval information chatbot about myself. Also blog with MDX",
@@ -50,7 +59,7 @@
   {
     "slug": "Guess-The-Word-Game",
     "name": "Guess The Word game",
-    "description": "Project Gemastik cabang teknologi game. word guessing game using NLP approach, using Indonesian glove corpus and cosine similarity calculation",
+    "description": "Project Gemastik cabang teknologi game. word guessing game using NLP approach, using Indonesian glove corpus and cosine similarity calculation.",
     "technologies": ["Streamlit", "Vector Embeddings", "Text Similarity", "Python", "Glove ID"],
     "url": "",
     "code": "https://github.com/Community-of-Playground/Gemastik-Pengembangan-Aplikasi-Permainan",
@@ -108,7 +117,7 @@
     "slug": "data-engineering-dashboard-system",
     "name": "Data Engineering dashboard System",
     "description": "Build data engineering monitoring system for final project programming on semester 3. Developed a dashboard system to visualize and manage ETL (Extract, Transform, Load) workflows using Flask and Apache Airflow.",
-    "technologies": ["Flask", "Airflow", "docker"],
+    "technologies": ["Flask", "Airflow", "Docker"],
     "code": "https://github.com/AfifH07/LastProjectProgramming",
     "publishedAt": "2024-11-10",
     "type": "research"
@@ -116,7 +125,7 @@
   {
     "slug": "dashboard-d3js",
     "name": "Dashboard d3js",
-    "description": "Build dashboard for final project data visualization on semester 3",
+    "description": "Build sales dashboard for final project data visualization on semester 3. Providing insight in multiple chart maps and insight to make wise decision",
     "technologies": ["Vite", "React", "d3js", "Magic UI", "shdcn ui"],
     "code": "https://3323600056-wahyuikbalmaulana-dashboard-d3js.vercel.app",
     "publishedAt": "2024-11-21",
