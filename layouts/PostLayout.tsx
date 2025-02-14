@@ -46,7 +46,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   </dd>
                 </div>
               </dl>
-              <div>
+              <div className="mb-4 pb-4">
                 <PageTitle>{title}</PageTitle>
               </div>
             </div>
@@ -61,8 +61,8 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                       {author.avatar && (
                         <Image
                           src={author.avatar}
-                          width={38}
-                          height={38}
+                          width={34}
+                          height={34}
                           alt=""
                           className="h-10 w-10 rounded-full"
                         />
