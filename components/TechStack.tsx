@@ -9,7 +9,7 @@ const TechStack: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center py-8">
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-9 gap-6 py-4">
+      <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-9 gap-6 py-4">
         {techStack.map((tech, index) => {
           // Generate path ikon secara dinamis
           const iconPath = `/icons/${tech.toLowerCase().replace(/\s+/g, '-')}.svg`;
