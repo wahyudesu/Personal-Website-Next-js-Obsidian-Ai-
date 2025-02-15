@@ -24,7 +24,8 @@
     "D3js",
     "Pydantic",
     "OpenAI",
-    "Expo"
+    "Expo",
+    "PowerBi"
   ],
   "role_yang_diinginkan": [
     "data scientist",
