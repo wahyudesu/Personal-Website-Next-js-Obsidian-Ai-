@@ -55,11 +55,11 @@ export default function Page() {
         </div>
         <div className="gap-2">
           <DownloadButton
-            label="Download CV (3 pages)"
+            label="Download CV"
             url={siteMetadata.CVUrl}
           />
           <DownloadButton
-            label="Download Resume (2 pages)"
+            label="Resume AI Engineer"
             url={siteMetadata.CVUrl}
           />
         </div>

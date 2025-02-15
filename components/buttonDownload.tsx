@@ -12,7 +12,7 @@ export default function AnimatedSubscribeButtonDemo({ label, url }: { label: str
   };
 
   return (
-    <AnimatedSubscribeButton className="w-44 my-4">
+    <AnimatedSubscribeButton className="w-fit my-4 bg-primary-500">
       <span className="group inline-flex items-center" onClick={handleClick}>
         {label} {/* Gunakan prop `label` untuk teks tombol */}
         <ChevronRightIcon className="ml-1 size-4 transition-transform duration-200 group-hover:translate-x-1" />
