@@ -169,7 +169,7 @@ function ProjectDialog({ project, open, onOpenChange }: ProjectDialogProps) {
                 <img
                   src={project.image}
                   alt={project.name}
-                  className="w-full h-48 md:h-64 object-cover rounded-lg mb-4 md:mb-6"
+                  className="w-full h-48 md:h-96 object-cover rounded-lg mb-4 md:mb-6"
                 />
               </div>
             )}
@@ -214,7 +214,7 @@ function ProjectDialog({ project, open, onOpenChange }: ProjectDialogProps) {
                 </Button>
               )}
             </div>
-            <div className="bg-primary-100 dark:bg-primary-900/20 border-2 border-primary-500 p-6 my-8 rounded-lg">
+            <div className="bg-primary-100 dark:bg-primary-900/20 border-2 border-primary-500 p-10 my-8 rounded-lg">
               <div className="flex flex-col items-center gap-4">
                 <div className="w-14 h-14 rounded-full overflow-hidden">
                   <img 
@@ -225,17 +225,17 @@ function ProjectDialog({ project, open, onOpenChange }: ProjectDialogProps) {
                 </div>
                 <div className="text-center">
                   <h3 className="text-sm font-semibold mb-2">Need a Custom Project?</h3>
-                  <p className="text-muted-foreground mb-4">
+                  <p className="text-muted-foreground mb-4 text-base">
                     I'm open for freelance projects and collaborations. Let's work together to bring your ideas to life.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <Button asChild>
+                    <Button asChild className="bg-primary-500 hover:bg-primary-600">
                       <Link href="/contact">
                         Get in Touch
                       </Link>
                     </Button>
                     <Button variant="outline" asChild>
-                      <Link href="/schedule">
+                      <Link href="https://cal.com/wahyu-ikbal-m/quote-project" target="_blank">
                         Request a Quote
                       </Link>
                     </Button>
