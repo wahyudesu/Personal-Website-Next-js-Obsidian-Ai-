@@ -96,13 +96,13 @@ export default function ChatPage() {
   }, [messages]);
 
   return (
-    <div>
+    <div className="divide-y divide-gray-200 dark:divide-gray-700">
       <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-800 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">Ask anything</h1>
-      </div>
-      <div className="mb-4 flex items-center">
-        <p className="flex-1">
-          Kamu bisa menanyakan apa saja soal diriku, mulai dari educational background, experiences, and skills, hingga hobi.
+        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+          Ask Me Anything
+        </h1>
+        <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
+          Tanyakan tentang latar belakang pendidikan, pengalaman, atau keahlianku.
           <div className="relative group inline-block">
             <button
               type="button"
@@ -136,9 +136,12 @@ export default function ChatPage() {
           </div>
         </p>
       </div>
+      <div className="mb-4 flex items-center">
+        
+      </div>
 
       {/* Area Chat dengan Scroll */}
-      <div className="bg-black/5 dark:bg-white/5 p-4 rounded-md h-auto min-h-80 overflow-y-auto">
+      <div className="bg-black/5 dark:bg-white/5 p-8 rounded-md h-auto min-h-80 overflow-y-auto mt-8">
         {messages.map((msg, index) => (
           <motion.div
             key={index}

@@ -56,11 +56,11 @@ export default function Page() {
         <div className="gap-2">
           <DownloadButton
             label="Download CV"
-            url={siteMetadata.CVUrl}
+            url="/resume/CV_Wahyu Ikbal M.pdf" // Assuming CV.pdf is stored in public/files directory
           />
           <DownloadButton
             label="Resume AI Engineer"
-            url={siteMetadata.CVUrl}
+            url="/resume/CV_Wahyu Ikbal M.pdf" // Assuming Resume_AI_Engineer.pdf is stored in public/files directory
           />
         </div>
       </AuthorLayout>

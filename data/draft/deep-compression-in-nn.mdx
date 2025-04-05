@@ -1,0 +1,285 @@
+---
+image: /images/cover/cover-journal.jpg
+title: Deep Compression in Neural Networks in 4 ways
+description: "Quick and Effective: Simple 5-Minute simplify your life with digital bullet journal"
+date: 2024-07-21
+audience: semua orang
+latar belakang: saya akhirnya rutin menemukan journalling system yang cocok buatku
+tujuan: Supaya orang lebih suka journalling
+platfom: Personal Blog
+tone:
+  - Information, Educational
+tags:
+  - problem
+  - solving
+read: 4
+progress: 100
+published: false
+---
+Model Compression in neural network
+
+If you don't know what a neural network is, you should read this blog first
+
+/ link
+/ link
+
+For example, we have a neural network that has been trained. Then we want to enter it into devices such as cellphones, drones, satellites, robots. Eh, it turns out it can't because the memory is too big or the computing is slow. This is because the computing power on these devices is limited. How do you make this big network smaller?
+![[Pasted image 20240731094224.png]]
+
+Small memory or small amount of computing, without sacrificing performance.
+Research topics that discuss this problem, changing large to small networks,
+it's called neural network compression.
+![[Pasted image 20240801174255.png]]
+
+> Deep compression in neural networks refers to the process of reducing the size and computational requirements of a deep neural network (DNN) while maintaining its performance. This is crucial for deploying DNNs on resource-constrained devices such as smartphones, embedded systems, or IoT devices. Deep compression methods aim to achieve this by reducing the model size and computational complexity without significantly compromising the model's accuracy.
+
+Having a small model that works well on devices with limited resources isn't enough. It needs to be accurate and fast. Model compression or AI compression techniques solve this by making the model smaller without losing accuracy. These techniques make models use less memory and energy.
+
+As the name suggests, [model compression](https://xailient.com/blog/model-compression-allows-real-time-edge-ai-processing/) helps reduce the size of the neural network without compromising too much on accuracy. The resulting models are both memory and energy efficient. Many model compression techniques can be used to reduce the model size. First, pruning
+## 1. Pruning
+First, pruning. Pruning is finding which parts of the network are not too important, then discarding them. For example, which weights are not important. Or which nodes are not important. Or if in the convolution layer, which filters are not important which also reduces the output channel.  This leaves you with what is called a sparse network. Which by reducing the weights or neurons can effectively reduce the complexity and size of the network.
+
+> Sparsity means most of the weights are 0. This can lead to an increase in space and time efficiency.
+
+![[Pasted image 20240801085502.png]]
+
+Tujuan dari pruning itu ada 2
+1. Reduction in storage (smaller file size)
+2. Speed-up during inference (testing)
+
+Ada beberapa strategy dalam pruning, diantaranya ==Weight Pruning==, Neuron Pruning, Filter Pruning, dan Layer Pruning
+
+### Weight Pruning
+Weight pruning involves eliminating the least important weights in the network, essentially setting these weights to zero. This results in a sparse representation of weight matrices, where the zero weights indicate pruned connections.
+
+A simple method for weight pruning is magnitude-based pruning, where weights below a certain absolute magnitude are pruned. Here’s how you might implement it:
+
+```python
+def magnitude_pruning(model, pruning_percent):
+    # Calculate the threshold value as the 
+    #(pruning_percent)th percentile of the weight magnitudes
+    all_weights = np.concatenate([np.abs(w.numpy().flatten()) 
+                                       for w in model.weights])
+    threshold = np.percentile(all_weights, pruning_percent)
+    
+    # Create a new model with the same architecture
+    new_model = create_model()  # Assume create_model() 
+            #returns a new model with the same architecture
+    new_model.set_weights(model.get_weights())  # Copy weights        
+                              #from the old model to the new one
+    
+    # Prune the weights
+    for w in new_model.weights:
+        w.assign(tf.where(tf.abs(w) < threshold, 0., w))
+        
+    return new_model
+```
+This function prunes the given percent of the smallest weights in the model and returns a new model with pruned weights.
+### Train a simple convolutional neural network on MNIST using MagnitudePruner
+
+```python
+from coremltools.optimize.torch.pruning import PolynomialDecayScheduler
+# Create a scheduler that determines when to update pruning mask
+# It will update every 100 steps from 0 to 900
+scheduler = PolynomialDecayScheduler(update_steps=list(range(0, 900, 100)))
+
+from coremltools.optimize.torch.pruning import (
+    MagnitudePruner,
+    MagnitudePrunerConfig,
+    ModuleMagnitudePrunerConfig,
+)
+
+# Configure pruning for convolutional layers
+# Target sparsity of 70% (i.e., 70% of weights will be pruned)
+conv_config = ModuleMagnitudePrunerConfig(target_sparsity=0.7)
+
+# Configure pruning for linear (fully connected) layers, Target sparsity of 80%
+linear_config = ModuleMagnitudePrunerConfig(target_sparsity=0.8)
+
+# Create overall pruning configuration
+config = MagnitudePrunerConfig().set_module_type(torch.nn.Conv2d, conv_config)
+config = config.set_module_type(torch.nn.Linear, linear_config)
+
+# Initialize the pruner with the model and configuration
+pruner = MagnitudePruner(model, config)
+
+# Prepare the model for pruning
+# This step analyzes the model structure and prepares for pruning
+pruner.prepare(inplace=True)
+
+# Note: After this, you would typically train the model while calling
+# pruner.step() at regular intervals to apply pruning
+```
+
+```python
+from collections import OrderedDict
+
+import numpy as np
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+import os
+from torchvision import datasets, transforms
+
+def mnist_net(num_classes=10):
+    return nn.Sequential(
+        OrderedDict(
+            [('conv', nn.Conv2d(1, 12, 3, padding='same')),
+             ('relu', nn.ReLU()),
+             ('pool', nn.MaxPool2d(2, stride=2, padding=0)),
+             ('flatten', nn.Flatten()),
+             ('dense', nn.Linear(2352, num_classes)),
+             ('softmax', nn.LogSoftmax())]
+        )
+    )
+
+def mnist_dataset(data_dir="~/.mnist_pruning_data"):
+    transform = transforms.Compose(
+        [transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))]
+    )
+    data_path = os.path.expanduser(f"{data_dir}/mnist")
+    if not os.path.exists(data_path):
+        os.makedirs(data_path)
+    train = datasets.MNIST(data_path, train=True, download=True, transform=transform)
+    test = datasets.MNIST(data_path, train=False, transform=transform)
+    return train, test
+    
+model = mnist_net()
+
+batch_size = 128
+train_dataset, test_dataset = mnist_dataset()
+train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size)
+```
+
+```python
+optimizer = torch.optim.Adam(model.parameters(), eps=1e-07)
+accuracy_pruned = 0.0
+num_epochs = 2
+
+for epoch in range(num_epochs):
+    # train one epoch
+    model.train()
+    for batch_idx, (data, target) in enumerate(train_loader):
+        train_step(model, optimizer, train_loader, data, target, batch_idx, epoch)
+        pruner.step()
+
+    # evaluate
+    accuracy_pruned = eval_model(model, test_loader)
+```
+Untuk file lengkap colabnya 
+https://colab.research.google.com/drive/1AVc8yWIBgysbsy0yUXQLWdv9tnlIPfO8?usp=sharing
+
+==Hasil codenya itu pengurangan neural network dengan grafik sebagai hasil akhir==
+
+for faster training time
+## Archive
+Pruning: The basic idea of pruning is you want to remove some of the connections in your neural network. This leaves you with what is called a sparse network, and in terms of matrix computation, a lot of the values in the matrix get set to zero, which makes it cheaper to store and faster to compute. Once again, there are many different algorithms you can use to do your pruning, and in this explanation, I will only talk about the simplest one: magnitude pruning.
+
+In magnitude pruning, you first pick a pruning factor \( x \), which denotes what proportion of the connections you would like to remove. Then, in each layer of the network, you set the lowest \( x\% \) of the weights by absolute value to zero, the idea being that the lowest weights by absolute value (the ones closest to zero) are the least important for the network's function. By removing some of the connections, your model will experience some degradation in accuracy. So, as an optional third step, you may want to retrain your model for a few more iterations while keeping the removed weights fixed at zero, to recover some of the accuracy.
+
+Now, it's important to note that just setting some of the matrix values to zero doesn't actually save space or make it go any faster, because zeros take just as much space to store and just as much time to process as non-zero values. So if you're doing pruning, you need to combine that with some sort of sparse execution engine that can take advantage of a sparsified neural network structure.
+
+Let me give you an example of what I mean by this. In general, when your GPU performs matrix multiplication, it iterates over slices of your two matrices, and for each pair of slices, it accumulates an outer product matrix, and the sum of all of this is the matrix multiplication. But even if you have zeros in the slices, it does not affect how long this operation will take. Compare this, on the other hand, with an algorithm that's specifically designed to multiply sparse matrices. The sparse matrix multiplication algorithm has a special trick that skips over all of the zero entries in a vector so that the more zeros you have in the matrix, the faster the multiplication will be.
+
+The last thing I will talk about is structured pruning. If you simply remove connections from a network without any further pattern, that is called unstructured pruning. But structured pruning is when you enforce more structure on which weights are you allowed to set to zero. One type of structured pruning is a "2:4 structured sparsity" pattern. What this means is for each block of four consecutive matrix values, only two of them are allowed to be non-zero, and this allows you to store the matrix in a compressed format where only the non-zero values are stored along with indices for which values are represented in which positions. NVIDIA's Tensor Core GPUs are able to execute this type of structured sparsity with greater efficiency.
+
+So we see that for pruning neural networks, we need to design the pruning algorithm with the hardware in mind. Which pruning algorithm you should use will depend on which type of sparsity runs fast on the hardware that you intend to deploy your neural network on.
+### Reference
+https://www.youtube.com/watch?v=UcwDgsMgTu4
+- https://pohsoonchang.medium.com/neural-network-pruning-update-cda56343e5a2
+- https://lilianweng.github.io/posts/2023-01-10-inference-optimization/
+- https://luckytoilet.wordpress.com/2023/06/20/how-to-deploy-your-deep-learning-side-project-on-a-budget/
+- https://arxiv.org/abs/2106.08962
+- https://arxiv.org/abs/2101.07948
+- https://www.tensorflow.org/model_optimization/guide/pruning/pruning_with_keras#overview
+- https://www.red-gate.com/simple-talk/development/python/decoding-efficiency-in-deep-learning-a-guide-to-neural-network-pruning-in-big-data-mining/
+
+## 2. Low-rank approximation
+Kedua, low-rank approximation. Weight itu bisa berupa matrix atau tensor. Untuk sekarang, contoh yang gampang aja, fully connected layer. kita punya input suatu layer dengan ukuran 10, output layernya ukuran 8. Weight-nya matrix ukuran 10x8.
+Ada berbagai teknik buat approximate matrix, misal pakai rank decomposition, jadi diapproximate dengan perkalian dua matrix ini.
+
+Yang satu ukuran 10xr, yang satu lagi ukuran rx8. r kalau di rank decomposition itu rank. Makin kecil rank-nya makin besar compression-nya. Dalam contoh ini r-nya 2. Kalau diartikan dalam diagram, jadi dua layer gini. Layer pertama untuk matrix pertama, layer kedua untuk matrix kedua.
+
+Kelihatannya lebih rumit, tapi kalau kita hitung ukuran matrixnya, sebelum di-compress ada 80, setelah di-compress ada 10x2 + 2x8 = 20 + 16 = 36. 
+Jadi lebih kecil deh memorinya buat nyimpan si weight ini.
+==hasilnya itu pengurangan matrix==
+## 3. Knowledge distillation atau teacher-student network.
+Knowledge Distillation (KD) adalah sebuah strategi yang digunakan untuk meningkatkan efisiensi jaringan saraf tiruan (neural network) dengan cara mengtransfer pengetahuan dari model yang lebih besar dan kompleks (model guru) ke model yang lebih kecil dan sederhana (model murid). Tujuan dari KD adalah untuk membuat model murid dapat melakukan tugas yang sama dengan model guru, tetapi dengan menggunakan sumber daya yang lebih terbatas.
+
+Network yang gede jadi teacher, yang kecil jadi student. Gimana yang teacher ini bisa ngajarin network student. Lebih detailnya, kita sudah pernah bahas di video ini, silakan ditonton bagi yang tertarik.
+
+```python
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout
+
+# Model Guru (Teacher)
+teacher_model = Sequential([
+    Dense(64, activation='relu', input_shape=(784,)),
+    Dropout(0.2),
+    Dense(32, activation='relu'),
+    Dropout(0.2),
+    Dense(10, activation='softmax')
+])
+
+# Model Murid (Student)
+student_model = Sequential([
+    Dense(64, activation='relu', input_shape=(784,)),
+    Dropout(0.2),
+    Dense(32, activation='relu'),
+    Dropout(0.2),
+    Dense(10, activation='softmax')
+])
+
+# Fungsi Loss untuk Distilasi Pengetahuan
+def distillation_loss(y_true, y_pred, tau=1):
+    return tf.reduce_mean(tf.keras.losses.KLD(y_true, y_pred) * tau)
+
+# Compile Model Murid dengan Loss Distilasi
+student_model.compile(optimizer='adam',
+                      loss=distillation_loss,
+                      metrics=['accuracy'])
+
+# Data Training (Contoh Sederhana)
+(X_train, y_train), (X_test, y_test) = tf.keras.datasets.mnist.load_data()
+X_train = X_train.reshape(-1, 784).astype('float32') / 255.0
+X_test = X_test.reshape(-1, 784).astype('float32') / 255.0
+
+# Pemetaan Label
+y_train = tf.keras.utils.to_categorical(y_train, num_classes=10)
+y_test = tf.keras.utils.to_categorical(y_test, num_classes=10)
+
+# Pemetaan Label untuk Distilasi Pengetahuan
+y_train_distill = tf.keras.utils.to_categorical(y_train, num_classes=10)
+
+# Pelatihan Model Murid dengan Distilasi Pengetahuan
+student_model.fit(X_train, y_train_distill,
+                  epochs=10,
+                  batch_size=128,
+                  validation_data=(X_test, y_test))
+
+# Evaluasi Model Murid
+loss, accuracy = student_model.evaluate(X_test, y_test)
+print(f'Loss: {loss}, Accuracy: {accuracy}')
+```
+
+> apakah teacher student selalu bisa bikin student lebih baik ? daripada kalau training student dari scratch ?
+> 
+> Belum tentu Apalagi kalau teachernya terlalu confident yang outputnya hampir mirip dengan one hot vector di dataset. Ya jadinya nggak beda-beda amat dengan training dari scratch pake dataset. Udah confident gitu, teachernya juga bisa salah pula. Malah ngajarin yang ga bener ke studentnya. Tapi tentu saja teacher-student dipakai karena lebih banyak faedahnya daripada mudaratnya. Makanya dipakai.
+==hasilnya itu perbandingan akurasi neural network==
+## 4. Quantization
+Quantization. Biasanya, weight itu disimpan dengan 32-bit floating points. Jumlah bit ini bisa dikurangin buat ngecilin memori. Umumnya, floating point-nya dikurangin jadi cuma 8-bit, 4x lebih kecil memorinya daripada 32-bit. 
+
+Berikut adalah teks yang telah dirapikan tanpa mengubah isinya:
+
+quantization neuron networks are large and take up a lot of space because they have millions or billions of parameters by default when you train your neural network usually the parameters are stored in fp32 which means that each parameter takes up 32 bits the idea of quantization is to reduce the Precision of the parameters into a format that takes up less space for example 16bit floating point or int 8 if we store all of the parameters in int 8 format that means all of them are represented by integers between 0 and 255 then that means we will save four times as much space compared to the original Network in fp32 format there are several ways you can turn floating points into integers and the most common way is called zero point quantization I'm going to step through an example of how this works the reason this is called zero point quantization is all the zeros in the original Matrix are mapped to zero in the quanti version we will see later why this is useful for sparse neuron networks next we take the maximum absolute value element and map it either to 128 or 127 in this case the maximum absolute value element is - 51.5 so this gets mapped to -18 the quantization has to be a linear transformation so with two elements determined the rest of the elements are determined as well finally to get the N 8 representation we add 28 to each element so all of the elements are positive two ways of doing quantization are quantizing the weights and quantizing the activations in weight quantization we store all of the weights of the neuron Network in 8 format and we de quantize the weights into fp32 when we run it so that all of the data remains in fp32 format throughout the network since everything has been done in fp32 it is not going to be faster than the original model but this is still useful because it safe space for for example in mobile devices we're making the model four times smaller is a significant Improvement on the other hand in activation quantization we convert all of the inputs into int8 and all of the computations are also performed in int8 this is faster than weight quantization because on most Hardware int8 computations are faster than fp32 but one challenge is we don't know the inputs of of the neural network when we quantize the model so in order to determine the scale factors for each layer we will need a calibration set that represents what kind of data we expect to see during inference time if you ever come across the terms static or dynamic quantization these refer to different ways of determining the scale factors of activations if calibration is not done properly you will encounter clipping in the network because the quantization is only able to handle floating points in a certain range and anything outside of the range will clip to the max or Min values to determine which type of quantization to use it helps to look at the specifications of the hardware that you intend to do the inflence on here I have pulled up the data sheet for the Nvidia A10 GPU which is a popular choice for inference according to the specification sheet the FP 32 performance of this GPU is 31 Terra flops whereas the N 8 performance is a lot faster at 250 tensor operations per second this is thanks to its tensor core capabilities but not all gpus have this capability so on some older gpus you might find that the fp32 has the same performance as in8 one more thing that you should be aware of is the effect of outliers on quantization one recent paper called LM int 8 found that in large language models with over 6 billion parameters quantization doesn't work because of outlier features that cause the performance of the model to fall to close to zero to understand why this is the case consider what will happen if you have an outlier in the weight what happens is the buckets become very large because there is only 256 buckets to cover all of the values between the minimum and maximum values including the outlier to solve this problem they proposed a mixed decomposition scheme where the outliers are handled separately from the majority of the data this is not necessary when you're running smaller models but useful to know if you ever plan to quantize larger language
+
+Dan mungkin ada cara-cara lain di luar yang sudah disebutkan di sini, ntah yang sudah ditemukan atau yang belum ditemukan.
+
+## Ketentuan
+- [ ] Ada codenya
+- [ ] Singkat dan padat dan tidak bertele tele
+
+## Reference fix

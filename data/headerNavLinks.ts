@@ -5,6 +5,7 @@ const headerNavLinks = [
   { href: '/blog', title: 'Blog' },
   // { href: '/books', title: 'Books' },
   { href: '/chat-me', title: 'AI Chat' },
+  { href: '/games', title: 'Games' },
   { href: '/contact', title: 'Contact Me' },
 ]
 

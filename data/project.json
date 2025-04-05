@@ -1,7 +1,7 @@
 [
   {
-    "slug": "dashboard-monitoring-agriculture-indonesia",
     "name": "Dashboard monitoring agriculture Indonesia",
+    "image": "https://cdn.dribbble.com/userupload/42799206/file/original-02e37e38ea9de58cffbfddba2a03e25a.png?resize=1200x900&vertical=center",
     "description": "Invited in faculty research to build deep learning projects in the field of agriculture. The project aims to monitor Indonesia's agricultural conditions and predict crop yields through AI-based data analysis.",
     "technologies": ["Tableau", "Deep Learning", "Forecasting", "Data Mining"],
     "paper": "",

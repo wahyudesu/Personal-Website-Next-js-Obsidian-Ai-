@@ -3,5 +3,7 @@
   "obsidian-hide-sidebars-when-narrow",
   "obsidian-excalidraw-plugin",
   "obsidian-linter",
-  "obsidian-reading-time"
+  "obsidian-reading-time",
+  "automatic-table-of-contents",
+  "obsidian-plugin-toc"
 ]
