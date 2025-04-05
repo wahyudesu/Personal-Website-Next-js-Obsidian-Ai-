@@ -23,6 +23,7 @@ import siteMetadata from "@/data/siteMetadata"
 import projectsData from '@/data/projects'
 import { Separator } from "@/components/components/ui/separator"
 import Schedulewidget from "@/components/meeting"
+import Image from "next/image"
 
 interface Project {
   name: string
@@ -113,7 +114,7 @@ function ProjectCard({ project, index, onClick }: ProjectCardProps) {
     >
       <Card className="overflow-hidden h-full border-2 border-solid dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 group">
         <div className="relative h-40 sm:h-48 overflow-hidden">
-          <img 
+          <Image 
             src={project.image || "/placeholder.svg"} 
             alt={project.name}
             className="w-full h-full object-cover transition-transform duration-300"
@@ -166,7 +167,7 @@ function ProjectDialog({ project, open, onOpenChange }: ProjectDialogProps) {
           <div className="p-4 md:p-6 lg:p-10">
             {project.image && (
               <div className="mb-6 sm:mb-8">
-                <img
+                <Image
                   src={project.image}
                   alt={project.name}
                   className="w-full h-48 md:h-96 object-cover rounded-lg mb-4 md:mb-6"
@@ -217,7 +218,7 @@ function ProjectDialog({ project, open, onOpenChange }: ProjectDialogProps) {
             <div className="bg-primary-100 dark:bg-primary-900/20 border-2 border-primary-500 p-10 my-8 rounded-lg">
               <div className="flex flex-col items-center gap-4">
                 <div className="w-14 h-14 rounded-full overflow-hidden">
-                  <img 
+                  <Image 
                     src="/avatar.png" 
                     alt="Profile Picture" 
                     className="w-full h-full object-cover"
