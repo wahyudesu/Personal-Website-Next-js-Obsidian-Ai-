@@ -9,6 +9,7 @@ import TechStack from "@/components/TechStack";
 import { PulsatingButton } from "@/components/components/ui/pulsating-button";
 import Typewriter from "typewriter-effect";
 import { Button } from "@/components/components/ui/button";
+import CommunityCTA from "@/components/CTACommunity";
 
 const MAX_POSTS = 3; // Batasi jumlah postingan yang ditampilkan
 
@@ -62,8 +63,11 @@ export default function Page() {
         </p> */}
         <div className="flex justify-center">
           <PulsatingButton>
-            <Link href="/about">My Resume Page</Link>
+            <Link href="https://cal.com/wahyuikbal_m">Book free consultation</Link>
           </PulsatingButton>
+          <Button>
+            <Link href="https://cal.com/wahyuikbal_m">Browse selected projects</Link>
+          </Button>
         </div>
       </div>
 
@@ -78,6 +82,7 @@ export default function Page() {
         </h2>
         <ListLayoutSimple posts={displayedPosts} title="" />
       </div>
+      <CommunityCTA/>
     </div>
   );
 }

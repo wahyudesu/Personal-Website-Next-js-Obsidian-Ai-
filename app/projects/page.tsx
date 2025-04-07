@@ -112,11 +112,16 @@ function ProjectCard({ project, index, onClick }: ProjectCardProps) {
       onClick={onClick}
       className="cursor-pointer"
     >
-      <Card className="overflow-hidden h-full border-2 border-solid dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 group">
+      <Card className="overflow-hidden h-full border-2 border-solid dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 group dark:bg-slate-950">
         <div className="relative h-40 sm:h-48 overflow-hidden">
           <Image 
             src={project.image || "/placeholder.svg"} 
             alt={project.name}
+            fill={true}
+            // objectFit="cover"
+            quality={50}
+            // width={14}
+            // height={14}
             className="w-full h-full object-cover transition-transform duration-300"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
@@ -153,7 +158,7 @@ interface ProjectDialogProps {
 function ProjectDialog({ project, open, onOpenChange }: ProjectDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="flex max-w-4xl max-h-[90vh] p-0 overflow-hidden">
+      <DialogContent className="flex max-w-4xl max-h-[90vh] sm:max-h-[min(640px,80vh)] sm:max-w-lg p-0 overflow-hidden">
         <ScrollArea className="max-h-[calc(90vh-56px)]">
           <DialogHeader className="px-6 pt-6 space-y-0 text-left">
             <DialogTitle className="text-2xl sm:text-2xl md:text-3xl font-bold">
@@ -170,6 +175,8 @@ function ProjectDialog({ project, open, onOpenChange }: ProjectDialogProps) {
                 <Image
                   src={project.image}
                   alt={project.name}
+                  width={1600}
+                  height={200}
                   className="w-full h-48 md:h-96 object-cover rounded-lg mb-4 md:mb-6"
                 />
               </div>
@@ -220,23 +227,25 @@ function ProjectDialog({ project, open, onOpenChange }: ProjectDialogProps) {
                 <div className="w-14 h-14 rounded-full overflow-hidden">
                   <Image 
                     src="/avatar.png" 
+                    width={14}
+                    height={14}
                     alt="Profile Picture" 
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="text-center">
-                  <h3 className="text-sm font-semibold mb-2">Need a Custom Project?</h3>
+                  <h3 className="text-base font-semibold mb-2">Need a Custom Project?</h3>
                   <p className="text-muted-foreground mb-4 text-base">
                     I'm open for freelance projects and collaborations. Let's work together to bring your ideas to life.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <Button asChild className="bg-primary-500 hover:bg-primary-600">
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button asChild className="bg-primary-500 hover:bg-primary-600 dark:bg-primary-500 dark:hover:bg-primary-600">
                       <Link href="/contact">
                         Get in Touch
                       </Link>
                     </Button>
-                    <Button variant="outline" asChild>
-                      <Link href="https://cal.com/wahyu-ikbal-m/quote-project" target="_blank">
+                    <Button variant="outline" asChild className="dark:bg-slate-50 dark:hover:bg-slate-300">
+                      <Link href="https://cal.com/wahyuikbal_m/" target="_blank">
                         Request a Quote
                       </Link>
                     </Button>
