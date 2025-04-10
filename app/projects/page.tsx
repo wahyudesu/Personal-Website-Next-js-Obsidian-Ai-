@@ -30,6 +30,7 @@ interface Project {
   description: string
   role: string
   technologies: string[]
+  tag: string[]
   image: string
   content: string
   url?: string
@@ -60,7 +61,6 @@ export default function ProjectsPage() {
           A collection of projects I've worked on
         </p>
       </div>
-
       <div className="pt-6">
         <ProjectGrid projects={projects} onSelectProject={setSelectedProject} />
 
@@ -188,7 +188,7 @@ function ProjectDialog({ project, open, onOpenChange }: ProjectDialogProps) {
             <div className="mb-4">
               <h2 className="text-lg font-semibold my-4">Tags</h2>
               <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech, i) => (
+                {project.tag.map((tech, i) => (
                   <span key={i} className={badgeVariants({ variant: 'outline' })}>{tech}</span>
                   ))}
               </div>
