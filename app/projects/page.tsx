@@ -201,21 +201,21 @@ function ProjectDialog({ project, open, onOpenChange }: ProjectDialogProps) {
             </div>
             <div className="mt-6 flex flex-wrap gap-2">
               {project.url && (
-                <Button asChild variant="outline">
+                <Button asChild variant="outline" className="border-2 border-primary-500 dark:border-primary-500 hover:bg-primary-500 hover:text-white dark:hover:bg-primary-500 dark:hover:text-white">
                   <Link href={project.url} target="_blank">
                     Go To Website
                   </Link>
                 </Button>
               )}
               {project.code && (
-                <Button asChild variant="outline">
+                <Button asChild variant="outline" className="border-2 border-primary-500 dark:border-primary-500 hover:bg-primary-500 hover:text-white dark:hover:bg-primary-500 dark:hover:text-white">
                   <Link href={project.code} target="_blank">
                     Source Code
                   </Link>
                 </Button>
               )}
               {project.paper && (
-                <Button asChild variant="outline">
+                <Button asChild variant="outline" className="border-2 border-primary-500 dark:border-primary-500 hover:bg-primary-500 hover:text-white dark:hover:bg-primary-500 dark:hover:text-white">
                   <Link href={project.paper} target="_blank">
                     View Paper
                   </Link>
@@ -244,7 +244,7 @@ function ProjectDialog({ project, open, onOpenChange }: ProjectDialogProps) {
                         Get in Touch
                       </Link>
                     </Button>
-                    <Button variant="outline" asChild className="dark:bg-slate-50 dark:hover:bg-slate-300">
+                    <Button variant="outline" asChild className="dark:bg-slate-50 dark:text-black dark:hover:bg-neutral-300 dark:hover:text-black">
                       <Link href="https://cal.com/wahyuikbal_m/" target="_blank">
                         Request a Quote
                       </Link>
