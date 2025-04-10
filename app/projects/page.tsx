@@ -158,7 +158,7 @@ interface ProjectDialogProps {
 function ProjectDialog({ project, open, onOpenChange }: ProjectDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="flex max-w-4xl max-h-[90vh] sm:max-h-[min(640px,80vh)] sm:max-w-lg p-0 overflow-hidden">
+      <DialogContent className="flex sm:max-h-[min(640px,80vh)] sm:max-w-lg lg:max-w-4xl lg:max-h-lvh p-0 overflow-hidden">
         <ScrollArea className="max-h-[calc(90vh-56px)]">
           <DialogHeader className="px-6 pt-6 space-y-0 text-left">
             <DialogTitle className="text-2xl sm:text-2xl md:text-3xl font-bold">

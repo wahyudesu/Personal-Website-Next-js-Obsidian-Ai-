@@ -42,11 +42,10 @@ export default function Page() {
             <Typewriter
               options={{
                 strings: [
-                  "Data Science Student",
-                  "Full Stack Developer",
-                  "UI/UX Designer",
                   "AI Engineer",
+                  "Full Stack Developer",
                   "Data Scientist",
+                  "UI/UX Designer",
                 ],
                 autoStart: true,
                 loop: true,
@@ -61,12 +60,12 @@ export default function Page() {
         {/* <p className="mx-auto max-w-sm sm:max-w-md mb-4 text-center font-medium sm:text-xl">
           I was a Data Science student at the number 1 best Polytechnic in Southeast Asia.
         </p> */}
-        <div className="flex justify-center">
+        <div className="flex flex-row gap-4 sm:flex-row sm:gap-4 justify-center">
           <PulsatingButton>
             <Link href="https://cal.com/wahyuikbal_m">Book free consultation</Link>
           </PulsatingButton>
           <Button>
-            <Link href="https://cal.com/wahyuikbal_m">Browse selected projects</Link>
+            <Link href="https://contra.com/wahyuikbal_m">Browse selected projects</Link>
           </Button>
         </div>
       </div>
