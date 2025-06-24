@@ -35,37 +35,39 @@ export default function Page() {
           </Link>
         </Button>
         <h1 className="mb-2 text-5xl md:text-5xl lg:text-6xl font-semibold tracking-tighter text-center">
-          Wahyu Ikbal Maulana
+          I help growing{' '}
+          <span className="relative underline decoration-blue-500 decoration-6 underline-offset-4 text-black hover:text-blue-500 transition-colors duration-300">
+            companies
+          </span>
+          <br />
+          implement AI so they can
         </h1>
         {startAnimation && (
-          <div className="text-center py-2 mb-4">
+          <div className="text-center py-4 mb-4">
             <Typewriter
               options={{
                 strings: [
-                  "AI Engineer",
-                  "Full Stack Developer",
-                  "Data Scientist",
-                  "UI/UX Designer",
+                  "Reduce cost",
+                  "Automate repetitive work",
+                  "Improve decision makings",
+                  "Build solution that actually works",
                 ],
                 autoStart: true,
                 loop: true,
-                wrapperClassName: "text-xl sm:text-2xl font-medium",
-                cursorClassName: "text-blue-500 dark:text-blue-500",
+                wrapperClassName: "text-xl sm:text-2xl lg:text-4xl font-medium ",
+                cursorClassName: "text-blue-500 dark:text-blue-500 sm:text-2xl lg:text-4xl",
                 delay: 50, // Kecepatan pengetikan
                 deleteSpeed: 20, // Kecepatan penghapusan
               }}
             />
           </div>
         )}
-        {/* <p className="mx-auto max-w-sm sm:max-w-md mb-4 text-center font-medium sm:text-xl">
-          I was a Data Science student at the number 1 best Polytechnic in Southeast Asia.
-        </p> */}
         <div className="flex flex-col sm:flex-row gap-4 pt-4 lg:gap-6 justify-center">
           <PulsatingButton>
             <Link href="https://cal.com/wahyuikbal_m">Book free consultation</Link>
           </PulsatingButton>
           <Button variant="outline">
-            <Link href="https://contra.com/wahyuikbal_m">Browse selected projects</Link>
+            <Link href="https://contra.com/wahyuikbal_m">See my work</Link>
           </Button>
         </div>
       </div>
@@ -81,7 +83,7 @@ export default function Page() {
         </h2>
         <ListLayoutSimple posts={displayedPosts} title="" />
       </div>
-      <CommunityCTA/>
+      <div><CommunityCTA/></div>
     </div>
   );
 }

@@ -1,0 +1,167 @@
+---
+title: Top 7 Typescript Frameworks for AI Agents
+summary: 
+tujuan: mau ngasih tahu guide ttg framework apa saja yang bisa dipakai di ts 
+tone:
+  - information, engaging, excited
+tags:
+  - typescript
+  - ai
+  - 
+  - mahasiswa
+date: 2025-04-31
+progress: 5
+---
+The pace of AI innovation is dizzying. With agentic systems—where LLMs take actions, call tools, then reason again—now mainstream, choosing the **right TypeScript framework** can make all the difference. From prototyping to production, each library offers unique trade-offs in flexibility, modularity, observability, and ecosystem maturity.
+
+Building agentic AI systems in TypeScript is easier than ever, thanks to a growing selection of frameworks. However, with so many options available, it can be overwhelming to choose the right one. In this article, I'll briefly introduce seven of the most popular options, share a bit about my own experience with each, and then wrap up with the key factors to consider when choosing the right one for your project. Let's dive into seven standout options.
+
+In this article, we will explore 7 popular agentic frameworks that enable you to build your own multi-agent applications in minutes. These frameworks provide simple and fast solutions for integrating LLMs with external tools and data sources, making it easier than ever to create powerful, autonomous AI systems.
+
+# 1. Vercel AI SDK
+![](https://ik.imagekit.io/83ba7d5ua/vercel-ai?updatedAt=1750099145908)
+
+A TypeScript-native toolkit built by the creators of Next.js.
+
+Yang pertama yang paling besar tentunya, punya ekosistem yang cukup besar untuk web development  
+
+```
+npm i ai
+```
+Pros: Unified API across many LLM providers; seamless tool-calling; built-in agent orchestration with maxSteps; integrates effortlessly with React/Vue/Svelte 
+langbase.com
+
+Ideal for: Developers looking for a smooth, full-stack experience and strong observability in web apps.
+
+# 2. Langchain JS
+![](https://ik.imagekit.io/83ba7d5ua/langchain-js?updatedAt=1750099150457)
+LangChain.js is the TypeScript version of the popular LangChain framework that enables developers to recreate all their favorite prompts, chains, and agents natively in TypeScript with seamless serializable format compatibility with the Python version.
+
+JavaScript/TypeScript port of the popular Python LangChain.
+
+yang kedua langchain juga punya ekosistem yang besar pula, jika di vercel dia punya ekosistem web dev, di langchain dia sudah punya banyak integrasi untuk development ai di seperti langgraph, langsmith langeval
+
+```
+npm i langchain @langchain/core
+```
+
+
+```typescript
+import { LLMChain, PromptTemplate } from 'langchain';
+
+const prompt = new PromptTemplate({
+  template: "Translate this text to French: {text}",
+  inputVariables: ["text"],
+});
+
+const chain = new LLMChain({ prompt });
+
+const response = await chain.call({ text: "Hello, world!" });
+console.log(response.text);
+
+```
+# 3. Mastra
+![](https://ik.imagekit.io/83ba7d5ua/mastra-ai?updatedAt=1750099145960)
+Mastra AI is an open-source TypeScript framework designed to facilitate the creation, management, and deployment of sophisticated AI applications. It provides core building blocks tailored for practical AI system development, including tools for agent orchestration, state management, and integration with various AI models.
+
+Mastra AI’s modular design allows developers to build custom AI agents that can perform tasks ranging from natural language understanding to decision-making workflows. Although sample code is sparse, its architecture encourages extensibility and adaptability for diverse AI use cases.
+
+This framework is ideal for developers and teams looking for an open-source solution to build complex AI-driven applications with a focus on maintainability and scalability.
+
+A cohesive, batteries‑included TypeScript agent framework 
+
+ini termasuk framework baru yang 
+```
+npm install mastra@latest @mastra/core@latest @mastra/libsql@latest
+```
+
+meskipun bisa diterapkan di di berbagai react dan typescript framework seperti next js, vite, express, mastra juga bisa built in sendiri 
+
+```
+npm create mastra@latest
+```
+
+
+Pros: CLI generator, built-in tracing/observability, workflow engine, memory management, REST API.
+
+Drawbacks: Tightly coupled to Vercel AI SDK, which some devs criticize .
+
+Ideal for: TS devs wanting everything in one package—from dev to deployment—with full telemetry.
+# 4. Langbase
+![](https://ik.imagekit.io/83ba7d5ua/langbase?updatedAt=1750099146958)
+
+Langbase is a TypeScript AI SDK focused on delivering an exceptional developer experience for building complex AI agents with large language models. It emphasizes reducing boilerplate by allowing developers to compose agents with memory and pipeline capabilities easily. Langbase supports creating agents that can maintain context over conversations and chain multiple AI operations into workflows, making it ideal for building sophisticated conversational AI or multi-step reasoning agents.
+
+While detailed sample code is less publicly documented, Langbase’s core strength lies in its ability to let developers quickly prototype and iterate on AI agents by composing reusable components and memory stores.
+
+This framework is best suited for developers who want to build advanced AI agents that require stateful memory and complex orchestration without managing low-level LLM interactions manually.
+
+A serverless “pipes” platform that abstracts AI agents as composable cloud functions 
+
+Pros: Zero-infra, built-in RAG, memory, toolkits, versioning, metrics, collaboration.
+
+Drawbacks: More opinionated—best suited for those who fit its serverless workflow.
+
+Ideal for: Startups, hackathons, educational projects or rapid development by students.
+# 5. Praison ai 
+PraisonAI is a production-ready multi-AI agents framework for TypeScript that combines AutoGen and CrewAI into a low-code solution for building and managing multi-agent LLM systems, focusing on simplicity, customization, and efficient human-agent collaboration.
+# 6. Agenta
+Agentica is a TypeScript AI framework specialized in Function Calling that allows developers to create AI agents more easily than any other framework by simply listing functions while maintaining stable and flexible structure.
+# 7. Voltagent
+Voltagent is an open-source TypeScript framework designed to simplify the creation of AI-driven applications by providing modular building blocks and abstractions for autonomous agents, addressing LLM interaction complexity, tool integration, and state management.
+
+# Final Thoughts
+
+Framework TypeScript sendiri terus berkembang. AI SDK, misalnya, sedang merilis pembaruan besar. OpenAI mengembangkan SDK resminya, dan Claude juga meluncurkan versi SDK mereka. Sementara itu, beberapa tools seperti LlamaIndex mungkin sudah tidak lagi kompatibel dengan ekosistem tertentu. Setiap framework punya kelebihan dan kekurangannya sendiri, dan sering kali datang dengan ekosistemnya masing-masing.
+
+Selain memilih framework untuk AI Agent, kamu juga bisa mempertimbangkan konfigurasi TypeScript yang terintegrasi dengan layanan ekosistem yang sudah ada. Misalnya, jika kamu ingin fokus pada kecepatan pengembangan, kamu bisa menggunakan _trigger.dev_ atau _Deno_. Keduanya menyediakan infrastruktur siap pakai yang mempercepat proses deployment.
+
+Dalam praktiknya, memilih framework bukan hanya soal kemudahan pengembangan, tapi juga kesiapan untuk dideploy serta dukungan terhadap fitur seperti observability, callback, dan MCP. Fitur-fitur ini penting untuk memastikan proses pengembangan bisa dievaluasi dan diukur dengan baik.
+
+saya sedang ingin membuat artikel yang mengedukasi pembaca tentang framework framework ai agents di tyescript. Judul yang saya miliki seperti ini  
+  
+Top-7-Typescript-Frameworks-for-AI-Agents  
+  
+untuk list frameworknya
+1. vercel ai sdk
+2. langbase
+3. mastra ai
+4. langchain js
+5. voltagent dev
+6. agentica
+7. praison ai
+
+Nah dari list framework tersebut buatkan saya deskripsi framework framework di atas dalam beberapa paragraf, berisi penjelasan, fitur fitur yang diunggulkan, kasih tinjau terkait kodenya  serta pro dan cons nya dan  kalimat. penulisannya dalam bahasa inggris. 
+
+---
+
+I’m writing an educational Medium-style article titled **"Top 7 TypeScript Frameworks for AI Agents"** to introduce developers to leading frameworks in the AI agents ecosystem, written in TypeScript.
+
+I have the following list of frameworks:
+
+1. Vercel AI SDK
+    
+2. Langbase
+    
+3. Mastra AI
+    
+4. LangChain JS
+    
+5. Voltagent
+    
+6. Agentica
+    
+7. Praison AI
+
+Please write **well-structured, multi-paragraph descriptions** for each framework in English. For each framework, include:
+
+- A clear overview of what the framework does
+    
+- Key features and use cases
+    
+- Sample code or CLI usage if available
+	
+- Ideal user or project fit
+    
+
+The writing should be engaging yet professional, suitable for a Medium audience of developers who are technically literate but may be new to AI agent frameworks in TypeScript. Keep the tone informative and friendly.
