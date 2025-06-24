@@ -2,8 +2,8 @@ import { ReactNode } from 'react'
 import type { Authors } from 'contentlayer/generated'
 import SocialIcon from '@/components/social-icons'
 import Image from '@/components/Image'
-import { Button } from '@/components/components/ui/button'
-import { PulsatingButton } from '@/components/components/ui/pulsating-button'
+import { Button } from '@/components/ui/button'
+import { PulsatingButton } from '@/components/ui/pulsating-button'
 import Link from 'next/link'
 
 interface Props {

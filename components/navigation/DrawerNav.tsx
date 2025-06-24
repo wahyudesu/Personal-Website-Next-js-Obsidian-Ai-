@@ -1,12 +1,12 @@
 'use client';
 
 import { Drawer } from 'vaul';
-import Link from './Link';
+import Link from '../Link';
 import headerNavLinks from '@/data/headerNavLinks';
 import { AlignJustify, X } from 'lucide-react';
-import { Button } from './components/ui/button';
-import MusicPlayer from './music-player';
-import { Separator } from './components/ui/separator';
+import { Button } from '@/components/ui/button';
+import MusicPlayer from '../MusicPlayer';
+import { Separator } from '@/components/ui/separator';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import * as React from 'react';
 

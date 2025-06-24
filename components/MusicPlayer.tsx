@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { CirclePlay, Pause, SkipBack, SkipForward, ChevronUp, ChevronDown, Loader2 } from 'lucide-react';
-import { Button } from '@/components/components/ui/button';
-import { Separator } from './components/ui/separator';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 import { useMusicPlayer } from './MusicPlayerContext';
 import { playlist, Song } from '@/data/playlist';
 import { motion, AnimatePresence } from 'framer-motion'; // Impor Framer Motion

@@ -3,8 +3,8 @@ import { MDXLayoutRenderer } from 'pliny/mdx-components';
 import AuthorLayout from '@/layouts/AuthorLayout';
 import { coreContent } from 'pliny/utils/contentlayer';
 import { genPageMetadata } from 'app/seo';
-import NumberTicker from '@/components/components/ui/number-ticker';
-import { badgeVariants } from '@/components/components/ui/badge';
+import NumberTicker from '@/components/ui/number-ticker';
+import { badgeVariants } from '@/components/ui/badge';
 import DownloadButton from '@/components/buttonDownload';
 import siteMetadata from '@/data/siteMetadata';
 

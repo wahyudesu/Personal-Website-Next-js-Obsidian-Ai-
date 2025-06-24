@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/components/components/ui/button";
-import { Input } from "@/components/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { useState, useEffect, FormEvent, useRef } from "react";
 import { motion } from "framer-motion";

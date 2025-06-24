@@ -6,9 +6,9 @@ import { allCoreContent, sortPosts } from "pliny/utils/contentlayer";
 import { allBlogs } from "contentlayer/generated";
 import ListLayoutSimple from "@/layouts/BlogComponent";
 import TechStack from "@/components/TechStack";
-import { PulsatingButton } from "@/components/components/ui/pulsating-button";
+import { PulsatingButton } from "@/components/ui/pulsating-button";
 import Typewriter from "typewriter-effect";
-import { Button } from "@/components/components/ui/button";
+import { Button } from "@/components/ui/button";
 import CommunityCTA from "@/components/CTACommunity";
 
 const MAX_POSTS = 3; // Batasi jumlah postingan yang ditampilkan
@@ -36,11 +36,11 @@ export default function Page() {
         </Button>
         <h1 className="mb-2 text-5xl md:text-5xl lg:text-6xl font-semibold tracking-tighter text-center">
           I help growing{' '}
-          <span className="relative underline decoration-blue-500 decoration-6 underline-offset-4 text-black hover:text-blue-500 transition-colors duration-300">
+          <span className="relative underline decoration-blue-500 decoration-6 underline-offset-4 hover:text-blue-500 transition-colors duration-300">
             companies
           </span>
           <br />
-          implement AI so they can
+          implement <span className="text-blue-500 font-black">AI/ML</span> so they can
         </h1>
         {startAnimation && (
           <div className="text-center py-4 mb-4">

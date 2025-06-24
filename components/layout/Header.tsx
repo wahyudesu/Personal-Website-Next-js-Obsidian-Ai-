@@ -2,11 +2,11 @@
 
 import siteMetadata from '@/data/siteMetadata';
 import headerNavLinks from '@/data/headerNavLinks';
-import Link from './Link';
-import MobileNav from './MobileNav';
-import ThemeSwitch from './ThemeSwitch';
-import SearchButton from './SearchButton';
-import VaulDrawer from './DrawerNav';
+import Link from '../Link';
+import MobileNav from '@/components/navigation/MobileNav';
+import ThemeSwitch from '@/components/navigation/ThemeSwitch';
+import SearchButton from '@/components/navigation/SearchButton';
+import VaulDrawer from '@/components/navigation/DrawerNav';
 import { usePathname } from 'next/navigation';
 
 const Header = () => {

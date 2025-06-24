@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { cn } from "@/components/lib/utils";
+import { cn } from "@/lib/utils";
 
 interface TypingAnimationProps {
   texts: string[];

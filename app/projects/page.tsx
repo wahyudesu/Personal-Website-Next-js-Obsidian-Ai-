@@ -4,10 +4,10 @@ import { useState, useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { X } from "lucide-react"
 import ReactMarkdown from "react-markdown"
-import { badgeVariants } from '@/components/components/ui/badge';
-import { Button } from "@/components/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/components/card"
-import { Badge } from "@/components/components/ui/badge"
+import { badgeVariants } from '@/components/ui/badge';
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/card"
+import { Badge } from "@/components/ui/badge"
 import {
   Dialog,
   DialogContent,
@@ -16,12 +16,12 @@ import {
   DialogDescription,
   DialogFooter,
   DialogClose,
-} from "@/components/components/ui/dialog"
-import { ScrollArea } from "@/components/components/ui/scroll-area"
+} from "@/components/ui/dialog"
+import { ScrollArea } from "@/components/ui/scroll-area"
 import Link from "next/link"
 import siteMetadata from "@/data/siteMetadata"
 import projectsData from '@/data/projects'
-import { Separator } from "@/components/components/ui/separator"
+import { Separator } from "@/components/ui/separator"
 import Schedulewidget from "@/components/meeting"
 import Image from "next/image"
 

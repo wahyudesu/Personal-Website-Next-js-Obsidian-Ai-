@@ -1,7 +1,7 @@
 'use client';
 
 import { CheckIcon, ChevronRightIcon } from "lucide-react";
-import { AnimatedSubscribeButton } from "@/components/components/ui/animated-subscribe-button";
+import { AnimatedSubscribeButton } from "@/components/ui/animated-subscribe-button";
 
 export default function AnimatedSubscribeButtonDemo({ label, url }: { label: string; url: string }) {
   const handleClick = () => {

@@ -1,4 +1,4 @@
-import { Button } from "@/components/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -6,7 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/components/ui/dialog";
+} from "@/components/ui/dialog";
 import { Instagram, Linkedin, Github, MessageSquare } from "lucide-react"; // Import ikon dari lucide-react
 
 export function SocialMediaDialog() {

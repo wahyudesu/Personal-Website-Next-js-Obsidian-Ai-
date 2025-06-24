@@ -1,4 +1,4 @@
-import { Accordion, AccordionContent, AccordionItem } from "@/components/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem } from "@/components/ui/accordion";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 
 import { Plus } from "lucide-react";
