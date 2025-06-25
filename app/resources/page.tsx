@@ -11,7 +11,7 @@ export default function ResourcesPage() {
           Resources
         </h1>
         <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-          Useful resources and tools for development and productivity.
+          A collection of resources and tools I've created that you can use to learn, boost productivity, or assist development. Perfect for anyone looking to learn or find useful references.
         </p>
       </div>
       <div className="pt-6">

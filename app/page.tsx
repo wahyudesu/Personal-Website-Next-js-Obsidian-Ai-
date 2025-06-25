@@ -34,7 +34,7 @@ export default function Page() {
           Chat with My AI Assistant
           </Link>
         </Button>
-        <h1 className="mb-2 text-5xl md:text-5xl lg:text-6xl font-semibold tracking-tighter text-center">
+        <h1 className="cursor-default mb-2 text-5xl md:text-5xl lg:text-6xl font-semibold tracking-tighter text-center">
           I help growing{' '}
           <span className="relative underline decoration-blue-500 decoration-6 underline-offset-4 hover:text-blue-500 transition-colors duration-300">
             companies
@@ -54,7 +54,7 @@ export default function Page() {
                 ],
                 autoStart: true,
                 loop: true,
-                wrapperClassName: "text-xl sm:text-2xl lg:text-4xl font-medium ",
+                wrapperClassName: "cursor-default text-xl sm:text-2xl lg:text-4xl font-medium ",
                 cursorClassName: "text-blue-500 dark:text-blue-500 sm:text-2xl lg:text-4xl",
                 delay: 50, // Kecepatan pengetikan
                 deleteSpeed: 20, // Kecepatan penghapusan

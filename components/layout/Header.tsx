@@ -21,13 +21,7 @@ const Header = () => {
     <header className={headerClass.trim()}>
       <Link href="/" aria-label={siteMetadata.headerTitle}>
         <div className="flex items-center space-x-3">
-          {/* Uncomment the line below to use the logo */}
-          {/* <Logo /> */}
-          {typeof siteMetadata.headerTitle === 'string' ? (
-            <div className="text-2xl font-semibold h-6">{siteMetadata.headerTitle}</div>
-          ) : (
-            siteMetadata.headerTitle
-          )}
+          <div className="text-2xl font-semibold h-6">Wahyu</div>
         </div>
       </Link>
       <div className="flex items-center space-x-3 sm:space-x-6">

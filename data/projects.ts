@@ -18,7 +18,7 @@ const projects: Project[] = [
     role: "AI Engineer",
     technologies: ["Streamlit", "Llamaindex", "Python"],
     tag: ["AI", "Chatbot", "RAG"],
-    image: "/projects/dasbor-analitik.png",
+    image: "/projects/jbcocoa.png",
     content: `
 ## Client Background
 An international coffee export-import company with a diverse workforce and global clientele faced challenges in efficiently sharing internal knowledge and providing timely customer support across multiple languages. The company manages a large repository of documents and resources in various formats, making it difficult for employees and customers to quickly find relevant information. Their operations span several countries, requiring seamless communication and information retrieval in English, Indonesian, French, and Malay.

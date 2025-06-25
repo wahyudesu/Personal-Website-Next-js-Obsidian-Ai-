@@ -1,7 +1,5 @@
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader } from "@/components/Card"
+import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -10,6 +8,8 @@ export interface Resource {
   description: string
   image: string
   url: string
+  badge?: string // badge label
+  bgColor?: string // background color, e.g. '#F5C443' or 'bg-yellow-400'
 }
 
 interface ResourceGridProps {
@@ -27,43 +27,62 @@ export default function ResourceGrid({ resources }: ResourceGridProps) {
 }
 
 function ResourceCard({ resource }: { resource: Resource }) {
-  const [hovered, setHovered] = useState(false)
   return (
-    <motion.div
-      whileHover={{ scale: 1.03 }}
-      className="cursor-pointer"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+    <div
+      className="flex justify-center items-center"
       onClick={() => window.open(resource.url, "_blank")}
     >
-      <Card className="overflow-hidden h-full border-2 border-solid dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 group dark:bg-slate-950 relative">
-        <div className="relative h-40 sm:h-48 overflow-hidden">
-          <Image
-            src={resource.image || "/placeholder.svg"}
-            alt={resource.name}
-            fill={true}
-            quality={50}
-            className="w-full h-full object-cover transition-transform duration-300"
-          />
-          {hovered && (
-            <div className="absolute inset-0 flex items-center justify-center bg-black/50 transition-opacity">
-              <Button asChild variant="outline" className="z-10">
-                <Link href={resource.url} target="_blank">
-                  Visit Resource
-                </Link>
-              </Button>
-            </div>
+      <Card
+        className={`overflow-hidden w-full group relative flex flex-col rounded-2xl p-0 ${
+          resource.bgColor ? resource.bgColor : "bg-white dark:bg-slate-950"
+        } outline outline-0 hover:outline-4 hover:outline-primary-500 border-none`}
+      >
+        <div className="relative w-full aspect-[2/1]">
+          {resource.image && (resource.image.endsWith('.svg') || resource.image.endsWith('.gif')) ? (
+            <img
+              src={resource.image}
+              alt={resource.name}
+              className="object-cover w-full h-full transition-transform duration-300 rounded-2xl absolute inset-0"
+              style={{ background: "transparent" }}
+            />
+          ) : (
+            <Image
+              src={resource.image || "/placeholder.png"}
+              alt={resource.name}
+              fill={true}
+              quality={50}
+              className="object-cover w-full h-full transition-transform duration-300 rounded-2xl"
+              style={{ background: "transparent" }}
+            />
           )}
+          {resource.badge && (
+            <span className="absolute top-3 left-3 bg-white text-xs font-bold px-3 py-1 rounded-md shadow z-20">
+              {resource.badge}
+            </span>
+          )}
+          <a
+            href={resource.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-30"
+          >
+            <Button size="lg" className="hover:bg-primary-700 text-xl rounded-full">
+              Get the Resource
+            </Button>
+          </a>
         </div>
         <CardHeader className="p-4 pb-2">
-          <h3 className="text-lg sm:text-xl font-bold">{resource.name}</h3>
+          <span className="text-primary-500 text-sm font-bold">
+            Customer Story
+          </span>
+          <h3 className="text-lg sm:text-xl font-bold mt-1">{resource.name}</h3>
         </CardHeader>
-        <CardContent className="px-4 pt-0">
-          <p className="text-muted-foreground text-sm sm:text-base mb-4 line-clamp-2">
+        {/* <CardContent className="px-4 pt-0">
+          <p className="text-sm sm:text-base mb-4 font-medium">
             {resource.description}
           </p>
-        </CardContent>
+        </CardContent> */}
       </Card>
-    </motion.div>
+    </div>
   )
 }

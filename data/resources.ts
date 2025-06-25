@@ -2,29 +2,23 @@ import { Resource } from 'app/resources/ResourceGrid'
 
 const resources: Resource[] = [
   {
-    name: 'FastAPI Boilerplate',
+    name: 'Intro to Machine Learning: Panduan Lengkap untuk Pemula',
+    description: 'Rekomendasi belajar ML untuk pemula, lengkap dengan contoh implementasi Python dan notebook interaktif.',
+    image: '/thumbnail.png',
+    url: 'https://github.com/wahyudesu/Intro-to-Machine-Learning',
+  },
+  {
+    name: 'FastAPI AI Boilerplate template for your production-ready AI applications',
     description: 'Official Next.js documentation for learning and reference.',
-    image: '/icons/nextjs.svg',
-    url: 'https://nextjs.org/docs',
+    image: '/thumbnail.png',
+    url: 'https://github.com/wahyudesu/Fastapi-AI-Production-Template',
   },
   {
-    name: 'Tailwind CSS',
-    description: 'A utility-first CSS framework for rapid UI development.',
-    image: '/icons/tailwindcss.svg',
-    url: 'https://tailwindcss.com/',
-  },
-  {
-    name: 'Framer Motion',
+    name: 'Multiple ways to build AI agents using Typescript and Python',
     description: 'A production-ready motion library for React.',
-    image: '/icons/framer-motion.svg',
+    image: '/thumbnail.png',
     url: 'https://www.framer.com/motion/',
-  },
-  {
-    name: 'React Markdown',
-    description: 'Render Markdown as React components.',
-    image: '/icons/react.svg',
-    url: 'https://github.com/remarkjs/react-markdown',
-  },
+  }
 ]
 
 export default resources;
