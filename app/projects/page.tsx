@@ -6,7 +6,7 @@ import { X } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import { badgeVariants } from '@/components/ui/badge';
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/card"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/Card"
 import { Badge } from "@/components/ui/badge"
 import {
   Dialog,
@@ -22,7 +22,7 @@ import Link from "next/link"
 import siteMetadata from "@/data/siteMetadata"
 import projectsData from '@/data/projects'
 import { Separator } from "@/components/ui/separator"
-import Schedulewidget from "@/components/meeting"
+// import Schedulewidget from "@/components/meeting"
 import Image from "next/image"
 
 interface Project {

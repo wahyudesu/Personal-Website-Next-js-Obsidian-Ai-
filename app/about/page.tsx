@@ -5,7 +5,7 @@ import { coreContent } from 'pliny/utils/contentlayer';
 import { genPageMetadata } from 'app/seo';
 import NumberTicker from '@/components/ui/number-ticker';
 import { badgeVariants } from '@/components/ui/badge';
-import DownloadButton from '@/components/buttonDownload';
+import DownloadButton from './ButtonDownload';
 import siteMetadata from '@/data/siteMetadata';
 
 export const metadata = genPageMetadata({ title: 'About' });

@@ -13,18 +13,50 @@ export interface Project {
 
 const projects: Project[] = [
   {
-    name: "Dashboard monitoring agriculture Indonesia",
-    description: "Monitor Indonesia's agricultural conditions and predict crop yields through AI-based data analysis.",
-    role: "data management",
-    technologies: ["Tableau", "Deep Learning", "Python"],
-    tag: [ "Forecasting", "Data Mining"],
+    name: "RAG Chatbot Multilingual",
+    description: "A multilingual chatbot supporting various file types and languages for an international coffee export-import company.",
+    role: "AI Engineer",
+    technologies: ["Streamlit", "Llamaindex", "Python"],
+    tag: ["AI", "Chatbot", "RAG"],
     image: "/projects/dasbor-analitik.png",
     content: `
-## Overview
-This project analyzes agricultural data in Indonesia and applies deep learning models to predict future trends.
+## Client Background
+An international coffee export-import company with a diverse workforce and global clientele faced challenges in efficiently sharing internal knowledge and providing timely customer support across multiple languages. The company manages a large repository of documents and resources in various formats, making it difficult for employees and customers to quickly find relevant information. Their operations span several countries, requiring seamless communication and information retrieval in English, Indonesian, French, and Malay.
 
-- Built dashboards with Tableau
-- Integrated deep learning models for prediction
+## Project Overview
+The project aimed to develop an intelligent chatbot capable of understanding and responding in multiple languages, while integrating with the company's existing document management system (OneDrive). The chatbot needed to support various file types for knowledge ingestion and provide accurate, context-aware answers to both employees and customers. The solution would streamline internal processes, enhance customer engagement, and ensure that information was accessible regardless of language barriers.
+
+## Solution
+- Built a multilingual RAG (Retrieval-Augmented Generation) chatbot using Streamlit and Llamaindex.
+- Supported multiple file types for knowledge ingestion.
+- Integrated with OneDrive for seamless document retrieval.
+- Focused on accurate language detection and context-aware responses.
+
+## Result
+The chatbot improved internal efficiency and customer engagement by providing instant, language-specific answers based on the company's knowledge base.
+    `
+  },
+  {
+    name: "Dashboard Monitoring Agriculture Indonesia",
+    description: "Monitor Indonesia's agricultural conditions and predict crop yields through AI-based data analysis.",
+    role: "Data Management",
+    technologies: ["Tableau", "Deep Learning", "Python"],
+    tag: ["Forecasting", "Data Mining"],
+    image: "/projects/dasbor-analitik.png",
+    content: `
+## Client Background
+Agricultural stakeholders in Indonesia, including government agencies, farmers, and agribusinesses, often struggle with fragmented data sources and limited access to real-time insights. The country's vast and diverse agricultural landscape makes it challenging to monitor crop conditions, predict yields, and respond proactively to emerging trends. Stakeholders needed a centralized platform to aggregate, analyze, and visualize agricultural data, enabling them to make data-driven decisions for improving productivity and sustainability.
+
+## Project Overview
+This project focused on developing a comprehensive dashboard system to monitor Indonesia's agricultural conditions and forecast crop yields using advanced AI and data analytics. The dashboard would integrate data from multiple sources, apply deep learning models for predictive analysis, and present actionable insights through interactive visualizations. The goal was to empower stakeholders with timely information to optimize resource allocation, plan interventions, and support national food security initiatives.
+
+## Solution
+- Built interactive dashboards using Tableau.
+- Integrated deep learning models for crop yield prediction.
+- Automated data pipelines for real-time updates.
+
+## Result
+Enabled stakeholders to make informed decisions, improving productivity and resource allocation in the agricultural sector.
     `
   },
   {
@@ -36,35 +68,62 @@ This project analyzes agricultural data in Indonesia and applies deep learning m
     url: "",
     image: "/projects/lombokeats.png",
     content: `
-## Overview
-Building an AI-powered platform for exploring gastronomic culture with chatbot integration and mobile support.
+## Client Background
+A cultural initiative aimed to promote and explore gastronomic diversity through technology.
+
+## Project Overview
+Created an AI-powered platform to explore food culture, featuring a chatbot and mobile support.
+
+## Solution
+- Developed backend with Django and real-time features using Websockets.
+- Built a mobile app with Flutter.
+- Implemented AI chatbot for interactive culinary exploration.
+- Used Text-to-SQL for dynamic data queries.
+
+## Result
+Enhanced user engagement and cultural awareness through an accessible, interactive platform.
     `
   },
   {
-    name: "Personal website",
+    name: "Personal Website",
     description: "Portfolio website with retrieval-based chatbot and blog using MDX.",
-    role: "Fullstack developer",
+    role: "Fullstack Developer",
     technologies: ["Next js", "Typescript", "Llama", "Tailwind", "PostgreSQL"],
     tag: ["SEO Website", "Blog Website", "AI Chatbot"],
     image: "/projects/personal-website.png",
     url: "https://www.wahyuikbal.web.id",
     code: "https://github.com/wahyudesu/Personal-Website-Next-js-Obsidian-Ai-",
     content: `
-## Overview
-A full-featured personal portfolio and blog with AI chatbot for answering questions based on my content.
+## Project Overview
+A personal portfolio and blog site featuring an AI chatbot that answers questions based on my content.
+
+## Solution
+- Built with Next.js, Typescript, and Tailwind CSS.
+- Integrated Llama for retrieval-based chatbot.
+- Used MDX for flexible blog content.
+
+## Result
+Showcases my work and enables visitors to interactively explore my portfolio and blog.
     `
   },
   {
-    name: "Document summarization",
+    name: "Document Summarization",
     description: "LLM-powered document summarization using Next.js and Llama.",
-    role: "fullstack developer",
+    role: "Fullstack Developer",
     technologies: ["Next js", "Tailwind CSS", "Llama 3", "LLM"],
-    tag:[],
+    tag: [],
     image: "",
     code: "https://github.com/wahyudesu/Next-js-PDF-Summarization/",
     content: `
-## Overview
-Summarizes uploaded documents using large language models. Final project for Text Mining.
+## Project Overview
+A web app that summarizes uploaded documents using large language models.
+
+## Solution
+- Built with Next.js and Tailwind CSS.
+- Integrated Llama 3 for document summarization.
+
+## Result
+Simplifies information extraction from lengthy documents, aiding academic and professional users.
     `
   },
   {
@@ -72,131 +131,207 @@ Summarizes uploaded documents using large language models. Final project for Tex
     description: "Generative AI to prevent and monitor stunting in babies.",
     role: "AI Engineer",
     technologies: ["Streamlit", "Generative AI", "Neon tech"],
-    tag:["Generative AI App"],
+    tag: ["Generative AI App"],
     image: "",
     url: "https://stuntron.streamlit.app",
     code: "https://github.com/wahyudesu/healthkathon-ai",
     content: `
-## Overview
-Developed during Healthkathon AI 2024. Used AI to assist parents and health workers in stunting prevention.
+## Client Background
+Health professionals and parents needed a tool to monitor and prevent stunting in infants.
+
+## Project Overview
+Developed a web application using generative AI to provide guidance and monitoring for stunting prevention.
+
+## Solution
+- Built with Streamlit and Neon tech.
+- Used generative AI for personalized recommendations.
+
+## Result
+Improved awareness and prevention strategies for stunting, supporting better child health outcomes.
     `
   },
   {
-    name: "Malware prediction project",
+    name: "Malware Prediction Project",
     description: "Classifying malware using ensemble learning techniques.",
-    role: "ml engineer",
+    role: "ML Engineer",
     technologies: ["Machine learning", "Ensemble", "Python"],
-    tag:[],
+    tag: [],
     image: "",
     code: "https://github.com/wahyudesu/malware-detection",
     content: `
-## Overview
-Applied ensemble models to malware datasets to predict potential threats.
+## Project Overview
+A machine learning project to classify malware and predict potential threats.
+
+## Solution
+- Applied ensemble learning models to malware datasets.
+- Evaluated model performance for threat detection.
+
+## Result
+Enhanced malware detection accuracy, contributing to improved cybersecurity.
     `
   },
   {
-    name: "Guess The Word game",
+    name: "Guess The Word Game",
     description: "Word guessing game using NLP and cosine similarity.",
-    role: "nlp engineer",
+    role: "NLP Engineer",
     technologies: ["Streamlit", "Vector Embeddings", "Text Similarity", "Python", "Glove ID"],
-    tag:[],
+    tag: [],
     image: "",
     code: "https://github.com/Community-of-Playground/Gemastik-Pengembangan-Aplikasi-Permainan",
     content: `
-## Overview
-Developed for Gemastik. Fun game powered by NLP and Indonesian GloVe vectors.
+## Project Overview
+A fun word guessing game powered by NLP and Indonesian GloVe vectors.
+
+## Solution
+- Used vector embeddings and cosine similarity for word matching.
+- Built with Streamlit for interactive gameplay.
+
+## Result
+Engaged users in learning and playing with language using AI techniques.
     `
   },
   {
     name: "CNN Rock Scissor Paper",
     description: "Image classification project for game prediction using CNN.",
-    role: "student",
+    role: "Student",
     technologies: ["Python", "Tensorflow", "Computer Vision"],
-    tag:[],
+    tag: [],
     image: "",
     code: "https://github.com/wahyudesu/Dicoding-rock-scissor-paper",
     content: `
-## Overview
-Image-based Rock-Scissor-Paper prediction using TensorFlow CNN model.
+## Project Overview
+Developed an image-based Rock-Scissor-Paper prediction system using CNN.
+
+## Solution
+- Built and trained a CNN model with TensorFlow.
+- Processed and classified game images.
+
+## Result
+Achieved accurate predictions, demonstrating computer vision capabilities.
     `
   },
   {
     name: "Bambubot: Chatbot Kelurahan Keputih",
     description: "Chatbot for document management in Keputih urban village.",
-    tag:[],
+    tag: [],
     role: "AI Engineer",
     technologies: ["Python", "LLM", "Telegram", "Langchain"],
     image: "/projects/bambubot.png",
     content: `
-## Overview
-Built with Langchain and Telegram API. Helped community services to improve communication.
+## Client Background
+Keputih urban village needed a solution to streamline document management and community communication.
+
+## Project Overview
+Developed a chatbot to assist with document requests and information dissemination.
+
+## Solution
+- Built with Langchain and Telegram API.
+- Automated responses for common document-related queries.
+
+## Result
+Improved efficiency and accessibility for community services.
     `
   },
   {
-    name: "Life expectancy analysis",
+    name: "Life Expectancy Analysis",
     description: "Linear regression analysis on life expectancy data.",
-    role: "data analyst",
+    role: "Data Analyst",
     technologies: ["Python", "streamlit"],
-    tag:[],
+    tag: [],
     image: "",
     code: "https://github.com/wahyudesu/Life-expectancy-analysis",
     paper: "https://github.com/wahyudesu/Life-expectancy-analysis/blob/main/Document/3323600056_Wahyu%20Ikbal%20Maulana_Regresi%20Linier%20Berganda.pdf",
     content: `
-## Overview
-Final project using linear regression to understand life expectancy trends across countries.
+## Project Overview
+Analyzed life expectancy trends across countries using linear regression.
+
+## Solution
+- Collected and cleaned global life expectancy data.
+- Built regression models to identify key factors.
+
+## Result
+Provided actionable insights for health policy and research.
     `
   },
   {
-    name: "Anime recommendation web app",
+    name: "Anime Recommendation Web App",
     description: "Anime recommendation system with machine learning.",
-    role: "ml engineer",
+    role: "ML Engineer",
     technologies: ["Next js", "Machine learning"],
-    tag:[],
+    tag: [],
     image: "",
     code: "https://github.com/mozaldy/wamonime",
     content: `
-## Overview
-Web-based anime recommendation engine using ML-based similarity matching.
+## Project Overview
+A web-based anime recommendation engine using machine learning.
+
+## Solution
+- Implemented similarity-based recommendation algorithms.
+- Built with Next.js for a responsive user experience.
+
+## Result
+Helped users discover new anime based on their preferences.
     `
   },
   {
-    name: "Forecasting Indonesia renewable energy",
+    name: "Forecasting Indonesia Renewable Energy",
     description: "Forecast renewable energy growth in Indonesia using ARIMA.",
-    role: "data scientist",
+    role: "Data Scientist",
     technologies: ["Python", "Machine learning", "ARIMA"],
-    tag:[],
+    tag: [],
     image: "",
     code: "https://github.com/wahyudesu/ARIMA-Analysis-in-Energy-SDGs-7-Indonesia",
     paper: "https://github.com/wahyudesu/ARIMA-Analysis-in-Energy-SDGs-7-Indonesia/blob/main/Makalah%20Journal%20ARIMA%20Forecasting.docx",
     content: `
-## Overview
-Final statistics project focused on SDGs and forecasting with time series ARIMA model.
+## Project Overview
+Forecasted renewable energy growth in Indonesia as part of SDGs research.
+
+## Solution
+- Used ARIMA time series models for energy data forecasting.
+- Analyzed trends and provided future projections.
+
+## Result
+Supported policy and investment decisions in renewable energy.
     `
   },
   {
-    name: "Data Engineering dashboard System",
+    name: "Data Engineering Dashboard System",
     description: "Visualize and manage ETL workflows using Flask and Airflow.",
-    role: "data engineer",
+    role: "Data Engineer",
     technologies: ["Flask", "Airflow", "Docker"],
-    tag:[],
+    tag: [],
     image: "",
     code: "https://github.com/AfifH07/LastProjectProgramming",
     content: `
-## Overview
-A project that integrates data pipelines and monitoring system using Airflow.
+## Project Overview
+Integrated data pipelines and monitoring system for ETL workflows.
+
+## Solution
+- Developed dashboard with Flask.
+- Managed and visualized ETL jobs using Airflow and Docker.
+
+## Result
+Streamlined data engineering processes and improved workflow transparency.
     `
   },
   {
     name: "Dashboard d3js",
     description: "Sales dashboard with multiple charts and insights.",
-    role: "frontend developer",
+    role: "Frontend Developer",
     technologies: ["Vite", "React", "d3js", "Magic UI", "shdcn ui"],
-    tag:["Chart Dashboard"],
+    tag: ["Chart Dashboard"],
     image: "",
     code: "https://3323600056-wahyuikbalmaulana-dashboard-d3js.vercel.app",
     content: `
-## Overview
-Visualizes key business metrics using interactive charts and maps built with d3.js.
+## Project Overview
+A sales dashboard visualizing key business metrics with interactive charts and maps.
+
+## Solution
+- Built with React, d3.js, and modern UI libraries.
+- Implemented multiple chart types for comprehensive insights.
+
+## Result
+Enabled data-driven decision making through clear and interactive visualizations.
     `
   },
 ]
