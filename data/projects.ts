@@ -14,7 +14,7 @@ export interface Project {
 const projects: Project[] = [
   {
     name: "RAG Chatbot Multilingual",
-    description: "A multilingual chatbot supporting various file types and languages for an international coffee export-import company.",
+    description: "Transforming global communication: a multilingual AI chatbot that breaks language barriers and delivers instant answers from any document.",
     role: "AI Engineer",
     technologies: ["Streamlit", "Llamaindex", "Python"],
     tag: ["AI", "Chatbot", "RAG"],
@@ -38,7 +38,7 @@ The chatbot improved internal efficiency and customer engagement by providing in
   },
   {
     name: "Dashboard Monitoring Agriculture Indonesia",
-    description: "Monitor Indonesia's agricultural conditions and predict crop yields through AI-based data analysis.",
+    description: "Empowering Indonesia’s agriculture: an AI-powered dashboard that predicts crop yields and turns raw data into actionable insights.",
     role: "Data Management",
     technologies: ["Tableau", "Deep Learning", "Python"],
     tag: ["Forecasting", "Data Mining"],
@@ -61,10 +61,10 @@ Enabled stakeholders to make informed decisions, improving productivity and reso
   },
   {
     name: "Project Gastronomi P2V",
-    description: "AI project focusing on food culture.",
+    description: "Discover culinary heritage with an AI-powered platform that brings food culture to your fingertips.",
     role: "ML Engineer",
     technologies: ["Django", "Flutter", "Websocket", "Gitlab", "Text to SQL"],
-    tag: ["Culiner", "Culture", "AI Chatbot"],
+    tag: ["Culinary", "Culture", "AI Chatbot"],
     url: "",
     image: "/projects/lombokeats.png",
     content: `
@@ -86,7 +86,7 @@ Enhanced user engagement and cultural awareness through an accessible, interacti
   },
   {
     name: "Personal Website",
-    description: "Portfolio website with retrieval-based chatbot and blog using MDX.",
+    description: "Not just a portfolio—an interactive AI-powered hub where visitors can explore my work and get answers in real time.",
     role: "Fullstack Developer",
     technologies: ["Next js", "Typescript", "Llama", "Tailwind", "PostgreSQL"],
     tag: ["SEO Website", "Blog Website", "AI Chatbot"],
@@ -107,28 +107,30 @@ Showcases my work and enables visitors to interactively explore my portfolio and
     `
   },
   {
-    name: "Document Summarization",
-    description: "LLM-powered document summarization using Next.js and Llama.",
-    role: "Fullstack Developer",
-    technologies: ["Next js", "Tailwind CSS", "Llama 3", "LLM"],
-    tag: [],
-    image: "",
-    code: "https://github.com/wahyudesu/Next-js-PDF-Summarization/",
+    name: "Database Report Automation",
+    description: "Automate your database reporting: a web app that streamlines report generation and saves hours of manual work.",
+    role: "Automation Engineer",
+    technologies: ["Streamlit", "Python", "SQL", "Neon Tech"],
+    tag: ["Automation", "Database", "Reporting"],
+    image: "/projects/db-automation.png",
+    url: "https://db-report-automation.streamlit.app",
+    code: "https://github.com/wahyudesu/db-report-automation",
     content: `
 ## Project Overview
-A web app that summarizes uploaded documents using large language models.
+Developed a web application to automate the generation of database reports, reducing manual effort and minimizing errors.
 
 ## Solution
-- Built with Next.js and Tailwind CSS.
-- Integrated Llama 3 for document summarization.
+- Built with Streamlit for a user-friendly interface.
+- Automated SQL query execution and report formatting.
+- Integrated with Neon Tech for scalable cloud database access.
 
 ## Result
-Simplifies information extraction from lengthy documents, aiding academic and professional users.
+Significantly reduced report preparation time and improved data accuracy for business users.
     `
   },
   {
     name: "Monitoring Stunting Webapp",
-    description: "Generative AI to prevent and monitor stunting in babies.",
+    description: "Revolutionizing child health: a generative AI webapp that empowers parents and professionals to prevent stunting in babies.",
     role: "AI Engineer",
     technologies: ["Streamlit", "Generative AI", "Neon tech"],
     tag: ["Generative AI App"],
@@ -152,7 +154,7 @@ Improved awareness and prevention strategies for stunting, supporting better chi
   },
   {
     name: "Malware Prediction Project",
-    description: "Classifying malware using ensemble learning techniques.",
+    description: "Stay ahead of cyber threats: machine learning models that predict and classify malware with cutting-edge ensemble techniques.",
     role: "ML Engineer",
     technologies: ["Machine learning", "Ensemble", "Python"],
     tag: [],
@@ -172,7 +174,7 @@ Enhanced malware detection accuracy, contributing to improved cybersecurity.
   },
   {
     name: "Guess The Word Game",
-    description: "Word guessing game using NLP and cosine similarity.",
+    description: "Challenge your mind: an AI-powered word guessing game that makes learning language fun and interactive.",
     role: "NLP Engineer",
     technologies: ["Streamlit", "Vector Embeddings", "Text Similarity", "Python", "Glove ID"],
     tag: [],
@@ -192,7 +194,7 @@ Engaged users in learning and playing with language using AI techniques.
   },
   {
     name: "CNN Rock Scissor Paper",
-    description: "Image classification project for game prediction using CNN.",
+    description: "Experience AI in action: a computer vision model that predicts your next move in Rock-Scissor-Paper.",
     role: "Student",
     technologies: ["Python", "Tensorflow", "Computer Vision"],
     tag: [],
@@ -212,7 +214,7 @@ Achieved accurate predictions, demonstrating computer vision capabilities.
   },
   {
     name: "Bambubot: Chatbot Kelurahan Keputih",
-    description: "Chatbot for document management in Keputih urban village.",
+    description: "Redefining public service: a smart chatbot that streamlines document management for local communities.",
     tag: [],
     role: "AI Engineer",
     technologies: ["Python", "LLM", "Telegram", "Langchain"],
@@ -234,7 +236,7 @@ Improved efficiency and accessibility for community services.
   },
   {
     name: "Life Expectancy Analysis",
-    description: "Linear regression analysis on life expectancy data.",
+    description: "Unlocking the secrets of longevity: data-driven insights into life expectancy trends across the globe.",
     role: "Data Analyst",
     technologies: ["Python", "streamlit"],
     tag: [],
@@ -255,7 +257,7 @@ Provided actionable insights for health policy and research.
   },
   {
     name: "Anime Recommendation Web App",
-    description: "Anime recommendation system with machine learning.",
+    description: "Find your next favorite anime: a smart recommendation engine that learns your taste and delivers personalized picks.",
     role: "ML Engineer",
     technologies: ["Next js", "Machine learning"],
     tag: [],
@@ -275,7 +277,7 @@ Helped users discover new anime based on their preferences.
   },
   {
     name: "Forecasting Indonesia Renewable Energy",
-    description: "Forecast renewable energy growth in Indonesia using ARIMA.",
+    description: "Powering the future: AI-driven forecasts for Indonesia’s renewable energy growth and sustainability.",
     role: "Data Scientist",
     technologies: ["Python", "Machine learning", "ARIMA"],
     tag: [],
@@ -296,7 +298,7 @@ Supported policy and investment decisions in renewable energy.
   },
   {
     name: "Data Engineering Dashboard System",
-    description: "Visualize and manage ETL workflows using Flask and Airflow.",
+    description: "Visualize, manage, and optimize your data pipelines with a dashboard that brings ETL workflows to life.",
     role: "Data Engineer",
     technologies: ["Flask", "Airflow", "Docker"],
     tag: [],
@@ -316,7 +318,7 @@ Streamlined data engineering processes and improved workflow transparency.
   },
   {
     name: "Dashboard d3js",
-    description: "Sales dashboard with multiple charts and insights.",
+    description: "See your business at a glance: interactive dashboards with stunning charts and real-time insights.",
     role: "Frontend Developer",
     technologies: ["Vite", "React", "d3js", "Magic UI", "shdcn ui"],
     tag: ["Chart Dashboard"],
@@ -332,6 +334,55 @@ A sales dashboard visualizing key business metrics with interactive charts and m
 
 ## Result
 Enabled data-driven decision making through clear and interactive visualizations.
+    `
+  },
+  // Penyesuaian: Menghapus project duplikat dan memperbaiki deskripsi project berikut
+  {
+    name: "Talenalink AI Recruitment",
+    description: "Revolutionize hiring: an AI-powered recruitment platform that finds the perfect match between talent and opportunity.",
+    role: "Frontend Developer",
+    technologies: ["Next js", "Tailwind", "Postgresql", "Magic UI", "shdcn ui"],
+    tag: ["Recruitment", "AI"],
+    image: "",
+    code: "https://github.com/talenaink/ai-recruitment",
+    content: `
+## Project Overview
+A recruitment platform leveraging AI for candidate screening and job matching.
+
+## Solution
+- Built with Next.js and Tailwind CSS for modern UI.
+- Integrated AI modules for resume parsing and candidate-job fit scoring.
+- Used PostgreSQL for scalable data storage.
+
+## Result
+Streamlined recruitment process and improved candidate-job matching accuracy.
+    `
+  },
+  {
+    name: "HIMIT PENS Website",
+    description: "Connecting students and community: the official HIMIT PENS website with a modern, engaging digital experience.",
+    role: "UI/UX Designer",
+    technologies: ["Next js", "Tailwind", "Postgresql", "Magic UI", "shdcn ui"],
+    tag: ["Organization Website"],
+    image: "/projects/himit.png",
+    code: "https://github.com/himitpens/website",
+    content: `
+## Objective
+Provide an official digital platform for HIMIT PENS to facilitate information dissemination, organization management, and increase engagement among members and the public.
+
+## Solution
+- Redesigned the old website using modern technologies (Next.js, Tailwind CSS).
+- Implemented content management for news, events, and member data.
+- Delivered a modern, responsive UI/UX for a better user experience.
+
+## Team
+- UI/UX Designer
+- Frontend Developer
+- Backend Developer
+- Project Manager
+
+## Shot
+The new HIMIT PENS website is now more informative, accessible, and enhances engagement for both members and the public.
     `
   },
 ]

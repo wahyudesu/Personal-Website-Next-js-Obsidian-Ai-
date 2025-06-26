@@ -15,8 +15,6 @@
 - 🚀 Next.js 15 (App Router) - Modern web framework
 - 📘 TypeScript - Typesafe
 - 🎨 TailwindCSS - CSS Styling
-- 🟩Neon - Postgresql database (on progress)
-- 🔧Prisma - ORM (on progress)
 - 🛠️ Shadcn/ui - Component library
 - 🎥 Framer Motion - Animation
 - ✨ Lucide - Icons library
