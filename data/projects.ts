@@ -261,7 +261,7 @@ Provided actionable insights for health policy and research.
     role: "UI UX Designer",
     technologies: ["Figma", "Laravel"],
     tag: [],
-    image: "/projects/onegate.png",
+    image: "/projects/one-gate.png",
     code: "https://github.com/wahyudesu/Life-expectancy-analysis",
     paper: "https://github.com/wahyudesu/Life-expectancy-analysis/blob/main/Document/3323600056_Wahyu%20Ikbal%20Maulana_Regresi%20Linier%20Berganda.pdf",
     content: `
