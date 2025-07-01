@@ -277,7 +277,7 @@ Provide an official digital platform for HIMIT PENS to facilitate information di
 ## Shot
 The new HIMIT PENS website is now more informative, accessible, and enhances engagement for both members and the public.
     `
-//   },
+  },
 //     {
 //     name: "Malware Prediction Project",
 //     description: "Stay ahead of cyber threats: machine learning models that predict and classify malware with cutting-edge ensemble techniques.",
