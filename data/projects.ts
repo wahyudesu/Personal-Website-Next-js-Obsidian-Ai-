@@ -177,7 +177,7 @@ Enhanced malware detection accuracy, contributing to improved cybersecurity.
     description: "Challenge your mind: an AI-powered word guessing game that makes learning language fun and interactive.",
     role: "NLP Engineer",
     technologies: ["Streamlit", "Vector Embeddings", "Text Similarity", "Python", "Glove ID"],
-    tag: [],
+    tag: ["Game", "Quiz"],
     image: "",
     code: "https://github.com/Community-of-Playground/Gemastik-Pengembangan-Aplikasi-Permainan",
     content: `
@@ -197,8 +197,8 @@ Engaged users in learning and playing with language using AI techniques.
     description: "Experience AI in action: a computer vision model that predicts your next move in Rock-Scissor-Paper.",
     role: "Student",
     technologies: ["Python", "Tensorflow", "Computer Vision"],
-    tag: [],
-    image: "",
+    tag: ["Computer Vision"],
+    image: "/projects/cnn.png",
     code: "https://github.com/wahyudesu/Dicoding-rock-scissor-paper",
     content: `
 ## Project Overview
@@ -239,8 +239,29 @@ Improved efficiency and accessibility for community services.
     description: "Unlocking the secrets of longevity: data-driven insights into life expectancy trends across the globe.",
     role: "Data Analyst",
     technologies: ["Python", "streamlit"],
-    tag: [],
+    tag: ["SDGs", "Forecasting"],
     image: "",
+    code: "https://github.com/wahyudesu/Life-expectancy-analysis",
+    paper: "https://github.com/wahyudesu/Life-expectancy-analysis/blob/main/Document/3323600056_Wahyu%20Ikbal%20Maulana_Regresi%20Linier%20Berganda.pdf",
+    content: `
+## Project Overview
+Analyzed life expectancy trends across countries using linear regression.
+
+## Solution
+- Collected and cleaned global life expectancy data.
+- Built regression models to identify key factors.
+
+## Result
+Provided actionable insights for health policy and research.
+    `
+  },
+  {
+    name: "Onegate HIMIT",
+    description: "Unlocking the secrets of longevity: data-driven insights into life expectancy trends across the globe.",
+    role: "UI UX Designer",
+    technologies: ["Figma", "Laravel"],
+    tag: [],
+    image: "/projects/onegate.png",
     code: "https://github.com/wahyudesu/Life-expectancy-analysis",
     paper: "https://github.com/wahyudesu/Life-expectancy-analysis/blob/main/Document/3323600056_Wahyu%20Ikbal%20Maulana_Regresi%20Linier%20Berganda.pdf",
     content: `
@@ -281,7 +302,7 @@ Helped users discover new anime based on their preferences.
     role: "Data Scientist",
     technologies: ["Python", "Machine learning", "ARIMA"],
     tag: [],
-    image: "",
+    image: "/projects/forecasting.png",
     code: "https://github.com/wahyudesu/ARIMA-Analysis-in-Energy-SDGs-7-Indonesia",
     paper: "https://github.com/wahyudesu/ARIMA-Analysis-in-Energy-SDGs-7-Indonesia/blob/main/Makalah%20Journal%20ARIMA%20Forecasting.docx",
     content: `

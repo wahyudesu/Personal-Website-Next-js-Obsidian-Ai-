@@ -50,14 +50,14 @@ export default function Page() {
                   "Reduce cost",
                   "Automate repetitive work",
                   "Improve decision makings",
-                  "Build solution that actually works",
+                  "Build solution that actually works!",
                 ],
                 autoStart: true,
                 loop: true,
                 wrapperClassName: "cursor-default text-xl sm:text-2xl lg:text-4xl font-medium ",
                 cursorClassName: "text-blue-500 dark:text-blue-500 sm:text-2xl lg:text-4xl",
                 delay: 50, // Kecepatan pengetikan
-                deleteSpeed: 20, // Kecepatan penghapusan
+                deleteSpeed: 15, // Kecepatan penghapusan
               }}
             />
           </div>
