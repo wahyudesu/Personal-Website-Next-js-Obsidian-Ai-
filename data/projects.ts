@@ -97,10 +97,7 @@ Enhanced user engagement and cultural awareness through an accessible, interacti
 ## Project Overview
 A personal portfolio and blog site featuring an AI chatbot that answers questions based on my content.
 
-## Solution
-- Built with Next.js, Typescript, and Tailwind CSS.
-- Integrated Llama for retrieval-based chatbot.
-- Used MDX for flexible blog content.
+## Feature
 
 ## Result
 Showcases my work and enables visitors to interactively explore my portfolio and blog.
@@ -116,13 +113,14 @@ Showcases my work and enables visitors to interactively explore my portfolio and
     url: "https://db-report-automation.streamlit.app",
     code: "https://github.com/wahyudesu/db-report-automation",
     content: `
-## Project Overview
-Developed a web application to automate the generation of database reports, reducing manual effort and minimizing errors.
+## Client objective
 
 ## Solution
 - Built with Streamlit for a user-friendly interface.
 - Automated SQL query execution and report formatting.
 - Integrated with Neon Tech for scalable cloud database access.
+
+## How it works
 
 ## Result
 Significantly reduced report preparation time and improved data accuracy for business users.
@@ -134,7 +132,7 @@ Significantly reduced report preparation time and improved data accuracy for bus
     role: "AI Engineer",
     technologies: ["Streamlit", "Generative AI", "Neon tech"],
     tag: ["Generative AI App"],
-    image: "",
+    image: "/projects/stuntron.png",
     url: "https://stuntron.streamlit.app",
     code: "https://github.com/wahyudesu/healthkathon-ai",
     content: `
@@ -150,46 +148,6 @@ Developed a web application using generative AI to provide guidance and monitori
 
 ## Result
 Improved awareness and prevention strategies for stunting, supporting better child health outcomes.
-    `
-  },
-  {
-    name: "Malware Prediction Project",
-    description: "Stay ahead of cyber threats: machine learning models that predict and classify malware with cutting-edge ensemble techniques.",
-    role: "ML Engineer",
-    technologies: ["Machine learning", "Ensemble", "Python"],
-    tag: [],
-    image: "",
-    code: "https://github.com/wahyudesu/malware-detection",
-    content: `
-## Project Overview
-A machine learning project to classify malware and predict potential threats.
-
-## Solution
-- Applied ensemble learning models to malware datasets.
-- Evaluated model performance for threat detection.
-
-## Result
-Enhanced malware detection accuracy, contributing to improved cybersecurity.
-    `
-  },
-  {
-    name: "Guess The Word Game",
-    description: "Challenge your mind: an AI-powered word guessing game that makes learning language fun and interactive.",
-    role: "NLP Engineer",
-    technologies: ["Streamlit", "Vector Embeddings", "Text Similarity", "Python", "Glove ID"],
-    tag: ["Game", "Quiz"],
-    image: "",
-    code: "https://github.com/Community-of-Playground/Gemastik-Pengembangan-Aplikasi-Permainan",
-    content: `
-## Project Overview
-A fun word guessing game powered by NLP and Indonesian GloVe vectors.
-
-## Solution
-- Used vector embeddings and cosine similarity for word matching.
-- Built with Streamlit for interactive gameplay.
-
-## Result
-Engaged users in learning and playing with language using AI techniques.
     `
   },
   {
@@ -235,27 +193,6 @@ Improved efficiency and accessibility for community services.
     `
   },
   {
-    name: "Life Expectancy Analysis",
-    description: "Unlocking the secrets of longevity: data-driven insights into life expectancy trends across the globe.",
-    role: "Data Analyst",
-    technologies: ["Python", "streamlit"],
-    tag: ["SDGs", "Forecasting"],
-    image: "",
-    code: "https://github.com/wahyudesu/Life-expectancy-analysis",
-    paper: "https://github.com/wahyudesu/Life-expectancy-analysis/blob/main/Document/3323600056_Wahyu%20Ikbal%20Maulana_Regresi%20Linier%20Berganda.pdf",
-    content: `
-## Project Overview
-Analyzed life expectancy trends across countries using linear regression.
-
-## Solution
-- Collected and cleaned global life expectancy data.
-- Built regression models to identify key factors.
-
-## Result
-Provided actionable insights for health policy and research.
-    `
-  },
-  {
     name: "Onegate HIMIT",
     description: "Unlocking the secrets of longevity: data-driven insights into life expectancy trends across the globe.",
     role: "UI UX Designer",
@@ -265,19 +202,23 @@ Provided actionable insights for health policy and research.
     code: "https://github.com/wahyudesu/Life-expectancy-analysis",
     paper: "https://github.com/wahyudesu/Life-expectancy-analysis/blob/main/Document/3323600056_Wahyu%20Ikbal%20Maulana_Regresi%20Linier%20Berganda.pdf",
     content: `
-## Project Overview
-Analyzed life expectancy trends across countries using linear regression.
-
-## Solution
-- Collected and cleaned global life expectancy data.
-- Built regression models to identify key factors.
-
-## Result
-Provided actionable insights for health policy and research.
+jadi ada penambahan fitur terkait project himit champion, ada 
     `
   },
   {
     name: "Anime Recommendation Web App",
+    description: "website anime dengan penambahan anime rekomendasi",
+    role: "ML Engineer",
+    technologies: ["Vue", "Machine learning"],
+    tag: ["Recommendation system", "Machine learning"],
+    image: "",
+    code: "https://github.com/mozaldy/wamonime",
+    content: `
+aku bersama temanku tuh, aku tuh machine learning dan dia tuh bagian web, aku ngimplementasiin
+    `
+  },
+  {
+    name: "Churn prediction",
     description: "Find your next favorite anime: a smart recommendation engine that learns your taste and delivers personalized picks.",
     role: "ML Engineer",
     technologies: ["Next js", "Machine learning"],
@@ -285,15 +226,7 @@ Provided actionable insights for health policy and research.
     image: "",
     code: "https://github.com/mozaldy/wamonime",
     content: `
-## Project Overview
-A web-based anime recommendation engine using machine learning.
-
-## Solution
-- Implemented similarity-based recommendation algorithms.
-- Built with Next.js for a responsive user experience.
-
-## Result
-Helped users discover new anime based on their preferences.
+aku bersama temanku tuh, aku tuh machine learning dan dia tuh bagian web, aku ngimplementasiin model machine learning 
     `
   },
   {
@@ -313,70 +246,9 @@ Forecasted renewable energy growth in Indonesia as part of SDGs research.
 - Used ARIMA time series models for energy data forecasting.
 - Analyzed trends and provided future projections.
 
+
 ## Result
 Supported policy and investment decisions in renewable energy.
-    `
-  },
-  {
-    name: "Data Engineering Dashboard System",
-    description: "Visualize, manage, and optimize your data pipelines with a dashboard that brings ETL workflows to life.",
-    role: "Data Engineer",
-    technologies: ["Flask", "Airflow", "Docker"],
-    tag: [],
-    image: "",
-    code: "https://github.com/AfifH07/LastProjectProgramming",
-    content: `
-## Project Overview
-Integrated data pipelines and monitoring system for ETL workflows.
-
-## Solution
-- Developed dashboard with Flask.
-- Managed and visualized ETL jobs using Airflow and Docker.
-
-## Result
-Streamlined data engineering processes and improved workflow transparency.
-    `
-  },
-  {
-    name: "Dashboard d3js",
-    description: "See your business at a glance: interactive dashboards with stunning charts and real-time insights.",
-    role: "Frontend Developer",
-    technologies: ["Vite", "React", "d3js", "Magic UI", "shdcn ui"],
-    tag: ["Chart Dashboard"],
-    image: "",
-    code: "https://3323600056-wahyuikbalmaulana-dashboard-d3js.vercel.app",
-    content: `
-## Project Overview
-A sales dashboard visualizing key business metrics with interactive charts and maps.
-
-## Solution
-- Built with React, d3.js, and modern UI libraries.
-- Implemented multiple chart types for comprehensive insights.
-
-## Result
-Enabled data-driven decision making through clear and interactive visualizations.
-    `
-  },
-  // Penyesuaian: Menghapus project duplikat dan memperbaiki deskripsi project berikut
-  {
-    name: "Talenalink AI Recruitment",
-    description: "Revolutionize hiring: an AI-powered recruitment platform that finds the perfect match between talent and opportunity.",
-    role: "Frontend Developer",
-    technologies: ["Next js", "Tailwind", "Postgresql", "Magic UI", "shdcn ui"],
-    tag: ["Recruitment", "AI"],
-    image: "",
-    code: "https://github.com/talenaink/ai-recruitment",
-    content: `
-## Project Overview
-A recruitment platform leveraging AI for candidate screening and job matching.
-
-## Solution
-- Built with Next.js and Tailwind CSS for modern UI.
-- Integrated AI modules for resume parsing and candidate-job fit scoring.
-- Used PostgreSQL for scalable data storage.
-
-## Result
-Streamlined recruitment process and improved candidate-job matching accuracy.
     `
   },
   {
@@ -405,7 +277,129 @@ Provide an official digital platform for HIMIT PENS to facilitate information di
 ## Shot
 The new HIMIT PENS website is now more informative, accessible, and enhances engagement for both members and the public.
     `
-  },
+//   },
+//     {
+//     name: "Malware Prediction Project",
+//     description: "Stay ahead of cyber threats: machine learning models that predict and classify malware with cutting-edge ensemble techniques.",
+//     role: "ML Engineer",
+//     technologies: ["Machine learning", "Ensemble", "Python"],
+//     tag: [],
+//     image: "",
+//     code: "https://github.com/wahyudesu/malware-detection",
+//     content: `
+// ## Project Overview
+// A machine learning project to classify malware and predict potential threats.
+
+// ## Solution
+// - Applied ensemble learning models to malware datasets.
+// - Evaluated model performance for threat detection.
+
+// ## Result
+// Enhanced malware detection accuracy, contributing to improved cybersecurity.
+//     `
+//   },
+//   {
+//     name: "Guess The Word Game",
+//     description: "Challenge your mind: an AI-powered word guessing game that makes learning language fun and interactive.",
+//     role: "NLP Engineer",
+//     technologies: ["Streamlit", "Vector Embeddings", "Text Similarity", "Python", "Glove ID"],
+//     tag: ["Game", "Quiz"],
+//     image: "",
+//     code: "https://github.com/Community-of-Playground/Gemastik-Pengembangan-Aplikasi-Permainan",
+//     content: `
+// ## Project Overview
+// A fun word guessing game powered by NLP and Indonesian GloVe vectors.
+
+// ## Solution
+// - Used vector embeddings and cosine similarity for word matching.
+// - Built with Streamlit for interactive gameplay.
+
+// ## Result
+// Engaged users in learning and playing with language using AI techniques.
+//     `
+//   },
+//     {
+//     name: "Data Engineering Dashboard System",
+//     description: "Visualize, manage, and optimize your data pipelines with a dashboard that brings ETL workflows to life.",
+//     role: "Data Engineer",
+//     technologies: ["Flask", "Airflow", "Docker"],
+//     tag: ["dashboard", "data system"],
+//     image: "",
+//     code: "https://github.com/AfifH07/LastProjectProgramming",
+//     content: `
+// ## Project Overview
+// Integrated data pipelines and monitoring system for ETL workflows.
+
+// ## Solution
+// - Developed dashboard with Flask.
+// - Managed and visualized ETL jobs using Airflow and Docker.
+
+// ## Result
+// Streamlined data engineering processes and improved workflow transparency.
+//     `
+//   },
+//   {
+//     name: "Dashboard d3js",
+//     description: "See your business at a glance: interactive dashboards with stunning charts and real-time insights.",
+//     role: "Frontend Developer",
+//     technologies: ["Vite", "React", "d3js", "Magic UI", "shdcn ui"],
+//     tag: ["Chart Dashboard"],
+//     image: "",
+//     code: "https://3323600056-wahyuikbalmaulana-dashboard-d3js.vercel.app",
+//     content: `
+// ## Problem
+// Dari data yang diberikan, kita disuruh bikin dashboard untuk menampilkan metric metric yang diperlukan
+
+// ## Solution
+// - Built with React, d3.js, and modern UI libraries.
+// - Implemented multiple chart types for comprehensive insights.
+
+// ## Result
+// Enabled data-driven decision making through clear and interactive visualizations.
+//     `
+//   },
+//   {
+//     name: "Talenalink AI Recruitment",
+//     description: "Revolutionize hiring: an AI-powered recruitment platform that finds the perfect match between talent and opportunity.",
+//     role: "Frontend Developer",
+//     technologies: ["Next js", "Tailwind", "Postgresql", "Magic UI", "shdcn ui"],
+//     tag: ["Recruitment", "AI"],
+//     image: "",
+//     code: "https://github.com/talenaink/ai-recruitment",
+//     content: `
+// ## Fitur yang diperlukan
+// list list fitur apa aja yang butuh
+
+// ## Solution
+// - Built with Next.js and Tailwind CSS for modern UI.
+// - Integrated AI modules for resume parsing and candidate-job fit scoring.
+// - Used PostgreSQL for scalable data storage.
+
+// ## Result
+// Streamlined recruitment process and improved candidate-job matching accuracy.
+//     `
+//   },
+//     {
+//     name: "Life Expectancy Analysis",
+//     description: "Unlocking the secrets of longevity: data-driven insights into life expectancy trends across the globe.",
+//     role: "Data Analyst",
+//     technologies: ["Python", "streamlit"],
+//     tag: ["SDGs", "Forecasting"],
+//     image: "",
+//     code: "https://github.com/wahyudesu/Life-expectancy-analysis",
+//     paper: "https://github.com/wahyudesu/Life-expectancy-analysis/blob/main/Document/3323600056_Wahyu%20Ikbal%20Maulana_Regresi%20Linier%20Berganda.pdf",
+//     content: `
+// ## Project Overview
+// Analyzed life expectancy trends across countries using linear regression.
+
+// ## Solution
+// - Collected and cleaned global life expectancy data.
+// - Built regression models to identify key factors.
+
+// ## Result
+// Provided actionable insights for health policy and research.
+//     `
+//   }
 ]
 
 export default projects
