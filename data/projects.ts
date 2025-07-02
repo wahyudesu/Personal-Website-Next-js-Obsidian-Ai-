@@ -36,7 +36,7 @@ The project aimed to develop an intelligent chatbot capable of understanding and
 The chatbot improved internal efficiency and customer engagement by providing instant, language-specific answers based on the company's knowledge base.
     `
   },
-  {
+  { // pakai template penelitian yang bagian ini 
     name: "Dashboard Monitoring Agriculture Indonesia",
     description: "Empowering Indonesia’s agriculture: an AI-powered dashboard that predicts crop yields and turns raw data into actionable insights.",
     role: "Data Management",

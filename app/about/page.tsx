@@ -11,10 +11,10 @@ import siteMetadata from '@/data/siteMetadata';
 export const metadata = genPageMetadata({ title: 'About' });
 
 const achievements = [
-  { label: 'Project', value: 10 },
+  { label: 'Project', value: 15 },
   { label: 'Certificate', value: 50 },
   { label: 'Experience', value: 10 },
-  { label: 'Volunteer', value: 3 },
+  { label: 'Volunteer', value: 5 },
 ];
 
 const AchievementItem = ({ label, value }: { label: string; value: number }) => (
@@ -56,11 +56,11 @@ export default function Page() {
         <div className="gap-2">
           <DownloadButton
             label="Download CV"
-            url="/resume/CV_Wahyu Ikbal M.pdf" // Assuming CV.pdf is stored in public/files directory
+            url="/resume/CV_Wahyu Ikbal Maulana.pdf" // Assuming CV.pdf is stored in public/files directory
           />
           <DownloadButton
-            label="Resume AI Engineer"
-            url="/resume/CV_Wahyu Ikbal M.pdf" // Assuming Resume_AI_Engineer.pdf is stored in public/files directory
+            label="Download portofolio pdf"
+            url="/resume/portfolio.pdf" // Assuming Resume_AI_Engineer.pdf is stored in public/files directory
           />
         </div>
       </AuthorLayout>

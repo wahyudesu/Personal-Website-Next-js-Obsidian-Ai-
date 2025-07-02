@@ -25,7 +25,10 @@
     "Pydantic",
     "OpenAI",
     "Expo",
-    "PowerBi"
+    "PowerBi",
+    "Cloudflare workers",
+    "",
+    ""
   ],
   "role_yang_diinginkan": [
     "data scientist",
