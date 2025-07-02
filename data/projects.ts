@@ -151,6 +151,35 @@ Improved awareness and prevention strategies for stunting, supporting better chi
     `
   },
   {
+    name: "Chatbot WA Community API",
+    description: "A lightweight, cost-effective AI chatbot for WhatsApp, designed to assist students with task management and class-related questions using a RAG-based approach.",
+    role: "Backend Engineer",
+    technologies: ["Typescript", "Cloudflare Worker", "AI SDK", "SQLite"],
+    tag: ["Chatbot Whatsapp", "AI Chatbot"],
+    image: "/projects/chatbot-wa-community.png",
+    url: "",
+    code: "https://github.com/Community-of-Playground/Community-AI-Chatbot-on-Whatsapp",
+    content: `
+  ### Background
+  Students often rely on multiple fragmented platforms to track assignments and access class-related information, which causes confusion and inefficiency.
+
+  ### Problem & Challenges
+  There was no unified, accessible tool to help students manage academic tasks or get contextual information efficiently. Building such a system had to be low-cost, easy to maintain, and scalable for multiple classes.
+
+  ### Solution
+  I initiated and led the development of an AI-powered WhatsApp chatbot using a Retrieval-Augmented Generation (RAG) approach to deliver natural, context-aware responses.
+
+  ### Features
+  - Personalized task reminders and academic Q&A.
+  - Built with TypeScript and Cloudflare Workers for a fast, serverless experience.
+  - Lightweight design with SQLite for local context storage.
+  - Modular architecture for easy adaptation and scaling.
+
+  ### Impact
+  The chatbot is now actively used by over 10 classes, supporting more than 300 students. It has improved student engagement, reduced missed deadlines, and created a smoother academic support system via WhatsApp.
+    `
+  },
+  {
     name: "CNN Rock Scissor Paper",
     description: "Experience AI in action: a computer vision model that predicts your next move in Rock-Scissor-Paper.",
     role: "Student",
