@@ -6,16 +6,9 @@ const GRID_SIZE = 20
 const CELL_SIZE = 20
 const CANVAS_WIDTH = GRID_SIZE * CELL_SIZE
 const CANVAS_HEIGHT = GRID_SIZE * CELL_SIZE
-const INITIAL_SNAKE = [{ x: 10, y: 10 }]
-const INITIAL_DIRECTION = { x: 1, y: 0 }
-const GAME_SPEED = 100 // milliseconds
+const GAME_SPEED = 100
 
 interface Position {
-  x: number
-  y: number
-}
-
-interface Direction {
   x: number
   y: number
 }
@@ -23,53 +16,51 @@ interface Direction {
 export default function Snake() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [score, setScore] = useState(0)
-  const [gameOver, setGameOver] = useState(false)
-  const [gameStarted, setGameStarted] = useState(false)
   const [highScore, setHighScore] = useState(0)
+  const [gameStarted, setGameStarted] = useState(false)
+  const [gameOver, setGameOver] = useState(false)
 
-  // Use refs for game state
-  const snakeRef = useRef<Position[]>(INITIAL_SNAKE)
-  const directionRef = useRef<Direction>(INITIAL_DIRECTION)
-  const nextDirectionRef = useRef<Direction>(INITIAL_DIRECTION)
-  const foodRef = useRef<Position>({ x: 15, y: 15 })
-  const scoreRef = useRef(0)
-  const gameOverRef = useRef(false)
+  // Game state refs
+  const snake = useRef<Position[]>([{ x: 10, y: 10 }])
+  const direction = useRef<Position>({ x: 1, y: 0 })
+  const nextDirection = useRef<Position>({ x: 1, y: 0 })
+  const food = useRef<Position>({ x: 15, y: 15 })
+  const currentScore = useRef(0)
   const gameStartedRef = useRef(false)
-  const gameLoopRef = useRef<NodeJS.Timeout | null>(null)
+  const gameOverRef = useRef(false)
+  const gameLoopInterval = useRef<NodeJS.Timeout | null>(null)
 
-  // Load high score from localStorage
+  // Load high score
   useEffect(() => {
-    const savedHighScore = localStorage.getItem('snakeHighScore')
-    if (savedHighScore) {
-      setHighScore(parseInt(savedHighScore))
-    }
+    const saved = localStorage.getItem('snakeHighScore')
+    if (saved) setHighScore(parseInt(saved))
   }, [])
 
-  const generateFood = useCallback(() => {
+  const generateFood = useCallback((): Position => {
     let newFood: Position
     do {
       newFood = {
         x: Math.floor(Math.random() * GRID_SIZE),
         y: Math.floor(Math.random() * GRID_SIZE)
       }
-    } while (snakeRef.current.some(segment => segment.x === newFood.x && segment.y === newFood.y))
+    } while (snake.current.some(segment => segment.x === newFood.x && segment.y === newFood.y))
     return newFood
   }, [])
 
   const resetGame = useCallback(() => {
-    snakeRef.current = [...INITIAL_SNAKE]
-    directionRef.current = { ...INITIAL_DIRECTION }
-    nextDirectionRef.current = { ...INITIAL_DIRECTION }
-    foodRef.current = generateFood()
-    scoreRef.current = 0
-    gameOverRef.current = false
+    snake.current = [{ x: 10, y: 10 }]
+    direction.current = { x: 1, y: 0 }
+    nextDirection.current = { x: 1, y: 0 }
+    food.current = generateFood()
+    currentScore.current = 0
     gameStartedRef.current = true
+    gameOverRef.current = false
     setScore(0)
-    setGameOver(false)
     setGameStarted(true)
+    setGameOver(false)
   }, [generateFood])
 
-  const drawGame = useCallback(() => {
+  const draw = useCallback(() => {
     const canvas = canvasRef.current
     const ctx = canvas?.getContext('2d')
     if (!canvas || !ctx) return
@@ -103,21 +94,15 @@ export default function Snake() {
     // Draw food
     ctx.fillStyle = '#ff4444'
     ctx.fillRect(
-      foodRef.current.x * CELL_SIZE + 2,
-      foodRef.current.y * CELL_SIZE + 2,
+      food.current.x * CELL_SIZE + 2,
+      food.current.y * CELL_SIZE + 2,
       CELL_SIZE - 4,
       CELL_SIZE - 4
     )
 
     // Draw snake
-    snakeRef.current.forEach((segment, index) => {
-      if (index === 0) {
-        // Head
-        ctx.fillStyle = '#44ff44'
-      } else {
-        // Body
-        ctx.fillStyle = '#88ff88'
-      }
+    snake.current.forEach((segment, index) => {
+      ctx.fillStyle = index === 0 ? '#44ff44' : '#88ff88'
       ctx.fillRect(
         segment.x * CELL_SIZE + 1,
         segment.y * CELL_SIZE + 1,
@@ -135,77 +120,81 @@ export default function Snake() {
       ctx.textAlign = 'center'
       ctx.fillText('Game Over!', CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2 - 40)
       ctx.font = '20px Arial'
-      ctx.fillText(`Score: ${scoreRef.current}`, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2)
+      ctx.fillText(`Score: ${currentScore.current}`, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2)
       ctx.fillText('Press SPACE or Click to Restart', CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2 + 40)
     }
   }, [])
 
-  const updateGame = useCallback(() => {
-    if (gameOverRef.current || !gameStartedRef.current) return
+  const update = useCallback(() => {
+    if (!gameStartedRef.current || gameOverRef.current) return
 
     // Update direction
-    directionRef.current = { ...nextDirectionRef.current }
+    direction.current = { ...nextDirection.current }
 
-    // Calculate new head position
-    const head = snakeRef.current[0]
-    const newHead: Position = {
-      x: head.x + directionRef.current.x,
-      y: head.y + directionRef.current.y
+    // Calculate new head
+    const head = snake.current[0]
+    const newHead = {
+      x: head.x + direction.current.x,
+      y: head.y + direction.current.y
     }
 
     // Check wall collision
     if (newHead.x < 0 || newHead.x >= GRID_SIZE || newHead.y < 0 || newHead.y >= GRID_SIZE) {
       gameOverRef.current = true
       setGameOver(true)
-
-      // Update high score
-      if (scoreRef.current > highScore) {
-        setHighScore(scoreRef.current)
-        localStorage.setItem('snakeHighScore', scoreRef.current.toString())
+      if (currentScore.current > highScore) {
+        setHighScore(currentScore.current)
+        localStorage.setItem('snakeHighScore', currentScore.current.toString())
+      }
+      if (gameLoopInterval.current) {
+        clearInterval(gameLoopInterval.current)
+        gameLoopInterval.current = null
       }
       return
     }
 
     // Check self collision
-    if (snakeRef.current.some(segment => segment.x === newHead.x && segment.y === newHead.y)) {
+    if (snake.current.some(segment => segment.x === newHead.x && segment.y === newHead.y)) {
       gameOverRef.current = true
       setGameOver(true)
-
-      // Update high score
-      if (scoreRef.current > highScore) {
-        setHighScore(scoreRef.current)
-        localStorage.setItem('snakeHighScore', scoreRef.current.toString())
+      if (currentScore.current > highScore) {
+        setHighScore(currentScore.current)
+        localStorage.setItem('snakeHighScore', currentScore.current.toString())
+      }
+      if (gameLoopInterval.current) {
+        clearInterval(gameLoopInterval.current)
+        gameLoopInterval.current = null
       }
       return
     }
 
     // Add new head
-    snakeRef.current.unshift(newHead)
+    snake.current = [newHead, ...snake.current]
 
     // Check food collision
-    if (newHead.x === foodRef.current.x && newHead.y === foodRef.current.y) {
-      scoreRef.current++
-      setScore(scoreRef.current)
-      foodRef.current = generateFood()
+    if (newHead.x === food.current.x && newHead.y === food.current.y) {
+      currentScore.current++
+      setScore(currentScore.current)
+      food.current = generateFood()
     } else {
-      // Remove tail if no food eaten
-      snakeRef.current.pop()
+      snake.current.pop()
     }
 
-    drawGame()
-  }, [drawGame, generateFood, highScore])
+    draw()
+  }, [draw, generateFood, highScore])
 
-  const handleDirectionChange = useCallback((newDirection: Direction) => {
+  const changeDirection = useCallback((newDir: Position) => {
     // Prevent reversing
     if (
-      (newDirection.x === -directionRef.current.x && newDirection.x !== 0) ||
-      (newDirection.y === -directionRef.current.y && newDirection.y !== 0)
+      (newDir.x === -direction.current.x && newDir.x !== 0) ||
+      (newDir.y === -direction.current.y && newDir.y !== 0)
     ) {
       return
     }
-    nextDirectionRef.current = newDirection
+    nextDirection.current = newDir
   }, [])
 
+  // Keyboard controls
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       e.preventDefault()
@@ -221,37 +210,45 @@ export default function Snake() {
 
       switch (e.key) {
         case 'ArrowUp':
-          handleDirectionChange({ x: 0, y: -1 })
+          changeDirection({ x: 0, y: -1 })
           break
         case 'ArrowDown':
-          handleDirectionChange({ x: 0, y: 1 })
+          changeDirection({ x: 0, y: 1 })
           break
         case 'ArrowLeft':
-          handleDirectionChange({ x: -1, y: 0 })
+          changeDirection({ x: -1, y: 0 })
           break
         case 'ArrowRight':
-          handleDirectionChange({ x: 1, y: 0 })
+          changeDirection({ x: 1, y: 0 })
           break
       }
     }
 
     window.addEventListener('keydown', handleKeyPress)
     return () => window.removeEventListener('keydown', handleKeyPress)
-  }, [handleDirectionChange, resetGame])
+  }, [changeDirection, resetGame])
 
+  // Draw initial state
   useEffect(() => {
-    drawGame()
+    draw()
+  }, [draw])
 
+  // Game loop
+  useEffect(() => {
     if (gameStartedRef.current && !gameOverRef.current) {
-      gameLoopRef.current = setInterval(updateGame, GAME_SPEED)
+      if (gameLoopInterval.current) {
+        clearInterval(gameLoopInterval.current)
+      }
+      gameLoopInterval.current = setInterval(update, GAME_SPEED)
     }
 
     return () => {
-      if (gameLoopRef.current) {
-        clearInterval(gameLoopRef.current)
+      if (gameLoopInterval.current) {
+        clearInterval(gameLoopInterval.current)
+        gameLoopInterval.current = null
       }
     }
-  }, [drawGame, updateGame])
+  }, [gameStarted, gameOver, update])
 
   const handleCanvasClick = useCallback(() => {
     if (!gameStartedRef.current || gameOverRef.current) {
@@ -271,7 +268,7 @@ export default function Snake() {
         ref={canvasRef}
         width={CANVAS_WIDTH}
         height={CANVAS_HEIGHT}
-        className="border-4 border-gray-700"
+        className="border-4 border-gray-700 cursor-pointer"
         onClick={handleCanvasClick}
       />
       <p className="mt-4 text-lg text-white">Use Arrow Keys to move | Press SPACE to start/restart</p>
