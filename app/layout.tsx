@@ -70,6 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${space_grotesk.variable} scroll-smooth`}
       suppressHydrationWarning
     >
+      {/* Favicons */}
       <link
         rel="apple-touch-icon"
         sizes="76x76"
@@ -93,10 +94,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         href={`${basePath}/static/favicons/safari-pinned-tab.svg`}
         color="#5bbad5"
       />
+
+      {/* Theme and App Config */}
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
+
+      {/* Preconnect to external domains for faster loading */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com" />
+      <link rel="dns-prefetch" href="https://analytics.umami.is" />
+      <link rel="dns-prefetch" href="https://app.posthog.com" />
+      <link rel="dns-prefetch" href="https://giscus.app" />
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
         <ThemeProviders>
           <CSPostHogProvider>

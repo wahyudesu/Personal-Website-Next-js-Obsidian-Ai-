@@ -66,6 +66,9 @@ export default function MusicPlayer() {
                 alt="Album art"
                 fill
                 className="object-cover"
+                sizes="42px"
+                quality={80}
+                loading="lazy"
               />
             </div>
             <div className="flex-1 min-w-0">
@@ -150,6 +153,9 @@ export default function MusicPlayer() {
                       alt={song.title}
                       fill
                       className="object-cover"
+                      sizes="34px"
+                      quality={75}
+                      loading="lazy"
                     />
                   </div>
 

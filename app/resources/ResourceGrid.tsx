@@ -39,18 +39,23 @@ function ResourceCard({ resource }: { resource: Resource }) {
       >
         <div className="relative w-full aspect-[2/1]">
           {resource.image && (resource.image.endsWith('.svg') || resource.image.endsWith('.gif')) ? (
-            <img
+            <Image
               src={resource.image}
               alt={resource.name}
               className="object-cover w-full h-full transition-transform duration-300 rounded-2xl absolute inset-0"
               style={{ background: "transparent" }}
+              loading="lazy"
             />
           ) : (
             <Image
               src={resource.image || "/placeholder.png"}
               alt={resource.name}
               fill={true}
-              quality={50}
+              quality={75}
+              loading="lazy"
+              placeholder="blur"
+              blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAwIiBoZWlnaHQ9IjQ3NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+              sizes="(max-width: 640px) 100vw, 50vw"
               className="object-cover w-full h-full transition-transform duration-300 rounded-2xl"
               style={{ background: "transparent" }}
             />

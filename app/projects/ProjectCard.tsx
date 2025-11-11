@@ -39,11 +39,15 @@ export function ProjectCard({ project, index, onClick }: ProjectCardProps) {
     >
       <Card className="overflow-hidden h-full border-2 border-solid dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 group dark:bg-slate-950">
         <div className="relative h-40 sm:h-48 overflow-hidden">
-          <Image 
-            src={project.image || "/placeholder.svg"} 
+          <Image
+            src={project.image || "/placeholder.svg"}
             alt={project.name}
             fill={true}
-            quality={50}
+            quality={75}
+            loading="lazy"
+            placeholder="blur"
+            blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAwIiBoZWlnaHQ9IjQ3NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="w-full h-full object-cover transition-transform duration-300"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">

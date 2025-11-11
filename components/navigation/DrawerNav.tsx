@@ -5,10 +5,16 @@ import Link from '../Link';
 import headerNavLinks from '@/data/headerNavLinks';
 import { AlignJustify, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import MusicPlayer from '../MusicPlayer';
+import dynamic from 'next/dynamic';
 import { Separator } from '@/components/ui/separator';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import * as React from 'react';
+
+// Lazy load MusicPlayer component
+const MusicPlayer = dynamic(() => import('../MusicPlayer'), {
+  loading: () => <div className="h-40 bg-gray-100 dark:bg-gray-800 animate-pulse rounded-[16px]" />,
+  ssr: false,
+});
 
 export default function DrawerNav() {
   return (
