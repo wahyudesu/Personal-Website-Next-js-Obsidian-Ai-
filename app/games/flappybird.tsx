@@ -23,11 +23,19 @@ interface Pipe {
 
 export default function FlappyBird() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [bird, setBird] = useState<Bird>({ y: 200, velocity: 0, frame: 0 })
-  const [pipes, setPipes] = useState<Pipe[]>([])
   const [score, setScore] = useState(0)
   const [gameOver, setGameOver] = useState(false)
   const [gameStarted, setGameStarted] = useState(false)
+
+  // Use refs for game state that changes every frame
+  const birdRef = useRef<Bird>({ y: 200, velocity: 0, frame: 0 })
+  const pipesRef = useRef<Pipe[]>([])
+  const scoreRef = useRef(0)
+  const gameOverRef = useRef(false)
+  const gameStartedRef = useRef(false)
+  const animationFrameRef = useRef<number | null>(null)
+  const lastPipeXRef = useRef(0)
+  const frameCountRef = useRef(0)
 
   const birdSprites = useRef<HTMLImageElement[]>([])
   const backgroundImage = useRef<HTMLImageElement | null>(null)
@@ -104,24 +112,29 @@ export default function FlappyBird() {
   }, [])
 
   const playSound = useCallback((sound: HTMLAudioElement | null) => {
-    if (sound && !gameOver) {
+    if (sound && !gameOverRef.current) {
       sound.currentTime = 0
       sound.play().catch(error => console.error("Error playing sound:", error))
     }
-  }, [gameOver])
+  }, [])
 
   const jump = useCallback(() => {
-    if (!gameOver && gameStarted) {
-      setBird(prevBird => ({ ...prevBird, velocity: -JUMP_STRENGTH }))
+    if (!gameOverRef.current && gameStartedRef.current) {
+      birdRef.current = { ...birdRef.current, velocity: -JUMP_STRENGTH }
       playSound(wingSound.current)
-    } else if (!gameStarted) {
+    } else if (!gameStartedRef.current) {
+      gameStartedRef.current = true
       setGameStarted(true)
     }
-  }, [gameOver, gameStarted, playSound])
+  }, [playSound])
 
   const restartGame = useCallback(() => {
-    setBird({ y: 200, velocity: 0, frame: 0 })
-    setPipes([])
+    birdRef.current = { y: 200, velocity: 0, frame: 0 }
+    pipesRef.current = []
+    scoreRef.current = 0
+    gameOverRef.current = false
+    gameStartedRef.current = true
+    lastPipeXRef.current = 0
     setScore(0)
     setGameOver(false)
     setGameStarted(true)
@@ -130,16 +143,13 @@ export default function FlappyBird() {
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.code === 'Space') {
-        if (!gameStarted) {
-          setGameStarted(true)
-        } else if (!gameOver) {
-          jump()
-        }
+        e.preventDefault()
+        jump()
       }
     }
     window.addEventListener('keydown', handleKeyPress)
     return () => window.removeEventListener('keydown', handleKeyPress)
-  }, [jump, gameStarted, gameOver])
+  }, [jump])
 
   useEffect(() => {
     if (!assetsLoaded) return
@@ -148,7 +158,7 @@ export default function FlappyBird() {
     const ctx = canvas?.getContext('2d')
     if (!canvas || !ctx) return
 
-    const gameLoop = setInterval(() => {
+    const gameLoop = () => {
       // Clear canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -157,7 +167,7 @@ export default function FlappyBird() {
         ctx.drawImage(backgroundImage.current, 0, 0, canvas.width, canvas.height)
       }
 
-      if (!gameStarted) {
+      if (!gameStartedRef.current) {
         // Draw message
         if (messageImage.current) {
           const messageWidth = 184
@@ -166,63 +176,81 @@ export default function FlappyBird() {
           const messageY = (canvas.height - messageHeight) / 2
           ctx.drawImage(messageImage.current, messageX, messageY, messageWidth, messageHeight)
         }
+        animationFrameRef.current = requestAnimationFrame(gameLoop)
         return
       }
 
-      // Update bird position and animation frame
-      setBird(prevBird => ({
-        y: prevBird.y + prevBird.velocity,
-        velocity: prevBird.velocity + GRAVITY,
-        frame: (prevBird.frame + 1) % 3
-      }))
+      if (!gameOverRef.current) {
+        // Update bird position and animation frame
+        frameCountRef.current++
+        if (frameCountRef.current % 5 === 0) {
+          birdRef.current.frame = (birdRef.current.frame + 1) % 3
+        }
 
-      // Move pipes
-      setPipes(prevPipes => prevPipes.map(pipe => ({ ...pipe, x: pipe.x - PIPE_SPEED })))
+        birdRef.current.y += birdRef.current.velocity
+        birdRef.current.velocity += GRAVITY
 
-      // Generate new pipes
-      if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 200) {
-        const topHeight = Math.random() * (canvas.height - PIPE_GAP - 100) + 50
-        setPipes(prevPipes => [...prevPipes, { x: canvas.width, topHeight }])
-      }
+        // Move pipes
+        pipesRef.current = pipesRef.current.map(pipe => ({ ...pipe, x: pipe.x - PIPE_SPEED }))
 
-      // Remove off-screen pipes
-      setPipes(prevPipes => prevPipes.filter(pipe => pipe.x + PIPE_WIDTH > 0))
+        // Generate new pipes
+        if (pipesRef.current.length === 0 || pipesRef.current[pipesRef.current.length - 1].x < canvas.width - 200) {
+          const topHeight = Math.random() * (canvas.height - PIPE_GAP - 100) + 50
+          pipesRef.current.push({ x: canvas.width, topHeight })
+        }
 
-      // Check collisions
-      const birdRect = { x: 50, y: bird.y, width: BIRD_WIDTH, height: BIRD_HEIGHT }
-      for (const pipe of pipes) {
-        const topPipeRect = { x: pipe.x, y: 0, width: PIPE_WIDTH, height: pipe.topHeight }
-        const bottomPipeRect = { x: pipe.x, y: pipe.topHeight + PIPE_GAP, width: PIPE_WIDTH, height: canvas.height - pipe.topHeight - PIPE_GAP }
-        
-        if (
-          birdRect.x < topPipeRect.x + topPipeRect.width &&
-          birdRect.x + birdRect.width > topPipeRect.x &&
-          birdRect.y < topPipeRect.y + topPipeRect.height &&
-          birdRect.y + birdRect.height > topPipeRect.y
-        ) {
+        // Remove off-screen pipes and check for score
+        pipesRef.current = pipesRef.current.filter(pipe => {
+          // Check if bird just passed this pipe
+          if (pipe.x + PIPE_WIDTH < 50 && pipe.x + PIPE_WIDTH > 50 - PIPE_SPEED) {
+            scoreRef.current++
+            setScore(scoreRef.current)
+            playSound(pointSound.current)
+          }
+          return pipe.x + PIPE_WIDTH > 0
+        })
+
+        // Check collisions
+        const birdRect = { x: 50, y: birdRef.current.y, width: BIRD_WIDTH, height: BIRD_HEIGHT }
+
+        // Check boundary collisions
+        if (birdRef.current.y > canvas.height - BIRD_HEIGHT || birdRef.current.y < 0) {
+          gameOverRef.current = true
           setGameOver(true)
           playSound(hitSound.current)
         }
 
-        if (
-          birdRect.x < bottomPipeRect.x + bottomPipeRect.width &&
-          birdRect.x + birdRect.width > bottomPipeRect.x &&
-          birdRect.y < bottomPipeRect.y + bottomPipeRect.height &&
-          birdRect.y + birdRect.height > bottomPipeRect.y
-        ) {
-          setGameOver(true)
-          playSound(hitSound.current)
-        }
-      }
+        // Check pipe collisions
+        for (const pipe of pipesRef.current) {
+          const topPipeRect = { x: pipe.x, y: 0, width: PIPE_WIDTH, height: pipe.topHeight }
+          const bottomPipeRect = { x: pipe.x, y: pipe.topHeight + PIPE_GAP, width: PIPE_WIDTH, height: canvas.height - pipe.topHeight - PIPE_GAP }
 
-      // Update score
-      if (!gameOver && pipes.some(pipe => pipe.x + PIPE_WIDTH < 50 && pipe.x + PIPE_WIDTH >= 48)) {
-        setScore(prevScore => prevScore + 1)
-        playSound(pointSound.current)
+          if (
+            birdRect.x < topPipeRect.x + topPipeRect.width &&
+            birdRect.x + birdRect.width > topPipeRect.x &&
+            birdRect.y < topPipeRect.y + topPipeRect.height &&
+            birdRect.y + birdRect.height > topPipeRect.y
+          ) {
+            gameOverRef.current = true
+            setGameOver(true)
+            playSound(hitSound.current)
+          }
+
+          if (
+            birdRect.x < bottomPipeRect.x + bottomPipeRect.width &&
+            birdRect.x + birdRect.width > bottomPipeRect.x &&
+            birdRect.y < bottomPipeRect.y + bottomPipeRect.height &&
+            birdRect.y + birdRect.height > bottomPipeRect.y
+          ) {
+            gameOverRef.current = true
+            setGameOver(true)
+            playSound(hitSound.current)
+          }
+        }
       }
 
       // Draw pipes
-      pipes.forEach(pipe => {
+      pipesRef.current.forEach(pipe => {
         if (pipeImage.current) {
           // Draw top pipe (flipped vertically)
           ctx.save()
@@ -237,10 +265,10 @@ export default function FlappyBird() {
 
       // Draw bird
       ctx.save()
-      ctx.translate(50 + BIRD_WIDTH / 2, bird.y + BIRD_HEIGHT / 2)
-      ctx.rotate(Math.min(Math.PI / 4, Math.max(-Math.PI / 4, bird.velocity * 0.1)))
+      ctx.translate(50 + BIRD_WIDTH / 2, birdRef.current.y + BIRD_HEIGHT / 2)
+      ctx.rotate(Math.min(Math.PI / 4, Math.max(-Math.PI / 4, birdRef.current.velocity * 0.1)))
       ctx.drawImage(
-        birdSprites.current[bird.frame],
+        birdSprites.current[birdRef.current.frame],
         -BIRD_WIDTH / 2,
         -BIRD_HEIGHT / 2,
         BIRD_WIDTH,
@@ -249,7 +277,7 @@ export default function FlappyBird() {
       ctx.restore()
 
       // Draw score
-      const scoreString = score.toString()
+      const scoreString = scoreRef.current.toString()
       const digitWidth = 24
       const totalWidth = scoreString.length * digitWidth
       const startX = (canvas.width - totalWidth) / 2
@@ -260,13 +288,7 @@ export default function FlappyBird() {
         }
       })
 
-      if (bird.y > canvas.height || bird.y < 0) {
-        setGameOver(true)
-        playSound(hitSound.current)
-      }
-
-      if (gameOver) {
-        clearInterval(gameLoop)
+      if (gameOverRef.current) {
         if (gameOverImage.current) {
           const gameOverWidth = 192
           const gameOverHeight = 42
@@ -282,10 +304,18 @@ export default function FlappyBird() {
           ctx.fillText('Restart', canvas.width / 2 - 30, canvas.height / 2 + 75)
         }
       }
-    }, 1000 / 60) // 60 FPS
 
-    return () => clearInterval(gameLoop)
-  }, [bird, pipes, gameOver, score, jump, gameStarted, assetsLoaded, restartGame, playSound])
+      animationFrameRef.current = requestAnimationFrame(gameLoop)
+    }
+
+    animationFrameRef.current = requestAnimationFrame(gameLoop)
+
+    return () => {
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current)
+      }
+    }
+  }, [assetsLoaded, playSound])
 
   const handleCanvasClick = useCallback((event: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current
@@ -295,7 +325,7 @@ export default function FlappyBird() {
     const x = event.clientX - rect.left
     const y = event.clientY - rect.top
 
-    if (gameOver) {
+    if (gameOverRef.current) {
       // Check if click is within Restart button area
       if (
         x >= canvas.width / 2 - 50 &&
@@ -308,7 +338,7 @@ export default function FlappyBird() {
     } else {
       jump()
     }
-  }, [gameOver, jump, restartGame])
+  }, [jump, restartGame])
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">

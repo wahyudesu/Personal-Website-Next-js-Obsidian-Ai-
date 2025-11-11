@@ -56,7 +56,7 @@ export default function Page() {
         <div className="gap-2">
           <DownloadButton
             label="Download CV"
-            url="/resume/CV_Wahyu Ikbal Maulana.pdf" // Assuming CV.pdf is stored in public/files directory
+            url="/resume/CV_Wahyu_Ikbal_Maulana.pdf" // Assuming CV.pdf is stored in public/files directory
           />
           <DownloadButton
             label="Download portofolio pdf"
