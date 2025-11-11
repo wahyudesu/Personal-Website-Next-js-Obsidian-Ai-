@@ -69,12 +69,12 @@ const Game2048 = () => {
   };
 
   const moveLeft = (board: Board): [Board, number] => {
-    let newBoard: Board = Array.from({ length: SIZE }, () => Array(SIZE).fill(null));
+    const newBoard: Board = Array.from({ length: SIZE }, () => Array(SIZE).fill(null));
     let scoreGained = 0;
 
     for (let r = 0; r < SIZE; r++) {
-      let tiles = board[r].filter(tile => tile !== null);
-      let merged: Tile[] = [];
+      const tiles = board[r].filter(tile => tile !== null);
+      const merged: Tile[] = [];
 
       for (let i = 0; i < tiles.length; i++) {
         if (i < tiles.length - 1 && tiles[i]!.value === tiles[i + 1]!.value) {
