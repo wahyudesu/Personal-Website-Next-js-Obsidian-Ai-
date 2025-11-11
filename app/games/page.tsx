@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import FlappyBird from './flappybird';
-// import Tetris from './tetris';
+import Tetris from './tetris';
+import Game2048 from './game2048';
 
 export default function GamesPage() {
     const [activeTab, setActiveTab] = useState('tab1');
@@ -78,7 +79,7 @@ export default function GamesPage() {
                     }`}
                 >
                     <h2 className="text-xl font-bold mb-2">2048</h2>
-                    <p>Ini konten untuk 2048.</p>
+                    <Game2048 />
                 </div>
 
                 <div
@@ -87,7 +88,7 @@ export default function GamesPage() {
                     }`}
                 >
                     <h2 className="text-xl font-bold mb-2">Tetris</h2>
-                    {/* <Tetris /> */}
+                    <Tetris />
                 </div>
             </div>
         </div>
