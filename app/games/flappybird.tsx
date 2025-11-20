@@ -2,11 +2,11 @@
 
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 
-const GRAVITY = 0.5
-const JUMP_STRENGTH = 10
+const GRAVITY = 0.3
+const JUMP_STRENGTH = 12
 const PIPE_WIDTH = 52
-const PIPE_GAP = 150
-const PIPE_SPEED = 2
+const PIPE_GAP = 200
+const PIPE_SPEED = 1.5
 const BIRD_WIDTH = 34
 const BIRD_HEIGHT = 24
 const CANVAS_WIDTH = 288

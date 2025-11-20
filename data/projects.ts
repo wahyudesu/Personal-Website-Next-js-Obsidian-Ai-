@@ -13,6 +13,58 @@ export interface Project {
 
 const projects: Project[] = [
   {
+    name: "RAG  Chatbot Aktuaria",
+    description: "Chatbot untuk menjawab pertanyaan seputar aktuaria sebagai assistant.",
+    role: "AI Engineer",
+    technologies: ["Langchain", "Langgraph", "Python", "Flask"],
+    tag: ["AI", "Chatbot"],
+    image: "/projects/jbcocoa.png",
+    content: `
+(latar belakang->apa yang sy lakukan->hasil)
+Apa yang aku lakukan
+memperbaiki akurasi 50 -> 80%
+
+Jadi projectnya tuh udah ada, tapi akurasinya masih rendah, jadi aku memperbaiki project tersebut
+
+tapi pd project tersebut itu dikerjakannya itu banyak vibe coding, dan setelah saya memahami setiap bagiannya saya akhirnya memutuskan untuk membuat dengan mengintegrasikannya ke sistem backend
+saya menggunakan langgraph sebagai workflow membuat custom rag worklfow dan meningkatkan akurasi hingga tinggi sekali
+
+setelah proses workflow rag selesai saya juga mengoptimasi sistem backendnya supaya berjalan lebih efektif
+
+    `
+  },
+  {
+    name: "AI Meme Generator",
+    description: "bikin ai agent untuk generate meme otomatits berdasarkan emosi dan konteks bahasa indonesia.",
+    role: "AI Engineer",
+    technologies: ["Mastra", "Typescript"],
+    tag: ["AI", "AI Agent"],
+    image: "/projects/jbcocoa.png",
+    content: `
+(motivasi ->penjelasan teknis-)
+## Apa yang aku lakukan
+
+saya membangun meme generator awalnya untuk sebagai demontrasis praktek menggunakan ai agent untuk membuat meme otomatis
+
+disi
+
+AI Agent Typescript ngambil dari API untuk
+
+    `
+  },
+  {
+    name: "Bisa website",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    role: "AI Engineer",
+    technologies: ["Next js", "AI SDK", "Typescript", "Clerk"],
+    tag: ["AI", "Website", "AI Agent"],
+    image: "/projects/jbcocoa.png",
+    content: `
+(yang udah ada-> reverse engineering->alur referensi yang lain)
+Website generate 
+    `
+  },
+  {
     name: "RAG Chatbot Multilingual",
     description: "Transforming global communication: a multilingual AI chatbot that breaks language barriers and delivers instant answers from any document.",
     role: "AI Engineer",
@@ -20,6 +72,7 @@ const projects: Project[] = [
     tag: ["AI", "Chatbot", "RAG"],
     image: "/projects/jbcocoa.png",
     content: `
+(client background->project overview->solution (->result)
 ## Client Background
 An international coffee export-import company with a diverse workforce and global clientele faced challenges in efficiently sharing internal knowledge and providing timely customer support across multiple languages. The company manages a large repository of documents and resources in various formats, making it difficult for employees and customers to quickly find relevant information. Their operations span several countries, requiring seamless communication and information retrieval in English, Indonesian, French, and Malay.
 
@@ -27,10 +80,12 @@ An international coffee export-import company with a diverse workforce and globa
 The project aimed to develop an intelligent chatbot capable of understanding and responding in multiple languages, while integrating with the company's existing document management system (OneDrive). The chatbot needed to support various file types for knowledge ingestion and provide accurate, context-aware answers to both employees and customers. The solution would streamline internal processes, enhance customer engagement, and ensure that information was accessible regardless of language barriers.
 
 ## Solution
+membangun website chatbot rag dengan fitur sebagai berikut
 - Built a multilingual RAG (Retrieval-Augmented Generation) chatbot using Streamlit and Llamaindex.
 - Supported multiple file types for knowledge ingestion.
 - Integrated with OneDrive for seamless document retrieval.
 - Focused on accurate language detection and context-aware responses.
+lalu saya sebagai user menerapkan 2 metodfe unutk mendeliver project kali ini, yang satu mendeploy di streamlit cloud, yang satunya via docker untuk dideploy di amazon
 
 ## Result
 The chatbot improved internal efficiency and customer engagement by providing instant, language-specific answers based on the company's knowledge base.
@@ -98,6 +153,9 @@ Enhanced user engagement and cultural awareness through an accessible, interacti
 A personal portfolio and blog site featuring an AI chatbot that answers questions based on my content.
 
 ## Feature
+- menggabungkan game dan musik
+- resources buat yang mau belajar
+- blog mdx buat jadiin blog
 
 ## Result
 Showcases my work and enables visitors to interactively explore my portfolio and blog.
@@ -114,16 +172,41 @@ Showcases my work and enables visitors to interactively explore my portfolio and
     code: "https://github.com/wahyudesu/db-report-automation",
     content: `
 ## Client objective
+pingin mengcut budget dengan mengautomasi report database
 
 ## Solution
-- Built with Streamlit for a user-friendly interface.
-- Automated SQL query execution and report formatting.
-- Integrated with Neon Tech for scalable cloud database access.
+- bangun deno javascript automation untuk mysql  
+- generate chart
+- membaguskan report
 
 ## How it works
 
 ## Result
 Significantly reduced report preparation time and improved data accuracy for business users.
+    `
+  },
+  {
+    name: "Coral Reef Health Detection Using Vision Transformer (ViT)",
+    description: "Mendeteksi keadaan terumbu karag (healthy vs Bleached) dari dataset Kaggle dengan menggunakan Model Vision.",
+    role: "Website Development",
+    technologies: ["Next js", "Generative AI", "Neon tech"],
+    tag: ["Generative AI App"],
+    image: "/projects/stuntron.png",
+    url: "https://fe-neuro-project.vercel.app/",
+    code: "https://github.com/wahyudesu/fe-neuro-project",
+    content: `
+## Client Background
+Health professionals and parents needed a tool to monitor and prevent stunting in infants.
+
+## Project Overview
+Developed a web application using generative AI to provide guidance and monitoring for stunting prevention.
+
+## Solution
+- Built with Streamlit and Neon tech.
+- Used generative AI for personalized recommendations.
+
+## Result
+Improved awareness and prevention strategies for stunting, supporting better child health outcomes.
     `
   },
   {
@@ -307,128 +390,128 @@ Provide an official digital platform for HIMIT PENS to facilitate information di
 The new HIMIT PENS website is now more informative, accessible, and enhances engagement for both members and the public.
     `
   },
-//     {
-//     name: "Malware Prediction Project",
-//     description: "Stay ahead of cyber threats: machine learning models that predict and classify malware with cutting-edge ensemble techniques.",
-//     role: "ML Engineer",
-//     technologies: ["Machine learning", "Ensemble", "Python"],
-//     tag: [],
-//     image: "",
-//     code: "https://github.com/wahyudesu/malware-detection",
-//     content: `
-// ## Project Overview
-// A machine learning project to classify malware and predict potential threats.
+    {
+    name: "Malware Prediction Project",
+    description: "Stay ahead of cyber threats: machine learning models that predict and classify malware with cutting-edge ensemble techniques.",
+    role: "ML Engineer",
+    technologies: ["Machine learning", "Ensemble", "Python"],
+    tag: [],
+    image: "",
+    code: "https://github.com/wahyudesu/malware-detection",
+    content: `
+## Project Overview
+A machine learning project to classify malware and predict potential threats.
 
-// ## Solution
-// - Applied ensemble learning models to malware datasets.
-// - Evaluated model performance for threat detection.
+## Solution
+- Applied ensemble learning models to malware datasets.
+- Evaluated model performance for threat detection.
 
-// ## Result
-// Enhanced malware detection accuracy, contributing to improved cybersecurity.
-//     `
-//   },
-//   {
-//     name: "Guess The Word Game",
-//     description: "Challenge your mind: an AI-powered word guessing game that makes learning language fun and interactive.",
-//     role: "NLP Engineer",
-//     technologies: ["Streamlit", "Vector Embeddings", "Text Similarity", "Python", "Glove ID"],
-//     tag: ["Game", "Quiz"],
-//     image: "",
-//     code: "https://github.com/Community-of-Playground/Gemastik-Pengembangan-Aplikasi-Permainan",
-//     content: `
-// ## Project Overview
-// A fun word guessing game powered by NLP and Indonesian GloVe vectors.
+## Result
+Enhanced malware detection accuracy, contributing to improved cybersecurity.
+    `
+  },
+  {
+    name: "Guess The Word Game",
+    description: "Challenge your mind: an AI-powered word guessing game that makes learning language fun and interactive.",
+    role: "NLP Engineer",
+    technologies: ["Streamlit", "Vector Embeddings", "Text Similarity", "Python", "Glove ID"],
+    tag: ["Game", "Quiz"],
+    image: "",
+    code: "https://github.com/Community-of-Playground/Gemastik-Pengembangan-Aplikasi-Permainan",
+    content: `
+## Project Overview
+A fun word guessing game powered by NLP and Indonesian GloVe vectors.
 
-// ## Solution
-// - Used vector embeddings and cosine similarity for word matching.
-// - Built with Streamlit for interactive gameplay.
+## Solution
+- Used vector embeddings and cosine similarity for word matching.
+- Built with Streamlit for interactive gameplay.
 
-// ## Result
-// Engaged users in learning and playing with language using AI techniques.
-//     `
-//   },
-//     {
-//     name: "Data Engineering Dashboard System",
-//     description: "Visualize, manage, and optimize your data pipelines with a dashboard that brings ETL workflows to life.",
-//     role: "Data Engineer",
-//     technologies: ["Flask", "Airflow", "Docker"],
-//     tag: ["dashboard", "data system"],
-//     image: "",
-//     code: "https://github.com/AfifH07/LastProjectProgramming",
-//     content: `
-// ## Project Overview
-// Integrated data pipelines and monitoring system for ETL workflows.
+## Result
+Engaged users in learning and playing with language using AI techniques.
+    `
+  },
+    {
+    name: "Data Engineering Dashboard System",
+    description: "Visualize, manage, and optimize your data pipelines with a dashboard that brings ETL workflows to life.",
+    role: "Data Engineer",
+    technologies: ["Flask", "Airflow", "Docker"],
+    tag: ["dashboard", "data system"],
+    image: "",
+    code: "https://github.com/AfifH07/LastProjectProgramming",
+    content: `
+## Project Overview
+Integrated data pipelines and monitoring system for ETL workflows.
 
-// ## Solution
-// - Developed dashboard with Flask.
-// - Managed and visualized ETL jobs using Airflow and Docker.
+## Solution
+- Developed dashboard with Flask.
+- Managed and visualized ETL jobs using Airflow and Docker.
 
-// ## Result
-// Streamlined data engineering processes and improved workflow transparency.
-//     `
-//   },
-//   {
-//     name: "Dashboard d3js",
-//     description: "See your business at a glance: interactive dashboards with stunning charts and real-time insights.",
-//     role: "Frontend Developer",
-//     technologies: ["Vite", "React", "d3js", "Magic UI", "shdcn ui"],
-//     tag: ["Chart Dashboard"],
-//     image: "",
-//     code: "https://3323600056-wahyuikbalmaulana-dashboard-d3js.vercel.app",
-//     content: `
-// ## Problem
-// Dari data yang diberikan, kita disuruh bikin dashboard untuk menampilkan metric metric yang diperlukan
+## Result
+Streamlined data engineering processes and improved workflow transparency.
+    `
+  },
+  {
+    name: "Dashboard d3js",
+    description: "See your business at a glance: interactive dashboards with stunning charts and real-time insights.",
+    role: "Frontend Developer",
+    technologies: ["Vite", "React", "d3js", "Magic UI", "shdcn ui"],
+    tag: ["Chart Dashboard"],
+    image: "",
+    code: "https://3323600056-wahyuikbalmaulana-dashboard-d3js.vercel.app",
+    content: `
+## Problem
+Dari data yang diberikan, kita disuruh bikin dashboard untuk menampilkan metric metric yang diperlukan
 
-// ## Solution
-// - Built with React, d3.js, and modern UI libraries.
-// - Implemented multiple chart types for comprehensive insights.
+## Solution
+- Built with React, d3.js, and modern UI libraries.
+- Implemented multiple chart types for comprehensive insights.
 
-// ## Result
-// Enabled data-driven decision making through clear and interactive visualizations.
-//     `
-//   },
-//   {
-//     name: "Talenalink AI Recruitment",
-//     description: "Revolutionize hiring: an AI-powered recruitment platform that finds the perfect match between talent and opportunity.",
-//     role: "Frontend Developer",
-//     technologies: ["Next js", "Tailwind", "Postgresql", "Magic UI", "shdcn ui"],
-//     tag: ["Recruitment", "AI"],
-//     image: "",
-//     code: "https://github.com/talenaink/ai-recruitment",
-//     content: `
-// ## Fitur yang diperlukan
-// list list fitur apa aja yang butuh
+## Result
+Enabled data-driven decision making through clear and interactive visualizations.
+    `
+  },
+  {
+    name: "Talenalink AI Recruitment",
+    description: "Revolutionize hiring: an AI-powered recruitment platform that finds the perfect match between talent and opportunity.",
+    role: "Frontend Developer",
+    technologies: ["Next js", "Tailwind", "Postgresql", "Magic UI", "shdcn ui"],
+    tag: ["Recruitment", "AI"],
+    image: "",
+    code: "https://github.com/talenaink/ai-recruitment",
+    content: `
+## Fitur yang diperlukan
+list list fitur apa aja yang butuh
 
-// ## Solution
-// - Built with Next.js and Tailwind CSS for modern UI.
-// - Integrated AI modules for resume parsing and candidate-job fit scoring.
-// - Used PostgreSQL for scalable data storage.
+## Solution
+- Built with Next.js and Tailwind CSS for modern UI.
+- Integrated AI modules for resume parsing and candidate-job fit scoring.
+- Used PostgreSQL for scalable data storage.
 
-// ## Result
-// Streamlined recruitment process and improved candidate-job matching accuracy.
-//     `
-//   },
-//     {
-//     name: "Life Expectancy Analysis",
-//     description: "Unlocking the secrets of longevity: data-driven insights into life expectancy trends across the globe.",
-//     role: "Data Analyst",
-//     technologies: ["Python", "streamlit"],
-//     tag: ["SDGs", "Forecasting"],
-//     image: "",
-//     code: "https://github.com/wahyudesu/Life-expectancy-analysis",
-//     paper: "https://github.com/wahyudesu/Life-expectancy-analysis/blob/main/Document/3323600056_Wahyu%20Ikbal%20Maulana_Regresi%20Linier%20Berganda.pdf",
-//     content: `
-// ## Project Overview
-// Analyzed life expectancy trends across countries using linear regression.
+## Result
+Streamlined recruitment process and improved candidate-job matching accuracy.
+    `
+  },
+    {
+    name: "Life Expectancy Analysis",
+    description: "Unlocking the secrets of longevity: data-driven insights into life expectancy trends across the globe.",
+    role: "Data Analyst",
+    technologies: ["Python", "streamlit"],
+    tag: ["SDGs", "Forecasting"],
+    image: "",
+    code: "https://github.com/wahyudesu/Life-expectancy-analysis",
+    paper: "https://github.com/wahyudesu/Life-expectancy-analysis/blob/main/Document/3323600056_Wahyu%20Ikbal%20Maulana_Regresi%20Linier%20Berganda.pdf",
+    content: `
+## Project Overview
+Analyzed life expectancy trends across countries using linear regression.
 
-// ## Solution
-// - Collected and cleaned global life expectancy data.
-// - Built regression models to identify key factors.
+## Solution
+- Collected and cleaned global life expectancy data.
+- Built regression models to identify key factors.
 
-// ## Result
-// Provided actionable insights for health policy and research.
-//     `
-//   }
+## Result
+Provided actionable insights for health policy and research.
+    `
+  }
 ]
 
 export default projects
