@@ -16,7 +16,6 @@ type WithAsChild<Base extends object> =
   | (Base & { asChild?: false | undefined });
 
 type SlotProps<T extends HTMLElement = HTMLElement> = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   children?: any;
 } & DOMMotionProps<T>;
 
@@ -63,22 +62,44 @@ function Slot<T extends HTMLElement = HTMLElement>({
   ref,
   ...props
 }: SlotProps<T>) {
+  // Normalize children: React.Children.only will throw during SSR if multiple
+  // children are passed. Accept arrays by picking the first element and warn
+  // to avoid build-time prerender errors while keeping behavior predictable.
+  const childArray = React.Children.toArray(children) as React.ReactNode[];
+  let normalizedChild: React.ReactElement | null = null;
+
+  if (childArray.length > 1) {
+    console.warn(
+      'Slot expected a single React element child but received multiple. Using the first child.'
+    );
+    const first = childArray[0];
+    normalizedChild = React.isValidElement(first) ? (first as React.ReactElement) : null;
+  } else if (childArray.length === 1) {
+    const first = childArray[0];
+    normalizedChild = React.isValidElement(first) ? (first as React.ReactElement) : null;
+  }
+
+  // If children is already a single valid element, use it directly
+  if (!normalizedChild && React.isValidElement(children)) {
+    normalizedChild = children as React.ReactElement;
+  }
+
+  const childType = (normalizedChild as any)?.type;
+
   const isAlreadyMotion =
-    typeof children.type === 'object' &&
-    children.type !== null &&
-    isMotionComponent(children.type);
+    typeof childType === 'object' && childType !== null && isMotionComponent(childType);
 
-  const Base = React.useMemo(
-    () =>
-      isAlreadyMotion
-        ? (children.type as React.ElementType)
-        : motion.create(children.type as React.ElementType),
-    [isAlreadyMotion, children.type],
-  );
+  // Call hooks unconditionally to satisfy the rules of hooks. If there's no
+  // childType we'll still create a default motion.div as Base (it's never
+  // rendered because we return early below), but this keeps hook order stable.
+  const Base = React.useMemo(() => {
+    if (!childType) return motion.div as React.ElementType;
+    return isAlreadyMotion ? (childType as React.ElementType) : motion.create(childType as React.ElementType);
+  }, [isAlreadyMotion, childType]);
 
-  if (!React.isValidElement(children)) return null;
+  if (!normalizedChild) return null;
 
-  const { ref: childRef, ...childProps } = children.props as AnyProps;
+  const { ref: childRef, ...childProps } = normalizedChild.props as AnyProps;
 
   const mergedProps = mergeProps(childProps, props);
 
