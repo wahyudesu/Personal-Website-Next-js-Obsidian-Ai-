@@ -36,7 +36,7 @@ export default function Page() {
       {/* Bagian Hero */}
       <div className="h-[calc(100vh-14rem)] flex flex-col justify-center items-center">
         <Effect zoom fade delay={1000}>
-          <Button variant="outline" className="rounded-full mb-6 ">
+          <Button asChild variant="outline" className="rounded-full mb-6 ">
             <Link href="/chat-me">
               Chat with My AI Assistant
             </Link>
@@ -87,12 +87,12 @@ export default function Page() {
         )}
         <div className="flex flex-col sm:flex-row gap-4 pt-4 lg:gap-6 justify-center">
           <Effect fade slide delay={2000}>
-            <PulsatingButton>
+            <PulsatingButton asChild>
               <Link href="https://cal.com/wahyuikbal_m">Book free consultation</Link>
             </PulsatingButton>
           </Effect>
           <Effect fade slide delay={2400}>
-            <Button variant="outline">
+            <Button asChild variant="outline">
               <Link href="https://contra.com/wahyuikbal_m">See my work</Link>
             </Button>
           </Effect>
@@ -101,9 +101,13 @@ export default function Page() {
 
       {/* Bagian Tech Stack dan Blog */}
       <div className="mt-6 lg:mt-19">
-        <h2 className="text-2xl lg:text-3xl font-semibold tracking-tighter text-center sm:text-left">
+        <TextAnimate
+          as="h2"
+          by="word"
+          className="text-2xl lg:text-3xl font-semibold tracking-tighter text-center sm:text-left"
+        >
           Tech Stack
-        </h2>
+        </TextAnimate>
         <TechStack />
         <h2 className="text-2xl lg:text-3xl font-semibold tracking-tighter text-center sm:text-left mt-8">
           Latest Blog Posts

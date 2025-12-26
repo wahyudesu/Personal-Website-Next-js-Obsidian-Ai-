@@ -33,9 +33,9 @@ const Header = () => {
     <header className={headerClass.trim()}>
       <Link href="/" aria-label={siteMetadata.headerTitle}>
         <div className="flex items-center space-x-3">
-          <TextAnimate by="word" className='text-2xl font-semibold h-6'>
+          <TextAnimate as="span" by="word" className='text-2xl font-semibold h-6'>
             Why
-          </TextAnimate>  
+          </TextAnimate>
         </div>
       </Link>
       <div className="flex items-center space-x-3 sm:space-x-6">
@@ -52,6 +52,7 @@ const Header = () => {
                   } hover:underline decoration-2 underline-offset-4`}
               >
                 <TextAnimate
+                  as="span"
                   by="word"
                   className="font-semibold"
                   delay={(index + 1) * 0.1}
