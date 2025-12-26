@@ -10,6 +10,8 @@ import { PulsatingButton } from "@/components/ui/pulsating-button";
 import Typewriter from "typewriter-effect";
 import { Button } from "@/components/ui/button";
 import CommunityCTA from "@/components/CTACommunity";
+import { Effect } from "@/components/animate-ui/primitives/effects/effect";
+import { TextAnimate } from "@/components/ui/text-animate";
 
 const MAX_POSTS = 3; // Batasi jumlah postingan yang ditampilkan
 
@@ -17,8 +19,12 @@ export default function Page() {
   const [startAnimation, setStartAnimation] = useState(false);
 
   useEffect(() => {
-    // Mulai animasi segera setelah komponen dimuat
-    setStartAnimation(true);
+    // Mulai animasi setelah jeda singkat
+    const timer = setTimeout(() => {
+      setStartAnimation(true);
+    }, 1200);
+
+    return () => clearTimeout(timer);
   }, []);
 
   // Ambil dan urutkan postingan
@@ -29,21 +35,38 @@ export default function Page() {
     <div>
       {/* Bagian Hero */}
       <div className="h-[calc(100vh-14rem)] flex flex-col justify-center items-center">
-        <Button variant="outline" className="rounded-full mb-6">
-          <Link href="/chat-me">
-          Chat with My AI Assistant
-          </Link>
-        </Button>
+        <Effect zoom fade delay={1000}>
+          <Button variant="outline" className="rounded-full mb-6 ">
+            <Link href="/chat-me">
+              Chat with My AI Assistant
+            </Link>
+          </Button>
+        </Effect>
         <h1 className="cursor-default mb-2 text-5xl md:text-5xl lg:text-6xl font-semibold tracking-tighter text-center">
-          I help growing{' '}
+          <TextAnimate as="span" animation="blurInUp" by="word" delay={1}>
+            I help growing
+          </TextAnimate>{" "}
           <span className="relative underline decoration-blue-500 decoration-6 underline-offset-4 hover:text-blue-500 transition-colors duration-300">
-            companies
+            <TextAnimate as="span" animation="blurInUp" by="word" delay={1}>
+              companies
+            </TextAnimate>
           </span>
           <br />
-          implement <span className="text-blue-500 font-black">AI/ML</span> so they can
+          <TextAnimate as="span" animation="blurInUp" by="word" delay={1}>
+            implement
+          </TextAnimate>{" "}
+          <span className="text-blue-500 font-black">
+            <TextAnimate as="span" animation="blurInUp" by="word" delay={1}>
+              AI/ML
+            </TextAnimate>
+          </span>{" "}
+          <TextAnimate as="span" animation="blurInUp" by="word" delay={1}>
+            so they can
+          </TextAnimate>
         </h1>
         {startAnimation && (
           <div className="text-center py-4 mb-4">
+            {/* <Typewriter onInit={} */}
             <Typewriter
               options={{
                 strings: [
@@ -63,12 +86,16 @@ export default function Page() {
           </div>
         )}
         <div className="flex flex-col sm:flex-row gap-4 pt-4 lg:gap-6 justify-center">
-          <PulsatingButton>
-            <Link href="https://cal.com/wahyuikbal_m">Book free consultation</Link>
-          </PulsatingButton>
-          <Button variant="outline">
-            <Link href="https://contra.com/wahyuikbal_m">See my work</Link>
-          </Button>
+          <Effect fade slide delay={2000}>
+            <PulsatingButton>
+              <Link href="https://cal.com/wahyuikbal_m">Book free consultation</Link>
+            </PulsatingButton>
+          </Effect>
+          <Effect fade slide delay={2400}>
+            <Button variant="outline">
+              <Link href="https://contra.com/wahyuikbal_m">See my work</Link>
+            </Button>
+          </Effect>
         </div>
       </div>
 
@@ -83,7 +110,7 @@ export default function Page() {
         </h2>
         <ListLayoutSimple posts={displayedPosts} title="" />
       </div>
-      <div><CommunityCTA/></div>
+      <div><CommunityCTA /></div>
     </div>
   );
 }
