@@ -47,7 +47,7 @@
     "image-size": "1.0.0",
     "lucide-react": "^0.471.1",
     "motion": "^11.18.2",
-    "next": "15.1.4",
+    "next": "15.1.11",
     "next-contentlayer2": "0.5.3",
     "next-themes": "^0.3.0",
     "pliny": "0.4.0",
