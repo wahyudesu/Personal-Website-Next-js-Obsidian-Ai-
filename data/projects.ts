@@ -224,6 +224,7 @@ Improved awareness and prevention strategies for stunting, supporting better chi
     image: "/projects/stuntron.png",
     url: "https://stuntron.streamlit.app",
     code: "https://github.com/wahyudesu/healthkathon-ai",
+    // latar belakang: tema dan ketentuan lomba -> objective dan fitur -> hasil akhir
     content: `
 ## Client Background
 Health professionals and parents needed a tool to monitor and prevent stunting in infants.
@@ -276,6 +277,7 @@ Improved awareness and prevention strategies for stunting, supporting better chi
     tag: ["Computer Vision"],
     image: "/projects/cnn.png",
     code: "https://github.com/wahyudesu/Dicoding-rock-scissor-paper",
+    // hook project apa ini -> deskripsi singkat 
     content: `
 ## Project Overview
 Developed an image-based Rock-Scissor-Paper prediction system using CNN.
@@ -295,6 +297,7 @@ Achieved accurate predictions, demonstrating computer vision capabilities.
     role: "AI Engineer",
     technologies: ["Python", "LLM", "Telegram", "Langchain"],
     image: "/projects/bambubot.png",
+    // 
     content: `
 ## Client Background
 Keputih urban village needed a solution to streamline document management and community communication.
@@ -317,8 +320,9 @@ Improved efficiency and accessibility for community services.
     technologies: ["Figma", "Laravel"],
     tag: [],
     image: "/projects/one-gate.png",
-    code: "https://github.com/wahyudesu/Life-expectancy-analysis",
-    paper: "https://github.com/wahyudesu/Life-expectancy-analysis/blob/main/Document/3323600056_Wahyu%20Ikbal%20Maulana_Regresi%20Linier%20Berganda.pdf",
+    code: "",
+    paper: "",
+    // penambahan data
     content: `
 jadi ada penambahan fitur terkait project himit champion, ada 
     `
@@ -331,6 +335,7 @@ jadi ada penambahan fitur terkait project himit champion, ada
     tag: ["Recommendation system", "Machine learning"],
     image: "",
     code: "https://github.com/mozaldy/wamonime",
+    // motivasi awal -> develop fitur
     content: `
 aku bersama temanku tuh, aku tuh machine learning dan dia tuh bagian web, aku ngimplementasiin
     `
@@ -342,7 +347,8 @@ aku bersama temanku tuh, aku tuh machine learning dan dia tuh bagian web, aku ng
     technologies: ["Next js", "Machine learning"],
     tag: [],
     image: "",
-    code: "https://github.com/mozaldy/wamonime",
+    code: "",
+    //
     content: `
 aku bersama temanku tuh, aku tuh machine learning dan dia tuh bagian web, aku ngimplementasiin model machine learning 
     `
@@ -356,6 +362,7 @@ aku bersama temanku tuh, aku tuh machine learning dan dia tuh bagian web, aku ng
     image: "/projects/forecasting.png",
     code: "https://github.com/wahyudesu/ARIMA-Analysis-in-Energy-SDGs-7-Indonesia",
     paper: "https://github.com/wahyudesu/ARIMA-Analysis-in-Energy-SDGs-7-Indonesia/blob/main/Makalah%20Journal%20ARIMA%20Forecasting.docx",
+    // 
     content: `
 ## Project Overview
 Forecasted renewable energy growth in Indonesia as part of SDGs research.
@@ -377,6 +384,7 @@ Supported policy and investment decisions in renewable energy.
     tag: ["Organization Website"],
     image: "/projects/himit.png",
     code: "https://github.com/himitpens/website",
+    // 
     content: `
 ## Objective
 Provide an official digital platform for HIMIT PENS to facilitate information dissemination, organization management, and increase engagement among members and the public.
@@ -444,6 +452,7 @@ Engaged users in learning and playing with language using AI techniques.
     tag: ["dashboard", "data system"],
     image: "",
     code: "https://github.com/AfifH07/LastProjectProgramming",
+    // tugas kuliah 
     content: `
 ## Project Overview
 Integrated data pipelines and monitoring system for ETL workflows.
@@ -464,6 +473,7 @@ Streamlined data engineering processes and improved workflow transparency.
     tag: ["Chart Dashboard"],
     image: "",
     code: "https://3323600056-wahyuikbalmaulana-dashboard-d3js.vercel.app",
+    // tugas kuliah membuat dashboard sederhana dari javascript 
     content: `
 ## Problem
 Dari data yang diberikan, kita disuruh bikin dashboard untuk menampilkan metric metric yang diperlukan
@@ -484,6 +494,7 @@ Enabled data-driven decision making through clear and interactive visualizations
     tag: ["Recruitment", "AI"],
     image: "",
     code: "https://github.com/talenaink/ai-recruitment",
+
     content: `
 ## Why
 list list fitur apa aja yang butuh
