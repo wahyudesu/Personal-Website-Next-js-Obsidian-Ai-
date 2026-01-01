@@ -24,10 +24,10 @@ const resources: Resource[] = [
   },
   {
     name: 'Multiple ways to build AI agents using Typescript and Python',
-    description: 'A production-ready motion library for React.',
+    description: 'This repository contains the complete source code that accompanies my Medium article',
     image: '',
     type: 'Template',
-    url: 'https://www.framer.com/motion/',
+    url: 'https://github.com/wahyudesu/multiple-ways-to-build-ai-agents',
   }
 ]
 

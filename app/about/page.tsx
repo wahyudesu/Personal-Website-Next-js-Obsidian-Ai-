@@ -58,10 +58,10 @@ export default function Page() {
             label="Download CV"
             url="/resume/CV_Wahyu_Ikbal_Maulana.pdf" // Assuming CV.pdf is stored in public/files directory
           />
-          <DownloadButton
+          {/* <DownloadButton
             label="Download portofolio pdf"
             url="/resume/portfolio.pdf" // Assuming Resume_AI_Engineer.pdf is stored in public/files directory
-          />
+          /> */}
         </div>
       </AuthorLayout>
     </>

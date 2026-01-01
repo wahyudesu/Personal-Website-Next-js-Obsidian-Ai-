@@ -19,8 +19,8 @@ const projects: Project[] = [
     technologies: ["Langchain", "Langgraph", "Python", "Flask"],
     tag: ["AI", "Chatbot"],
     image: "/projects/jbcocoa.png",
+    // (latar belakang->apa yang sy lakukan->hasil)
     content: `
-(latar belakang->apa yang sy lakukan->hasil)
 Apa yang aku lakukan
 memperbaiki akurasi 50 -> 80%
 
@@ -40,8 +40,10 @@ setelah proses workflow rag selesai saya juga mengoptimasi sistem backendnya sup
     technologies: ["Mastra", "Typescript"],
     tag: ["AI", "AI Agent"],
     image: "/projects/jbcocoa.png",
+    // (yang udah ada-> reverse engineering->alur referensi yang lain)
     content: `
-(motivasi ->penjelasan teknis-)
+    
+(motivasi ->penjelasan teknis)
 ## Apa yang aku lakukan
 
 saya membangun meme generator awalnya untuk sebagai demontrasis praktek menggunakan ai agent untuk membuat meme otomatis
@@ -59,8 +61,8 @@ AI Agent Typescript ngambil dari API untuk
     technologies: ["Next js", "AI SDK", "Typescript", "Clerk"],
     tag: ["AI", "Website", "AI Agent"],
     image: "/projects/jbcocoa.png",
+    //(yang udah ada-> reverse engineering->alur referensi yang lain)
     content: `
-(yang udah ada-> reverse engineering->alur referensi yang lain)
 Website generate 
     `
   },
@@ -71,8 +73,8 @@ Website generate
     technologies: ["Streamlit", "Llamaindex", "Python"],
     tag: ["AI", "Chatbot", "RAG"],
     image: "/projects/jbcocoa.png",
+    // (client background->project overview->solution (->result)
     content: `
-(client background->project overview->solution (->result)
 ## Client Background
 An international coffee export-import company with a diverse workforce and global clientele faced challenges in efficiently sharing internal knowledge and providing timely customer support across multiple languages. The company manages a large repository of documents and resources in various formats, making it difficult for employees and customers to quickly find relevant information. Their operations span several countries, requiring seamless communication and information retrieval in English, Indonesian, French, and Malay.
 
@@ -91,13 +93,14 @@ lalu saya sebagai user menerapkan 2 metodfe unutk mendeliver project kali ini, y
 The chatbot improved internal efficiency and customer engagement by providing instant, language-specific answers based on the company's knowledge base.
     `
   },
-  { // pakai template penelitian yang bagian ini 
+  { 
     name: "Dashboard Monitoring Agriculture Indonesia",
     description: "Empowering Indonesia’s agriculture: an AI-powered dashboard that predicts crop yields and turns raw data into actionable insights.",
     role: "Data Management",
     technologies: ["Tableau", "Deep Learning", "Python"],
     tag: ["Forecasting", "Data Mining"],
     image: "/projects/dasbor-analitik.png",
+    // project 
     content: `
 ## Client Background
 Agricultural stakeholders in Indonesia, including government agencies, farmers, and agribusinesses, often struggle with fragmented data sources and limited access to real-time insights. The country's vast and diverse agricultural landscape makes it challenging to monitor crop conditions, predict yields, and respond proactively to emerging trends. Stakeholders needed a centralized platform to aggregate, analyze, and visualize agricultural data, enabling them to make data-driven decisions for improving productivity and sustainability.
@@ -122,6 +125,7 @@ Enabled stakeholders to make informed decisions, improving productivity and reso
     tag: ["Culinary", "Culture", "AI Chatbot"],
     url: "",
     image: "/projects/lombokeats.png",
+    // latar belakang -> tujuan -> solusi 
     content: `
 ## Client Background
 A cultural initiative aimed to promote and explore gastronomic diversity through technology.
@@ -148,6 +152,7 @@ Enhanced user engagement and cultural awareness through an accessible, interacti
     image: "/projects/personal-website.png",
     url: "https://www.wahyuikbal.web.id",
     code: "https://github.com/wahyudesu/Personal-Website-Next-js-Obsidian-Ai-",
+    // fitur project sederhana -> fitur
     content: `
 ## Project Overview
 A personal portfolio and blog site featuring an AI chatbot that answers questions based on my content.
@@ -170,6 +175,7 @@ Showcases my work and enables visitors to interactively explore my portfolio and
     image: "/projects/db-automation.png",
     url: "https://db-report-automation.streamlit.app",
     code: "https://github.com/wahyudesu/db-report-automation",
+    // client objective -> solution -> how it works -> result
     content: `
 ## Client objective
 pingin mengcut budget dengan mengautomasi report database
@@ -479,7 +485,7 @@ Enabled data-driven decision making through clear and interactive visualizations
     image: "",
     code: "https://github.com/talenaink/ai-recruitment",
     content: `
-## Fitur yang diperlukan
+## Why
 list list fitur apa aja yang butuh
 
 ## Solution
