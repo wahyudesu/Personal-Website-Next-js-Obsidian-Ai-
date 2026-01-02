@@ -14,13 +14,18 @@ export interface Project {
 const projects: Project[] = [
   {
     name: "RAG  Chatbot Aktuaria",
-    description: "Chatbot untuk menjawab pertanyaan seputar aktuaria sebagai assistant.",
+    description: "An Agentic Retrieval-Augmented Generation (RAG) chatbot designed to assist actuarial companies in efficiently accessing and understanding information from various documents with high accuracy",
     role: "AI Engineer",
     technologies: ["Langchain", "Langgraph", "Python", "Flask"],
-    tag: ["AI", "Chatbot"],
-    image: "/projects/jbcocoa.png",
-    // (latar belakang->apa yang sy lakukan->hasil)
+    tag: ["AI", "Chatbot", "RAG"],
+    image: "",
     content: `
+## Background
+
+An actuarial company faced challenges in efficiently accessing and integrating information from multiple internal documents. The proposed solution was to develop a **RAG Chatbot** capable of quickly and accurately answering actuarial-related questions. However, the existing RAG system had an **accuracy of only 50%**, requiring improvements to enhance performance and reliability
+
+Kendalanya adalah project RAG chatbot yang sudah ada akurasinya masih rendah, yaitu 50%. Jadi aku diminta untuk memperbaiki akurasi tersebut hingga lebih tinggi.
+
 Apa yang aku lakukan
 memperbaiki akurasi 50 -> 80%
 
